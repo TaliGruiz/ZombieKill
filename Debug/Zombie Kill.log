@@ -1,12 +1,12 @@
 ﻿  juego.cpp
-C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,65): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
-C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,65): warning C4244:         with
-C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,65): warning C4244:         [
-C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,65): warning C4244:             T=float
-C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,65): warning C4244:         ]
-C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,51): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
-C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,51): warning C4244:         with
-C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,51): warning C4244:         [
-C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,51): warning C4244:             T=float
-C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,51): warning C4244:         ]
-  Zombie Kill.vcxproj -> C:\Users\gonza\Desktop\Zombie Kill\Debug\Zombie Kill.exe
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(13,65): warning C4244:  'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(13,65): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(13,65): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(13,65): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(13,65): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(13,51): warning C4244:  'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(13,51): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(13,51): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(13,51): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(13,51): warning C4244:         ]
+  Zombie Kill.vcxproj -> C:\Users\kryat\Desktop\proyecto juego\ZombieKill\Debug\Zombie Kill.exe

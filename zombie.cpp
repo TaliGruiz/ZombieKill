@@ -3,6 +3,8 @@ using namespace std;
 
 zombie::zombie()
 {
-	int num;
-
+	int life;
+	float xspeed,yspeed;
+	float ypos, xpos;
+	
 }

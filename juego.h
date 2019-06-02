@@ -1,5 +1,8 @@
 #pragma once
+#include "math.h"
 #include "SFML\Graphics.hpp"
+#include "SFML\Audio.hpp"
+#include "SFML\System.hpp"
 
 using namespace sf;
 

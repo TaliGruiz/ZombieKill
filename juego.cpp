@@ -80,27 +80,42 @@ void juego::procesar_eventos()
 			if (Keyboard::isKeyPressed(Keyboard::A)) { cout << "A" << endl; }
 			if (!Keyboard::isKeyPressed(Keyboard::A)) {  }
 			//
-			break;
+		break;
 
 		case Event::MouseButtonPressed:
-			if (Mouse::isButtonPressed(Mouse::Left)) {
-				cout << "Mouse Boton Izquierdo" << endl;
+			switch (mousemueve->key.code)
+			{
+				case Mouse::Left:
+					cout << "APRETASTE EL IZQUIERDO" << endl;
+					spr_surviror.setColor(Color(255, 255, 255, 0));
+					spr_survirordisp.setColor(Color(255, 255, 255, 255));
 
-				//spr_surviror.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
-				ventana1->draw(spr_survirordisp);
-				spr_survirordisp.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
-				
+				break;
+
+				case Mouse::Right:
+					cout << "APRETASTE EL DERECHO" << endl;
+				break;
 			}
-			break;
+		break;
 
 		case Event::MouseButtonReleased:
-			if (Mouse::Button::Left) {
-				//spr_survirordisp.setColor(Color::Transparent);
-				
-				spr_surviror.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
-			}
+			switch (mousemueve->key.code) 
+			{
+				case Mouse::Left:
+					cout << "SOLTASTE EL IZQUIERDO" << endl;
+
+					spr_surviror.setColor(Color(255, 255, 255, 255));
+					spr_survirordisp.setColor(Color(255, 255, 255, 0));
 				break;
+
+				case Mouse::Right:
+					cout << "SOLTASTE EL DERECHO" << endl;
+				break;
+			}
+		
+		break;
 			
 		}
 	}
+
 }
