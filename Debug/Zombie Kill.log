@@ -1,0 +1,12 @@
+﻿  juego.cpp
+C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,65): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
+C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,65): warning C4244:         with
+C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,65): warning C4244:         [
+C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,65): warning C4244:             T=float
+C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,65): warning C4244:         ]
+C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,51): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
+C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,51): warning C4244:         with
+C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,51): warning C4244:         [
+C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,51): warning C4244:             T=float
+C:\Users\gonza\Desktop\Zombie Kill\juego.cpp(13,51): warning C4244:         ]
+  Zombie Kill.vcxproj -> C:\Users\gonza\Desktop\Zombie Kill\Debug\Zombie Kill.exe
