@@ -57,7 +57,7 @@ void juego::gameloop()
 			procesar_eventos();
 
 			survDispPos;
-			///survivor sigue al mouses
+			///survivor sigue al mouse
 			survPos = spr_survivor.getPosition();
 			a = survPos.x - mouse.x;
 			b = survPos.y - mouse.y;
@@ -65,9 +65,7 @@ void juego::gameloop()
 			mouse = Mouse::getPosition(*ventana1);
 			angle = (-atan2(a, b) * 180 / 3.14) - 97;
 			spr_survivor.setRotation(angle);
-
-			///survivor dispara con mouse
-
+			///survivor dispara sigue al mouse
 			spr_survivordisp.setRotation(angle);
 
 
@@ -75,8 +73,12 @@ void juego::gameloop()
 			ventana1->draw(spr_fondo);
 			ventana1->draw(spr_survivordisp);
 			//spr_survirordisp.setColor(Color::Transparent);
-			ventana1->draw(spr_mira);
 			ventana1->draw(spr_survivor);
+
+			ventana1->draw(spr_zombie);
+
+			ventana1->draw(spr_mira);
+
 			//bala1->actualizar(tiempo2);
 			//ventana1->draw(bala1->get_sprite());
 			ventana1->display();
@@ -105,10 +107,8 @@ void juego::cargar_graficos()
 	text_fondo.loadFromFile("imagenes/fondo.jpg");
 	spr_fondo.setTexture(text_fondo);
 	spr_fondo.setScale((float)ventana1->getSize().x / text_fondo.getSize().x, (float)ventana1->getSize().y / text_fondo.getSize().y);
-	text_mira.loadFromFile("imagenes/crosshair.png");
-	spr_mira.setTexture(text_mira);
 
-	text_zombie.loadFromFile("imagenes/zombieimg.png");
+	text_zombie.loadFromFile("imagenes/newzombie.png");
 	spr_zombie.setTexture(text_zombie);
 
 	text_survirordisp.loadFromFile("imagenes/survivorshoot.png");
@@ -117,7 +117,9 @@ void juego::cargar_graficos()
 	text_survivor.loadFromFile("imagenes/survivor.png");
 	spr_survivor.setTexture(text_survivor);
 
-	
+	text_mira.loadFromFile("imagenes/crosshair.png");
+	spr_mira.setTexture(text_mira);
+	spr_mira.setColor(Color(0, 255, 0, 255));
 }
 
 void juego::cargar_sonidos()
