@@ -1,6 +1,15 @@
 #include "juego.h"
 #include "survivor.h"
 #include <iostream>
+#include <SFML/Audio.hpp>
+
+/*
+SoundBuffer BuffDisparo;
+BuffDisparo.loadFromFile("sonidos/shot.wav");
+Sound sonidoDisparo;
+sonidoDisparo.setBuffer(BuffDisparo);
+sonidoDisparo.play();
+*/
 
 using namespace std;
 bool jugadorUp, jugadorDown, jugadorRight, jugadorLeft;
@@ -10,18 +19,24 @@ Vector2f survPos,survDispPos;
 float a, b;
 
 
-
 juego::juego(Vector2f resolucion, String titulo)
 {
-
+	
 	game_over = false;
 	eventos = new Event;
 
 	fps = 144;
+
 	ventana1 = new RenderWindow (VideoMode(resolucion.x, resolucion.y), titulo);
 	ventana1->setFramerateLimit(fps);
 	ventana1->setMouseCursorVisible(false);
 	cargar_graficos();
+
+	///cargo intro
+	Music cancion;
+	cancion.openFromFile("sonidos/cancion.wav");
+	cancion.play();
+
 	gameloop();
 }
 
@@ -76,10 +91,10 @@ void juego::gameloop()
 
 }
 
-
 void juego::cargar_graficos()
 {
 
+	
 
 	text_fondo.loadFromFile("imagenes/fondo.jpg");
 	spr_fondo.setTexture(text_fondo);
@@ -96,34 +111,32 @@ void juego::cargar_graficos()
 	text_survivor.loadFromFile("imagenes/survivor.png");
 	spr_survivor.setTexture(text_survivor);
 
+	
 }
 
 void juego::procesar_eventos()
 {	
+	
 	//survivor jugadorObj;
 	while (ventana1->pollEvent(*eventos))
 	{
+		
+
 		switch (eventos->type)
 		{
 		case Event::MouseMoved:
 			
 			spr_mira.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
 			break;
-		//case Event::KeyPressed:
-			
-			
-			//
-		//break;
-
+		
 		case Event::MouseButtonPressed:
 			switch (eventos->key.code)
 			{
+				
 				case Mouse::Left:
 					cout << "APRETASTE EL IZQUIERDO" << endl;
 					spr_survivor.setColor(Color(255, 255, 255, 0));
 					spr_survivordisp.setColor(Color(255, 255, 255, 255));
-			
-
 				break;
 
 				case Mouse::Right:
@@ -137,7 +150,6 @@ void juego::procesar_eventos()
 			{
 				case Mouse::Left:
 					cout << "SOLTASTE EL IZQUIERDO" << endl;
-
 					spr_survivor.setColor(Color(255, 255, 255, 255));
 					spr_survivordisp.setColor(Color(255, 255, 255, 0));
 				break;
@@ -153,4 +165,3 @@ void juego::procesar_eventos()
 	}
 
 }
-/////////////////////////////////////////////////////////////////////////////////////////////
