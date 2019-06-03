@@ -13,6 +13,8 @@ public:
 	void gameloop();
 	void cargar_graficos();
 	void procesar_eventos();
+	void procesar_eventos_keyboard();
+	//void procesar_eventos_joystick();
 
 private:
 
@@ -23,7 +25,7 @@ private:
 	Sprite spr_zombie;
 
 	Texture text_survivor;
-	Sprite spr_surviror;
+	Sprite spr_survivor;
 
 	Texture text_fondo;
 	Sprite spr_fondo;
@@ -32,10 +34,9 @@ private:
 	Sprite spr_mira;
 
 	Texture text_survirordisp;
-	Sprite spr_survirordisp;
+	Sprite spr_survivordisp;
 	
-	Event* mousemueve;
-	Event* apretatecla;
+	Event* eventos;
 
 	bool game_over;
 	int fps;
