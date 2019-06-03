@@ -40,7 +40,7 @@ public:
 
 	void update(bool jugadorUp, bool jugadorDown, bool jugadorRight, bool jugadorLeft) {
 
-		float speed = 0.8;
+		float speed = 3;
 
 		if (jugadorRight) {
 			jugadorRight = true;

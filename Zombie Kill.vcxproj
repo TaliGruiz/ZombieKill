@@ -139,12 +139,14 @@ sfml-main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bala.cpp" />
     <ClCompile Include="juego.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="survivor.cpp" />
     <ClCompile Include="zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bala.h" />
     <ClInclude Include="juego.h" />
     <ClInclude Include="survivor.h" />
     <ClInclude Include="zombie.h" />

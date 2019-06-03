@@ -3,13 +3,8 @@
 #include <iostream>
 #include <SFML/Audio.hpp>
 
-/*
-SoundBuffer BuffDisparo;
-BuffDisparo.loadFromFile("sonidos/shot.wav");
-Sound sonidoDisparo;
-sonidoDisparo.setBuffer(BuffDisparo);
-sonidoDisparo.play();
-*/
+
+
 
 using namespace std;
 bool jugadorUp, jugadorDown, jugadorRight, jugadorLeft;
@@ -21,22 +16,24 @@ float a, b;
 
 juego::juego(Vector2f resolucion, String titulo)
 {
-	
+	ventana1 = new RenderWindow(VideoMode(resolucion.x, resolucion.y), titulo);
+	ventana1->setFramerateLimit(144);
+
 	game_over = false;
+	fps = 1 / 60.f;
+
+
 	eventos = new Event;
+	reloj1 = new Clock();
+	tiempo1 = new Time();
+	tiempo2 = 0.f;
 
-	fps = 144;
+	///bala1 = new bala();
 
-	ventana1 = new RenderWindow (VideoMode(resolucion.x, resolucion.y), titulo);
-	ventana1->setFramerateLimit(fps);
+	
 	ventana1->setMouseCursorVisible(false);
 	cargar_graficos();
-
-	///cargo intro
-	Music cancion;
-	cancion.openFromFile("sonidos/cancion.wav");
-	cancion.play();
-
+	cargar_sonidos();
 	gameloop();
 }
 
@@ -47,46 +44,55 @@ void juego::gameloop()
 	spr_survivordisp.setRotation(0);
 	while (!game_over)
 	{
-
-		ventana1->clear();
-
-		procesar_eventos();
-		
-		survDispPos;
-		///survivor sigue al mouses
-		survPos = spr_survivor.getPosition();
-		a = survPos.x - mouse.x;
-		b = survPos.y - mouse.y;
-
-		mouse = Mouse::getPosition(*ventana1);
-		angle = (-atan2(a, b) * 180 / 3.14) - 97;
-		spr_survivor.setRotation(angle);
-
-		///survivor dispara con mouse
-	
-		spr_survivordisp.setRotation(angle);
+		*tiempo1 = reloj1->getElapsedTime();
+		 
+		if (tiempo1->asSeconds() > tiempo2 + fps)
+		{
+			tiempo2 = tiempo1->asSeconds();
+			
+			ventana1->clear();
 
 
 
-		ventana1->draw(spr_fondo);
-		ventana1->draw(spr_survivordisp);
-		//spr_survirordisp.setColor(Color::Transparent);
-		ventana1->draw(spr_mira);
-		ventana1->draw(spr_survivor);
-		ventana1->display();
-		if (Keyboard::isKeyPressed(Keyboard::W)) { jugadorUp = true; }
-		if (!Keyboard::isKeyPressed(Keyboard::W)) { jugadorUp = false; }
-		if (Keyboard::isKeyPressed(Keyboard::S)) { jugadorDown = true; }
-		if (!Keyboard::isKeyPressed(Keyboard::S)) { jugadorDown = false; }
-		if (Keyboard::isKeyPressed(Keyboard::D)) { jugadorRight = true; }
-		if (!Keyboard::isKeyPressed(Keyboard::D)) { jugadorRight = false; }
-		if (Keyboard::isKeyPressed(Keyboard::A)) { jugadorLeft = true; }
-		if (!Keyboard::isKeyPressed(Keyboard::A)) { jugadorLeft = false; }
-		jugadorObj.update(jugadorUp, jugadorDown, jugadorRight, jugadorLeft);
-		spr_survivor.move(Vector2f(jugadorObj.get_xvel(), jugadorObj.get_yvel()));
-		spr_survivordisp.move(Vector2f(jugadorObj.get_xvel(), jugadorObj.get_yvel()));
+			procesar_eventos();
+
+			survDispPos;
+			///survivor sigue al mouses
+			survPos = spr_survivor.getPosition();
+			a = survPos.x - mouse.x;
+			b = survPos.y - mouse.y;
+
+			mouse = Mouse::getPosition(*ventana1);
+			angle = (-atan2(a, b) * 180 / 3.14) - 97;
+			spr_survivor.setRotation(angle);
+
+			///survivor dispara con mouse
+
+			spr_survivordisp.setRotation(angle);
 
 
+
+			ventana1->draw(spr_fondo);
+			ventana1->draw(spr_survivordisp);
+			//spr_survirordisp.setColor(Color::Transparent);
+			ventana1->draw(spr_mira);
+			ventana1->draw(spr_survivor);
+			//bala1->actualizar(tiempo2);
+			//ventana1->draw(bala1->get_sprite());
+			ventana1->display();
+			if (Keyboard::isKeyPressed(Keyboard::W)) { jugadorUp = true; }
+			if (!Keyboard::isKeyPressed(Keyboard::W)) { jugadorUp = false; }
+			if (Keyboard::isKeyPressed(Keyboard::S)) { jugadorDown = true; }
+			if (!Keyboard::isKeyPressed(Keyboard::S)) { jugadorDown = false; }
+			if (Keyboard::isKeyPressed(Keyboard::D)) { jugadorRight = true; }
+			if (!Keyboard::isKeyPressed(Keyboard::D)) { jugadorRight = false; }
+			if (Keyboard::isKeyPressed(Keyboard::A)) { jugadorLeft = true; }
+			if (!Keyboard::isKeyPressed(Keyboard::A)) { jugadorLeft = false; }
+			jugadorObj.update(jugadorUp, jugadorDown, jugadorRight, jugadorLeft);
+			spr_survivor.move(Vector2f(jugadorObj.get_xvel(), jugadorObj.get_yvel()));
+			spr_survivordisp.move(Vector2f(jugadorObj.get_xvel(), jugadorObj.get_yvel()));
+
+		}
 	}
 
 }
@@ -114,6 +120,23 @@ void juego::cargar_graficos()
 	
 }
 
+void juego::cargar_sonidos()
+{
+	if (!BuffDisparo.loadFromFile("sonidos/shot.wav"))
+	{
+		cout << "No se pudo cargar el efecto disparo." << endl;
+
+	}
+	sonidoDisparo.setBuffer(BuffDisparo);
+	
+
+	if (!cancion.openFromFile("sonidos/cancion.wav"))
+	{
+		cout << "No se pudo cargar el efecto cancion." << endl;
+	}
+	cancion.setVolume(40);
+
+}
 void juego::procesar_eventos()
 {	
 	
@@ -137,6 +160,13 @@ void juego::procesar_eventos()
 					cout << "APRETASTE EL IZQUIERDO" << endl;
 					spr_survivor.setColor(Color(255, 255, 255, 0));
 					spr_survivordisp.setColor(Color(255, 255, 255, 255));
+					sonidoDisparo.play();
+					
+					if (Mouse::isButtonPressed(Mouse::Left)) {
+
+						sonidoDisparo.setLoop(true);
+						sonidoDisparo.play();
+					}
 				break;
 
 				case Mouse::Right:
@@ -152,6 +182,7 @@ void juego::procesar_eventos()
 					cout << "SOLTASTE EL IZQUIERDO" << endl;
 					spr_survivor.setColor(Color(255, 255, 255, 255));
 					spr_survivordisp.setColor(Color(255, 255, 255, 0));
+					sonidoDisparo.setLoop(false);
 				break;
 
 				case Mouse::Right:

@@ -3,6 +3,7 @@
 #include "SFML\Graphics.hpp"
 #include "SFML\Audio.hpp"
 #include "SFML\System.hpp"
+#include "bala.h"
 
 using namespace sf;
 
@@ -12,15 +13,19 @@ public:
 	juego(Vector2f resolucion, String titulo);
 	void gameloop();
 	void cargar_graficos();
+	void cargar_sonidos();
 	void procesar_eventos();
-	void procesar_eventos_keyboard();
 	//void procesar_eventos_joystick();
 
 private:
 
 
 	RenderWindow* ventana1;
-
+	Clock* reloj1;
+	Time* tiempo1;
+	float tiempo2;
+	float fps;
+	///Sprites and textures
 	Texture text_zombie;
 	Sprite spr_zombie;
 
@@ -36,9 +41,19 @@ private:
 	Texture text_survirordisp;
 	Sprite spr_survivordisp;
 	
+	///Sounds
+	SoundBuffer BuffDisparo;
+	Sound sonidoDisparo;
+	Music cancion;
+
+
+	///Event
 	Event* eventos;
 
+	///Bala
+	//bala* bala1;
+
 	bool game_over;
-	int fps;
+	//int fps;
 	
 };
