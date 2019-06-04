@@ -2,8 +2,7 @@
 #include "survivor.h"
 #include <iostream>
 #include <SFML/Audio.hpp>
-
-
+#include <dos.h>
 
 
 using namespace std;
@@ -12,10 +11,12 @@ Vector2i mouse;
 float angle;
 Vector2f survPos,survDispPos;
 float a, b;
+Time delay = seconds(3);
 
 
 juego::juego(Vector2f resolucion, String titulo)
 {
+	bool flag = false;
 	ventana1 = new RenderWindow(VideoMode(resolucion.x, resolucion.y), titulo);
 	ventana1->setFramerateLimit(144);
 
@@ -32,8 +33,10 @@ juego::juego(Vector2f resolucion, String titulo)
 
 	
 	ventana1->setMouseCursorVisible(false);
+
 	cargar_graficos();
 	cargar_sonidos();
+	cargar_fuentes();
 	gameloop();
 }
 
@@ -49,9 +52,8 @@ void juego::gameloop()
 		if (tiempo1->asSeconds() > tiempo2 + fps)
 		{
 			tiempo2 = tiempo1->asSeconds();
-			
-			ventana1->clear();
 
+			ventana1->clear();
 
 
 			procesar_eventos();
@@ -69,6 +71,8 @@ void juego::gameloop()
 			spr_survivordisp.setRotation(angle);
 
 
+			///ventana1->draw(spr_intro1);
+
 
 			ventana1->draw(spr_fondo);
 			ventana1->draw(spr_survivordisp);
@@ -78,6 +82,7 @@ void juego::gameloop()
 			ventana1->draw(spr_zombie);
 
 			ventana1->draw(spr_mira);
+
 
 			//bala1->actualizar(tiempo2);
 			//ventana1->draw(bala1->get_sprite());
@@ -99,10 +104,33 @@ void juego::gameloop()
 
 }
 
+void juego::cargar_fuentes() 
+{
+	if (!zombiefont.loadFromFile("fuentes/zombiefont.ttf"))
+	{
+		cout << "No se pudo cargar la fuente" << endl;
+	}
+	else { cout << "Se cargo la fuente" << endl; }
+	
+	titulo.setString("ZOMBIE \n \t KILLA");
+	titulo.setFont(zombiefont);
+	titulo.setPosition(Vector2f(330, 450));
+	titulo.setFillColor(Color::Color(255, 0, 0, 170));
+	titulo.setCharacterSize(50);
+	titulo.setOutlineColor(Color::Color(0, 0, 0, 255));
+	titulo.setOutlineThickness(1.5);
+	
+}
 void juego::cargar_graficos()
 {
-
+	text_intro1.loadFromFile("imagenes/titulo.jpg");
+	spr_intro1.setTexture(text_intro1);
+	spr_intro1.setScale((float)ventana1->getSize().x / text_intro1.getSize().x, (float)ventana1->getSize().y / text_intro1.getSize().y);
 	
+	text_blanco.loadFromFile("imagenes/blanco.jpg");
+	spr_blanco.setTexture(text_blanco);
+	//spr_blanco.setScale((float)ventana1->getSize().x / text_blanco.getSize().x, (float)ventana1->getSize().y / text_blanco.getSize().y);
+	spr_blanco.setColor(Color(255, 255, 255, 0));
 
 	text_fondo.loadFromFile("imagenes/fondo.jpg");
 	spr_fondo.setTexture(text_fondo);
@@ -121,7 +149,6 @@ void juego::cargar_graficos()
 	spr_mira.setTexture(text_mira);
 	spr_mira.setColor(Color(0, 255, 0, 255));
 }
-
 void juego::cargar_sonidos()
 {
 	if (!BuffDisparo.loadFromFile("sonidos/shot.wav"))
@@ -145,7 +172,9 @@ void juego::procesar_eventos()
 	//survivor jugadorObj;
 	while (ventana1->pollEvent(*eventos))
 	{
-		
+		/*
+		ACA VA LO DEL PRESIONAR ENTER.
+		*/
 
 		switch (eventos->type)
 		{
@@ -165,8 +194,8 @@ void juego::procesar_eventos()
 					sonidoDisparo.play();
 					
 					if (Mouse::isButtonPressed(Mouse::Left)) {
-
 						sonidoDisparo.setLoop(true);
+						sonidoDisparo.setPitch(5);
 						sonidoDisparo.play();
 					}
 				break;

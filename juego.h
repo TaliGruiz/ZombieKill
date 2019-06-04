@@ -16,9 +16,11 @@ public:
 	void cargar_sonidos();
 	void procesar_eventos();
 	//void procesar_eventos_joystick();
+	void cargar_fuentes();
+	void cargar_intro();
+	void cargar_menu();
 
 private:
-
 
 	RenderWindow* ventana1;
 	Clock* reloj1;
@@ -46,6 +48,17 @@ private:
 	Sound sonidoDisparo;
 	Music cancion;
 
+	//intro
+	Texture text_intro1;
+	Sprite spr_intro1;
+
+	//blanco
+	Texture text_blanco;
+	Sprite spr_blanco;
+
+	///fuentes
+	Font zombiefont;
+	Text titulo;
 
 	///Event
 	Event* eventos;
