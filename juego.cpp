@@ -37,10 +37,10 @@ juego::juego(Vector2f resolucion, String titulo)
 	cargar_graficos();
 	cargar_sonidos();
 	cargar_fuentes();
-	gameloop();
+	gameloop(resolucion);
 }
 
-void juego::gameloop()
+void juego::gameloop(Vector2f resolucion)
 {
 	survivor jugadorObj;
 	spr_survivor.setRotation(0);
@@ -99,6 +99,42 @@ void juego::gameloop()
 			spr_survivor.move(Vector2f(jugadorObj.get_velocidad_x(), jugadorObj.get_velocidad_y()));
 			spr_survivordisp.move(Vector2f(jugadorObj.get_velocidad_x(), jugadorObj.get_velocidad_y()));
 
+			//Colision ventana sprite survivor
+			//Colision izquierda
+			if (spr_survivor.getPosition().x <= 33.f) {
+				spr_survivor.setPosition(33.f, spr_survivor.getPosition().y);
+			}
+			//Colision arriba
+			if (spr_survivor.getPosition().y <= 33.f) {
+				spr_survivor.setPosition(spr_survivor.getPosition().x, 33.f);
+			}
+			//Colision derecha
+			if (spr_survivor.getPosition().x + spr_survivor.getGlobalBounds().width >= (resolucion.x + 33.f)) {
+				spr_survivor.setPosition((resolucion.x + 33.f) - spr_survivor.getGlobalBounds().width, spr_survivor.getPosition().y);
+			}
+			//Colision abajo
+			if (spr_survivor.getPosition().y + spr_survivor.getGlobalBounds().height >= (resolucion.y + 33.f)) {
+				spr_survivor.setPosition(spr_survivor.getPosition().x, (resolucion.y + 33.f) - spr_survivor.getGlobalBounds().height);
+			}
+
+			//Colision ventana sprite survivordisp
+			//Colision izquierda
+			if (spr_survivordisp.getPosition().x <= 33.f) {
+				spr_survivordisp.setPosition(33.f, spr_survivordisp.getPosition().y);
+			}
+			//Colision arriba
+			if (spr_survivordisp.getPosition().y <= 33.f) {
+				spr_survivordisp.setPosition(spr_survivordisp.getPosition().x, 33.f);
+			}
+			//Colision derecha
+			if (spr_survivordisp.getPosition().x + spr_survivordisp.getGlobalBounds().width >= (resolucion.x + 33.f)) {
+				spr_survivordisp.setPosition((resolucion.x + 33.f) - spr_survivordisp.getGlobalBounds().width, spr_survivordisp.getPosition().y);
+			}
+			//Colision abajo
+			if (spr_survivordisp.getPosition().y + spr_survivordisp.getGlobalBounds().height >= (resolucion.y + 33.f)) {
+				spr_survivordisp.setPosition(spr_survivordisp.getPosition().x, (resolucion.y + 33.f) - spr_survivordisp.getGlobalBounds().height);
+			}
+
 		}
 	}
 
@@ -141,9 +177,12 @@ void juego::cargar_graficos()
 
 	text_survirordisp.loadFromFile("imagenes/survivorshoot2.png");
 	spr_survivordisp.setTexture(text_survirordisp);
-	
+	spr_survivordisp.setOrigin(30.f, 18.5);
+
 	text_survivor.loadFromFile("imagenes/survivor2.png");
 	spr_survivor.setTexture(text_survivor);
+	spr_survivor.setOrigin(30.f, 18.5);
+
 
 	text_mira.loadFromFile("imagenes/crosshair.png");
 	spr_mira.setTexture(text_mira);

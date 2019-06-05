@@ -11,7 +11,7 @@ class juego
 {
 public:
 	juego(Vector2f resolucion, String titulo);
-	void gameloop();
+	void gameloop(Vector2f);
 	void cargar_graficos();
 	void cargar_sonidos();
 	void procesar_eventos();
