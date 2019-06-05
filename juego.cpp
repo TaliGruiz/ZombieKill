@@ -96,8 +96,8 @@ void juego::gameloop()
 			if (Keyboard::isKeyPressed(Keyboard::A)) { jugadorLeft = true; }
 			if (!Keyboard::isKeyPressed(Keyboard::A)) { jugadorLeft = false; }
 			jugadorObj.update(jugadorUp, jugadorDown, jugadorRight, jugadorLeft);
-			spr_survivor.move(Vector2f(jugadorObj.get_xvel(), jugadorObj.get_yvel()));
-			spr_survivordisp.move(Vector2f(jugadorObj.get_xvel(), jugadorObj.get_yvel()));
+			spr_survivor.move(Vector2f(jugadorObj.get_velocidad_x(), jugadorObj.get_velocidad_y()));
+			spr_survivordisp.move(Vector2f(jugadorObj.get_velocidad_x(), jugadorObj.get_velocidad_y()));
 
 		}
 	}
