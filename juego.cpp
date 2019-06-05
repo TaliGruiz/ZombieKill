@@ -139,10 +139,10 @@ void juego::cargar_graficos()
 	text_zombie.loadFromFile("imagenes/newzombie.png");
 	spr_zombie.setTexture(text_zombie);
 
-	text_survirordisp.loadFromFile("imagenes/survivorshoot.png");
+	text_survirordisp.loadFromFile("imagenes/survivorshoot2.png");
 	spr_survivordisp.setTexture(text_survirordisp);
 	
-	text_survivor.loadFromFile("imagenes/survivor.png");
+	text_survivor.loadFromFile("imagenes/survivor2.png");
 	spr_survivor.setTexture(text_survivor);
 
 	text_mira.loadFromFile("imagenes/crosshair.png");
