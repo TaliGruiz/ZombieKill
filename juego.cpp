@@ -117,12 +117,12 @@ void juego::procesar_colision(Vector2f resolucion)
 		spr_survivor.setPosition(spr_survivor.getPosition().x, 33.f);
 	}
 	//Colision derecha
-	if (spr_survivor.getPosition().x + spr_survivor.getGlobalBounds().width >= (resolucion.x + 33.f)) {
-		spr_survivor.setPosition((resolucion.x + 33.f) - spr_survivor.getGlobalBounds().width, spr_survivor.getPosition().y);
+	if (spr_survivor.getPosition().x + spr_survivor.getGlobalBounds().width >= (resolucion.x + 39.f)) {
+		spr_survivor.setPosition((resolucion.x + 39.f) - spr_survivor.getGlobalBounds().width, spr_survivor.getPosition().y);
 	}
 	//Colision abajo
-	if (spr_survivor.getPosition().y + spr_survivor.getGlobalBounds().height >= (resolucion.y + 33.f)) {
-		spr_survivor.setPosition(spr_survivor.getPosition().x, (resolucion.y + 33.f) - spr_survivor.getGlobalBounds().height);
+	if (spr_survivor.getPosition().y + spr_survivor.getGlobalBounds().height >= (resolucion.y + 39.f)) {
+		spr_survivor.setPosition(spr_survivor.getPosition().x, (resolucion.y + 39.f) - spr_survivor.getGlobalBounds().height);
 	}
 
 	//Colision ventana sprite survivordisp
@@ -135,12 +135,12 @@ void juego::procesar_colision(Vector2f resolucion)
 		spr_survivordisp.setPosition(spr_survivordisp.getPosition().x, 33.f);
 	}
 	//Colision derecha
-	if (spr_survivordisp.getPosition().x + spr_survivordisp.getGlobalBounds().width >= (resolucion.x + 33.f)) {
-		spr_survivordisp.setPosition((resolucion.x + 33.f) - spr_survivordisp.getGlobalBounds().width, spr_survivordisp.getPosition().y);
+	if (spr_survivordisp.getPosition().x + spr_survivordisp.getGlobalBounds().width >= (resolucion.x + 39.f)) {
+		spr_survivordisp.setPosition((resolucion.x + 39.f) - spr_survivordisp.getGlobalBounds().width, spr_survivordisp.getPosition().y);
 	}
 	//Colision abajo
-	if (spr_survivordisp.getPosition().y + spr_survivordisp.getGlobalBounds().height >= (resolucion.y + 33.f)) {
-		spr_survivordisp.setPosition(spr_survivordisp.getPosition().x, (resolucion.y + 33.f) - spr_survivordisp.getGlobalBounds().height);
+	if (spr_survivordisp.getPosition().y + spr_survivordisp.getGlobalBounds().height >= (resolucion.y + 39.f)) {
+		spr_survivordisp.setPosition(spr_survivordisp.getPosition().x, (resolucion.y + 39.f) - spr_survivordisp.getGlobalBounds().height);
 	}
 }
 void juego::cargar_fuentes() 
