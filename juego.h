@@ -33,6 +33,10 @@ private:
 	Texture text_survivor;
 	Sprite spr_survivor;
 
+	Texture text_zombie;
+	Sprite spr_zombie;
+	
+	
 	Texture text_fondo;
 	Sprite spr_fondo;
 
