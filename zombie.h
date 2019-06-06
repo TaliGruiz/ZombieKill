@@ -5,7 +5,6 @@
 class zombie
 {
 public:
-	zombie();
 	//set
 	void set_str(float _str) { str = _str; }
 	void set_life(float _life) { life = _life; }
@@ -13,8 +12,13 @@ public:
 	void set_posicion(Vector2f _posicion) { posicion = _posicion; }
 	void set_posicion_x(float x) { posicion.x = x; }
 	void set_posicion_y(float y) { posicion.y = y; }
-
+	void set_spr_zombie(const char v[]) 
+	{
+		text_zombie.loadFromFile(v);
+		spr_zombie.setTexture(text_zombie);
+	}
 	//get
+	Sprite get_spr_zombie() { return spr_zombie; }
 	float get_str() { return str; }
 	float get_life() { return life; }
 	Vector2f get_velocidad() { return velocidad; }
@@ -22,6 +26,19 @@ public:
 	float get_posicion_x() { return posicion.x; }
 	float get_posicion_y() { return posicion.y; }
 	
+	//constructores
+	zombie(const char v[], Vector2f pos, float MulVel, float _str, float _life)
+	{
+		set_spr_zombie(v);
+		set_str(_str);
+		set_life(_life);
+		set_posicion(pos);
+		velocidad.x = 1 * MulVel;
+		velocidad.y = 1 * MulVel;
+		spr_zombie.setPosition(posicion);
+	}
+	
+	zombie();
 private:
 	Texture text_zombie;
 	Sprite spr_zombie;

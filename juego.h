@@ -4,7 +4,7 @@
 #include "SFML\Audio.hpp"
 #include "SFML\System.hpp"
 #include "bala.h"
-
+#include "zombie.h"
 using namespace sf;
 
 class juego
@@ -27,9 +27,8 @@ private:
 	Time* tiempo1;
 	float tiempo2;
 	float fps;
+
 	///Sprites and textures
-	Texture text_zombie;
-	Sprite spr_zombie;
 
 	Texture text_survivor;
 	Sprite spr_survivor;

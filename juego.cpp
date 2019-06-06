@@ -78,11 +78,16 @@ void juego::gameloop(Vector2f resolucion)
 			//spr_survirordisp.setColor(Color::Transparent);
 			ventana1->draw(spr_survivor);
 
-			ventana1->draw(spr_zombie);
+			//ventana1->draw(spr_zombie);
 
 			ventana1->draw(spr_mira);
-
-
+			
+			
+			zombie zombie1("imagenes/newzombie.png", { 100,100 }, 1,20,100);
+			ventana1->draw(zombie1.get_spr_zombie());
+			
+			
+			
 			//bala1->actualizar(tiempo2);
 			//ventana1->draw(bala1->get_sprite());
 			ventana1->display();
@@ -174,10 +179,10 @@ void juego::cargar_graficos()
 	text_fondo.loadFromFile("imagenes/fondo.jpg");
 	spr_fondo.setTexture(text_fondo);
 	spr_fondo.setScale((float)ventana1->getSize().x / text_fondo.getSize().x, (float)ventana1->getSize().y / text_fondo.getSize().y);
-
+	/*
 	text_zombie.loadFromFile("imagenes/newzombie.png");
 	spr_zombie.setTexture(text_zombie);
-
+	*/
 	text_survirordisp.loadFromFile("imagenes/survivorshoot2.png");
 	spr_survivordisp.setTexture(text_survirordisp);
 	spr_survivordisp.setOrigin(30.f, 18.5);
