@@ -19,7 +19,7 @@ public:
 	void cargar_fuentes();
 	void cargar_intro();
 	void cargar_menu();
-
+	void procesar_colision(Vector2f);
 private:
 
 	RenderWindow* ventana1;
