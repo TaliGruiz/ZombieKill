@@ -10,22 +10,26 @@ public:
 	void set_life(float _life) { life = _life; }
 	void set_velocidad(Vector2f(_velocidad)) { velocidad = _velocidad; }
 	void set_posicion(Vector2f _posicion) { posicion = _posicion; }
-	void set_posicion_x(float x) { posicion.x = x; }
-	void set_posicion_y(float y) { posicion.y = y; }
+	void set_spr_zombie_rotation(float _ang) 
+	{
+		spr_zombie.setRotation(_ang);
+	}
 	void set_spr_zombie(const char v[]) 
 	{
 		text_zombie.loadFromFile(v);
 		spr_zombie.setTexture(text_zombie);
 	}
+	
+	void set_spr_zombie_posicion(Vector2f _pos) { spr_zombie.setPosition(_pos); }
+	
 	//get
 	Sprite get_spr_zombie() { return spr_zombie; }
 	float get_str() { return str; }
 	float get_life() { return life; }
 	Vector2f get_velocidad() { return velocidad; }
-	Vector2f get_posicion() { return posicion; }
-	float get_posicion_x() { return posicion.x; }
-	float get_posicion_y() { return posicion.y; }
+	Vector2f get_spr_zombie_posicion() { return spr_zombie.getPosition(); }
 	
+
 	//constructores
 	zombie(const char v[], Vector2f pos, float MulVel, float _str, float _life)
 	{

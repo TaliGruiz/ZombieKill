@@ -9,7 +9,7 @@ using namespace std;
 bool jugadorUp, jugadorDown, jugadorRight, jugadorLeft;
 float angle, angle2, a, b, c, d;
 Time delay = seconds(3);
-///zombie zombie1("imagenes/newzombie.png", { 100,100 }, 1, 20, 100);
+zombie zombie1("imagenes/newzombie.png", { 200,300 }, 1, 20, 100);
 
 
 juego::juego(Vector2f resolucion, String titulo)
@@ -61,15 +61,21 @@ void juego::gameloop(Vector2f resolucion)
 			b = spr_survivor.getPosition().y - Mouse::getPosition(*ventana1).y;
 			angle = (-atan2(a, b) * 180 / 3.14) - 97;
 			spr_survivor.setRotation(angle);
+
 			///survivor dispara sigue al mouse
 			spr_survivordisp.setRotation(angle);
+			
 			///zombie mira a survivor
-			c = spr_zombie.getPosition().x - spr_survivor.getPosition().x;
-			d = spr_zombie.getPosition().y - spr_survivor.getPosition().y;
+			c = zombie1.get_spr_zombie_posicion().x - spr_survivor.getPosition().x;
+			d = zombie1.get_spr_zombie_posicion().y - spr_survivor.getPosition().y;
 			angle2 = (-atan2(c, d) * 180 / 3.14) - 170;
-			spr_zombie.setRotation(angle2);
+			zombie1.set_spr_zombie_rotation(angle2);
 			
 
+			
+			
+			
+			
 			///ventana1->draw(spr_intro1);
 
 
@@ -79,8 +85,7 @@ void juego::gameloop(Vector2f resolucion)
 			
 			ventana1->draw(spr_survivor);
 			
-			ventana1->draw(spr_zombie);
-			spr_zombie.setPosition(200, 200);
+			ventana1->draw(zombie1.get_spr_zombie());
 
 			ventana1->draw(spr_mira);
 			
@@ -173,17 +178,16 @@ void juego::cargar_graficos()
 	
 	text_blanco.loadFromFile("imagenes/blanco.jpg");
 	spr_blanco.setTexture(text_blanco);
-	//spr_blanco.setScale((float)ventana1->getSize().x / text_blanco.getSize().x, (float)ventana1->getSize().y / text_blanco.getSize().y);
 	spr_blanco.setColor(Color(255, 255, 255, 0));
 
 	text_fondo.loadFromFile("imagenes/fondo.jpg");
 	spr_fondo.setTexture(text_fondo);
 	spr_fondo.setScale((float)ventana1->getSize().x / text_fondo.getSize().x, (float)ventana1->getSize().y / text_fondo.getSize().y);
 	
-	text_zombie.loadFromFile("imagenes/newzombie.png");
+	/*text_zombie.loadFromFile("imagenes/newzombie.png");
 	spr_zombie.setTexture(text_zombie);
 	spr_survivor.setOrigin(22.5, 20.f);
-
+	*/
 	text_survirordisp.loadFromFile("imagenes/survivorshoot2.png");
 	spr_survivordisp.setTexture(text_survirordisp);
 	spr_survivordisp.setOrigin(30.f, 18.5);
