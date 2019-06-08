@@ -5,6 +5,8 @@
 #include "SFML\System.hpp"
 #include "bala.h"
 #include "zombie.h"
+#include "survivor.h"
+
 using namespace sf;
 
 class juego
@@ -29,19 +31,19 @@ private:
 	float fps;
 
 	///Sprites and textures
-
+	/*
 	Texture text_survivor;
 	Sprite spr_survivor;
-	
+	*/
 	Texture text_fondo;
 	Sprite spr_fondo;
 
 	Texture text_mira;
 	Sprite spr_mira;
-
+	/*
 	Texture text_survirordisp;
 	Sprite spr_survivordisp;
-	
+	*/
 	///Sounds
 	SoundBuffer BuffDisparo;
 	Sound sonidoDisparo;

@@ -1,16 +1,13 @@
 #include "juego.h"
-#include "survivor.h"
 #include <iostream>
-#include <SFML/Audio.hpp>
 #include <dos.h>
-
-
 using namespace std;
+
 bool jugadorUp, jugadorDown, jugadorRight, jugadorLeft;
 float angle, angle2, a, b, c, d;
 Time delay = seconds(3);
-zombie zombie1("imagenes/newzombie.png", { 200,300 }, 1, 20, 100);
-
+zombie zombie1({ 200,300 }, 1, 20, 100);
+survivor pj ( { 0,0 } ,1 ,1 );
 
 juego::juego(Vector2f resolucion, String titulo)
 {
@@ -39,9 +36,9 @@ juego::juego(Vector2f resolucion, String titulo)
 }
 void juego::gameloop(Vector2f resolucion)
 {
-	survivor jugadorObj;
-	spr_survivor.setRotation(0);
-	spr_survivordisp.setRotation(0);
+	
+//	spr_survivor.setRotation(0);
+	//spr_survivordisp.setRotation(0);
 	while (!game_over)
 	{
 		*tiempo1 = reloj1->getElapsedTime();
@@ -54,36 +51,27 @@ void juego::gameloop(Vector2f resolucion)
 
 
 			procesar_eventos();
-
 			
 			///survivor sigue al mouse
-			a = spr_survivor.getPosition().x - Mouse::getPosition(*ventana1).x;
-			b = spr_survivor.getPosition().y - Mouse::getPosition(*ventana1).y;
+			a = pj.get_posicion().x - Mouse::getPosition(*ventana1).x;
+			b = pj.get_posicion().y - Mouse::getPosition(*ventana1).y;
 			angle = (-atan2(a, b) * 180 / 3.14) - 97;
-			spr_survivor.setRotation(angle);
-
-			///survivor dispara sigue al mouse
-			spr_survivordisp.setRotation(angle);
+			pj.rotar(angle);
 			
 			///zombie mira a survivor
-			c = zombie1.get_spr_zombie_posicion().x - spr_survivor.getPosition().x;
-			d = zombie1.get_spr_zombie_posicion().y - spr_survivor.getPosition().y;
+			c = zombie1.get_posicion().x - pj.get_posicion().x;
+			d = zombie1.get_posicion().y - pj.get_posicion().y;
 			angle2 = (-atan2(c, d) * 180 / 3.14) - 170;
 			zombie1.set_spr_zombie_rotation(angle2);
-			
-
-			
-			
-			
-			
+		
 			///ventana1->draw(spr_intro1);
 
 
 			ventana1->draw(spr_fondo);
 
-			ventana1->draw(spr_survivordisp);
+			ventana1->draw(pj.get_spr_survivordisparo());
 			
-			ventana1->draw(spr_survivor);
+			ventana1->draw(pj.get_spr_survivor());
 			
 			ventana1->draw(zombie1.get_spr_zombie());
 
@@ -103,9 +91,8 @@ void juego::gameloop(Vector2f resolucion)
 			if (!Keyboard::isKeyPressed(Keyboard::D)) { jugadorRight = false; }
 			if (Keyboard::isKeyPressed(Keyboard::A)) { jugadorLeft = true; }
 			if (!Keyboard::isKeyPressed(Keyboard::A)) { jugadorLeft = false; }
-			jugadorObj.update(jugadorUp, jugadorDown, jugadorRight, jugadorLeft);
-			spr_survivor.move(Vector2f(jugadorObj.get_velocidad_x(), jugadorObj.get_velocidad_y()));
-			spr_survivordisp.move(Vector2f(jugadorObj.get_velocidad_x(), jugadorObj.get_velocidad_y()));
+			pj.update(jugadorUp, jugadorDown, jugadorRight, jugadorLeft);
+			pj.mover(Vector2f(pj.get_velocidad().x, pj.get_velocidad().y));
 			
 			///procesar colision
 			procesar_colision(resolucion);
@@ -116,7 +103,7 @@ void juego::gameloop(Vector2f resolucion)
 }
 
 void juego::procesar_colision(Vector2f resolucion) 
-{
+{/*
 	//Colision ventana sprite survivor
 			//Colision izquierda
 	if (spr_survivor.getPosition().x <= 33.f) {
@@ -151,7 +138,7 @@ void juego::procesar_colision(Vector2f resolucion)
 	//Colision abajo
 	if (spr_survivordisp.getPosition().y + spr_survivordisp.getGlobalBounds().height >= (resolucion.y + 39.f)) {
 		spr_survivordisp.setPosition(spr_survivordisp.getPosition().x, (resolucion.y + 39.f) - spr_survivordisp.getGlobalBounds().height);
-	}
+	}*/
 }
 void juego::cargar_fuentes() 
 {
@@ -184,19 +171,6 @@ void juego::cargar_graficos()
 	spr_fondo.setTexture(text_fondo);
 	spr_fondo.setScale((float)ventana1->getSize().x / text_fondo.getSize().x, (float)ventana1->getSize().y / text_fondo.getSize().y);
 	
-	/*text_zombie.loadFromFile("imagenes/newzombie.png");
-	spr_zombie.setTexture(text_zombie);
-	spr_survivor.setOrigin(22.5, 20.f);
-	*/
-	text_survirordisp.loadFromFile("imagenes/survivorshoot2.png");
-	spr_survivordisp.setTexture(text_survirordisp);
-	spr_survivordisp.setOrigin(30.f, 18.5);
-
-	text_survivor.loadFromFile("imagenes/survivor2.png");
-	spr_survivor.setTexture(text_survivor);
-	spr_survivor.setOrigin(30.f, 18.5);
-
-
 	text_mira.loadFromFile("imagenes/crosshair.png");
 	spr_mira.setTexture(text_mira);
 	spr_mira.setColor(Color(0, 255, 0, 255));
@@ -241,8 +215,7 @@ void juego::procesar_eventos()
 				
 				case Mouse::Left:
 					cout << "APRETASTE EL IZQUIERDO" << endl;
-					spr_survivor.setColor(Color(255, 255, 255, 0));
-					spr_survivordisp.setColor(Color(255, 255, 255, 255));
+					pj.color_aprietodisparo();
 					sonidoDisparo.play();
 					
 					if (Mouse::isButtonPressed(Mouse::Left)) {
@@ -263,8 +236,7 @@ void juego::procesar_eventos()
 			{
 				case Mouse::Left:
 					cout << "SOLTASTE EL IZQUIERDO" << endl;
-					spr_survivor.setColor(Color(255, 255, 255, 255));
-					spr_survivordisp.setColor(Color(255, 255, 255, 0));
+					pj.color_sueltodisparo();
 					sonidoDisparo.setLoop(false);
 				break;
 

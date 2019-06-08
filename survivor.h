@@ -3,71 +3,46 @@
 class survivor
 {
 private:
+	Texture text_survivor, text_survivordisparo;;
+	Sprite spr_survivor, spr_survivordisparo;
 	int life;
-	Vector2f posicion;
-	Vector2f velocidad;
+	Vector2f posicion, velocidad;
 
 public:
 	//set
 	void set_life(int _life) { life = _life; }
 	void set_velocidad(Vector2f _vel) { velocidad = _vel; }
-	void set_velocidad_x(float _xvel) { velocidad.x = _xvel; }
-	void set_velocidad_y(float _yvel) { velocidad.y = _yvel; }
 	void set_posicion(Vector2f _pos) { posicion = _pos; }
-	void set_posicion_y(float _ypos) { posicion.y = _ypos; }
-	void set_posicion_x(float _xpos) { posicion.x = _xpos; }
+	void set_spr_survivor();
+	void set_spr_survivordisparo();
+
 	//get
+	Sprite get_spr_survivor() { return spr_survivor; }
+	Sprite get_spr_survivordisparo() { return spr_survivordisparo; }
 	int get_life() { return life; }
 	Vector2f get_velocidad() { return velocidad; }
-	float get_velocidad_x() { return velocidad.x; }
-	float get_velocidad_y() { return velocidad.y; }
 	Vector2f get_posicion() { return posicion; }
-	float get_posicion_x() { return posicion.x; }
-	float get_posicion_y() { return posicion.y; }
 
 	//constructor
-	survivor()
+	survivor(Vector2f, float, float);
+
+	//MOVIMIENTOS
+	
+	void update(bool, bool, bool, bool);
+	
+	void mover(Vector2f);
+
+	void rotar(float);
+
+	//COLOR
+	void color_aprietodisparo() 
 	{
-		life = 1000;
-		posicion.x = 0;
-		posicion.y = 0;
-		velocidad.x = 0;
-		velocidad.y = 0;
+		spr_survivor.setColor(Color(255, 255, 255, 0));
+		spr_survivordisparo.setColor(Color(255, 255, 255, 255));
 	}
-	survivor(float _xpos, float _ypos)
+	void color_sueltodisparo()
 	{
-		life = 1000;
-		velocidad.x = 0;
-		velocidad.y = 0;
-		posicion.x = _xpos;
-		posicion.y = _ypos;
-	}
-
-	void update(bool jugadorUp, bool jugadorDown, bool jugadorRight, bool jugadorLeft) {
-
-		float speed = 3;
-
-		if (jugadorRight) {
-			jugadorRight = true;
-			velocidad.x = speed;
-		}
-		if (jugadorLeft) {
-			velocidad.x = -speed;
-			jugadorRight = false;
-		}
-		if (jugadorDown) {
-			velocidad.y = speed;
-		}
-		if (jugadorUp) {
-			velocidad.y = -speed;
-		}
-		if (!(jugadorRight || jugadorLeft)) {
-			velocidad.x = 0;
-		}
-		if (!(jugadorUp || jugadorDown)) {
-			velocidad.y = 0;
-		}
-		posicion.x += velocidad.x;
-		posicion.y += velocidad.y;
+		spr_survivor.setColor(Color(255, 255, 255, 255));
+		spr_survivordisparo.setColor(Color(255, 255, 255, 0));
 	}
 };
