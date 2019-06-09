@@ -63,7 +63,24 @@ void juego::gameloop(Vector2f resolucion)
 			d = zombie1.get_posicion().y - pj.get_posicion().y;
 			angle2 = (-atan2(c, d) * 180 / 3.14) - 170;
 			zombie1.set_spr_zombie_rotation(angle2);
-		
+
+			float cantx, canty;
+			
+			/*
+			///zombie sigue surv
+			if (zombie1.get_posicion().x < pj.get_posicion().x)
+				cantx = (pj.get_posicion().x - zombie1.get_posicion().x);
+			else 
+				cantx = (zombie1.get_posicion().x - pj.get_posicion().x);
+
+			if(zombie1.get_posicion().y < pj.get_posicion().y)
+				canty = (zombie1.get_posicion().y - pj.get_posicion().y);
+			else
+				canty = (pj.get_posicion().y - zombie1.get_posicion().y);
+			*/		
+			//zombie1.mover({ cantx, canty });
+			
+
 			///ventana1->draw(spr_intro1);
 
 
@@ -76,8 +93,6 @@ void juego::gameloop(Vector2f resolucion)
 			ventana1->draw(zombie1.get_spr_zombie());
 
 			ventana1->draw(spr_mira);
-			
-			
 			
 			
 			//bala1->actualizar(tiempo2);
@@ -105,7 +120,7 @@ void juego::gameloop(Vector2f resolucion)
 void juego::procesar_colision(Vector2f resolucion) 
 {/*
 	//Colision ventana sprite survivor
-			//Colision izquierda
+	//Colision izquierda
 	if (spr_survivor.getPosition().x <= 33.f) {
 		spr_survivor.setPosition(33.f, spr_survivor.getPosition().y);
 	}

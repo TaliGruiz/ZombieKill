@@ -11,4 +11,6 @@ C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(15,50): warning C4244
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(15,50): warning C4244:         ]
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,40): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(64,41): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(67,17): warning C4101:  'canty': unreferenced local variable
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(67,10): warning C4101:  'cantx': unreferenced local variable
   Zombie Kill.vcxproj -> C:\Users\kryat\Desktop\proyecto juego\ZombieKill\Debug\Zombie Kill.exe
