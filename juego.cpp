@@ -8,7 +8,10 @@ float angle, angle2, a, b, c, d;
 Time delay = seconds(3);
 zombie zombie1({ 200,300 }, 1, 20, 100);
 survivor pj ( { 0,0 } ,1 ,1 );
-
+RectangleShape borde1(Vector2f(800, 1));
+RectangleShape borde2(Vector2f(6800, 1));
+RectangleShape borde3(Vector2f(1, 600));
+RectangleShape borde4(Vector2f(1, 600));
 juego::juego(Vector2f resolucion, String titulo)
 {
 	bool flag = false;
@@ -66,10 +69,21 @@ void juego::gameloop(Vector2f resolucion)
 
 			float cantx, canty;
 			
+			// angle (in radians) between monster and player
+			float angle3 = atan2(pj.get_posicion().y - zombie1.get_posicion().y, pj.get_posicion().x - zombie1.get_posicion().x);
+			// monster.speed is the amount of pixels to move
+			// If this doesn't work, invert cos for x and sin for y
+			float ab= sin(angle) * 1;
+			float cd= cos(angle) * 1;
+			zombie1.update(ab, cd);
+			
+
 			/*
 			///zombie sigue surv
 			if (zombie1.get_posicion().x < pj.get_posicion().x)
-				cantx = (pj.get_posicion().x - zombie1.get_posicion().x);
+			{
+				cantx = (pj.get_posicion().x - zombie1.get_posicion().x); 
+			}
 			else 
 				cantx = (zombie1.get_posicion().x - pj.get_posicion().x);
 
@@ -88,12 +102,28 @@ void juego::gameloop(Vector2f resolucion)
 
 			ventana1->draw(pj.get_spr_survivordisparo());
 			
-			ventana1->draw(pj.get_spr_survivor());
+			//ventana1->draw(pj.get_spr_survivor());
 			
 			ventana1->draw(zombie1.get_spr_zombie());
 
+
 			ventana1->draw(spr_mira);
 			
+			ventana1->draw(borde1); ventana1->draw(borde2); ventana1->draw(borde3); ventana1->draw(borde4);
+			borde1.setPosition(Vector2f(0, 0));
+			borde2.setPosition(Vector2f(0, 600));
+			borde3.setPosition(Vector2f(800, 0));
+			borde4.setPosition(Vector2f(800, 600));
+			borde1.setFillColor(Color(255,255,255,0));
+			borde2.setFillColor(Color(255, 255, 255, 0));
+			borde3.setFillColor(Color(255, 255, 255, 0));
+			borde4.setFillColor(Color(255, 255, 255, 0));
+
+			if(Collision::PixelPerfectTest(pj.get_spr_survivor(), zombie1.get_spr_zombie()))
+			{
+				cout << "colision" << endl;
+			}
+			else { cout << "no colision" << endl; }
 			
 			//bala1->actualizar(tiempo2);
 			//ventana1->draw(bala1->get_sprite());
@@ -118,7 +148,7 @@ void juego::gameloop(Vector2f resolucion)
 }
 
 void juego::procesar_colision(Vector2f resolucion) 
-{/*
+{	/*
 	//Colision ventana sprite survivor
 	//Colision izquierda
 	if (spr_survivor.getPosition().x <= 33.f) {

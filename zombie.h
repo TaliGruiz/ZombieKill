@@ -1,6 +1,7 @@
 #pragma once
 #include "juego.h"
- 
+#include <math.h>
+#include <dos.h>
 
 class zombie
 {
@@ -29,6 +30,16 @@ public:
 	void set_spr_zombie_posicion(Vector2f);
 	void rotar(float);
 
+	//zombie sigue survivor
+	void update(float ab, float cd)
+	{
+		float speed = 0.5;
+		velocidad.x = +speed;
+		velocidad.y = -speed,
+		posicion.x += ab;
+		posicion.y += cd;
+		spr_zombie.move(velocidad.x, velocidad.y);
+	}
 private:
 	Texture text_zombie;
 	Sprite spr_zombie;

@@ -3,6 +3,7 @@
 using namespace std;
 using namespace sf;
 
+
 void survivor::set_spr_survivor()
 {
 	text_survivor.loadFromFile("imagenes/survivor2.png");
@@ -33,12 +34,10 @@ void survivor::update(bool jugadorUp, bool jugadorDown, bool jugadorRight, bool 
 	float speed = 3;
 
 	if (jugadorRight) {
-		jugadorRight = true;
 		velocidad.x = speed;
 	}
 	if (jugadorLeft) {
 		velocidad.x = -speed;
-		jugadorRight = false;
 	}
 	if (jugadorDown) {
 		velocidad.y = speed;

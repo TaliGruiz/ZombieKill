@@ -6,7 +6,7 @@
 #include "bala.h"
 #include "zombie.h"
 #include "survivor.h"
-
+#include "Collision.h"
 using namespace sf;
 
 class juego

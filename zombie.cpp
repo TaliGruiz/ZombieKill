@@ -8,6 +8,7 @@ void zombie::set_spr_zombie()
 {
 	text_zombie.loadFromFile("imagenes/newzombie.png");
 	spr_zombie.setTexture(text_zombie);
+	spr_zombie.setOrigin(22.5, 20);
 }
 void zombie::set_str(float _str) { str = _str; }
 void zombie::set_life(float _life) { life = _life; }
