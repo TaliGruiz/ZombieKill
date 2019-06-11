@@ -1,19 +1,20 @@
 ﻿  juego.cpp
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(18,64): warning C4244:  'argument': conversion from 'T' to 'unsigned int', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(18,64): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(18,64): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(18,64): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(18,64): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(18,50): warning C4244:  'argument': conversion from 'T' to 'unsigned int', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(18,50): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(18,50): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(18,50): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(18,50): warning C4244:         ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,40): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(67,41): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(70,17): warning C4101:  'canty': unreferenced local variable
+E:\GitHub\ZombieKill\juego.cpp(18,64): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
+E:\GitHub\ZombieKill\juego.cpp(18,64): warning C4244:         with
+E:\GitHub\ZombieKill\juego.cpp(18,64): warning C4244:         [
+E:\GitHub\ZombieKill\juego.cpp(18,64): warning C4244:             T=float
+E:\GitHub\ZombieKill\juego.cpp(18,64): warning C4244:         ]
+E:\GitHub\ZombieKill\juego.cpp(18,50): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
+E:\GitHub\ZombieKill\juego.cpp(18,50): warning C4244:         with
+E:\GitHub\ZombieKill\juego.cpp(18,50): warning C4244:         [
+E:\GitHub\ZombieKill\juego.cpp(18,50): warning C4244:             T=float
+E:\GitHub\ZombieKill\juego.cpp(18,50): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,42): warning C4244:  '=': conversión de 'double' a 'float'; posible pérdida de datos
+  main.cpp
+E:\GitHub\ZombieKill\juego.cpp(67,43): warning C4244:  '=': conversión de 'double' a 'float'; posible pérdida de datos
   survivor.cpp
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(70,10): warning C4101:  'cantx': unreferenced local variable
-  Generating Code...
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\survivor.cpp(30,11): warning C4244:  'argument': conversion from 'float' to 'int', possible loss of data
-  Zombie Kill.vcxproj -> C:\Users\kryat\Desktop\proyecto juego\ZombieKill\Debug\Zombie Kill.exe
+E:\GitHub\ZombieKill\main.cpp(6,12): warning C4244:  'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  zombie.cpp
+  Generando código...
+E:\GitHub\ZombieKill\survivor.cpp(29,11): warning C4244:  'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  Zombie Kill.vcxproj -> E:\GitHub\ZombieKill\Debug\Zombie Kill.exe

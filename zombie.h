@@ -31,15 +31,16 @@ public:
 	void rotar(float);
 
 	//zombie sigue survivor
-	void update(float ab, float cd)
+	void update(Vector2f pospj, float angle2, float time)
 	{
-		float speed = 0.5;
-		velocidad.x = +speed;
-		velocidad.y = -speed,
-		posicion.x += ab;
-		posicion.y += cd;
-		spr_zombie.move(velocidad.x, velocidad.y);
+		float speed = 1;
+
+		if (posicion != pospj)
+		{
+			spr_zombie.move(speed * cos(angle2), speed * sin(angle2));
+		}
 	}
+
 private:
 	Texture text_zombie;
 	Sprite spr_zombie;

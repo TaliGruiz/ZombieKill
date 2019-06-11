@@ -58,42 +58,14 @@ void juego::gameloop(Vector2f resolucion)
 			///survivor sigue al mouse
 			a = pj.get_posicion().x - Mouse::getPosition(*ventana1).x;
 			b = pj.get_posicion().y - Mouse::getPosition(*ventana1).y;
-			angle = (-atan2(a, b) * 180 / 3.14) - 97;
+			angle = (-atan2(a, b) * 180.f / 3.14) - 97.f;
 			pj.rotar(angle);
 			
 			///zombie mira a survivor
 			c = zombie1.get_posicion().x - pj.get_posicion().x;
 			d = zombie1.get_posicion().y - pj.get_posicion().y;
-			angle2 = (-atan2(c, d) * 180 / 3.14) - 170;
-			zombie1.set_spr_zombie_rotation(angle2);
-
-			float cantx, canty;
-			
-			// angle (in radians) between monster and player
-			float angle3 = atan2(pj.get_posicion().y - zombie1.get_posicion().y, pj.get_posicion().x - zombie1.get_posicion().x);
-			// monster.speed is the amount of pixels to move
-			// If this doesn't work, invert cos for x and sin for y
-			float ab= sin(angle) * 1;
-			float cd= cos(angle) * 1;
-			zombie1.update(ab, cd);
-			
-
-			/*
-			///zombie sigue surv
-			if (zombie1.get_posicion().x < pj.get_posicion().x)
-			{
-				cantx = (pj.get_posicion().x - zombie1.get_posicion().x); 
-			}
-			else 
-				cantx = (zombie1.get_posicion().x - pj.get_posicion().x);
-
-			if(zombie1.get_posicion().y < pj.get_posicion().y)
-				canty = (zombie1.get_posicion().y - pj.get_posicion().y);
-			else
-				canty = (pj.get_posicion().y - zombie1.get_posicion().y);
-			*/		
-			//zombie1.mover({ cantx, canty });
-			
+			angle2 = (-atan2(c, d) * 180.f / 3.14) - 170.f;
+			zombie1.rotar(angle2);
 
 			///ventana1->draw(spr_intro1);
 
@@ -138,6 +110,8 @@ void juego::gameloop(Vector2f resolucion)
 			if (!Keyboard::isKeyPressed(Keyboard::A)) { jugadorLeft = false; }
 			pj.update(jugadorUp, jugadorDown, jugadorRight, jugadorLeft);
 			pj.mover(Vector2f(pj.get_velocidad().x, pj.get_velocidad().y));
+			zombie1.update(pj.get_posicion(), angle2, tiempo2);
+			
 			
 			///procesar colision
 			procesar_colision(resolucion);
