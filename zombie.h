@@ -2,6 +2,7 @@
 #include "juego.h"
 #include <math.h>
 #include <dos.h>
+#include "survivor.h"
 
 class zombie
 {
@@ -31,22 +32,7 @@ public:
 	void rotar(float);
 
 	//zombie sigue survivor
-	void update(Vector2f pospj) {
-
-		float speed = 1;
-
-		float xDistance = pospj.x - posicion.x;
-		float yDistance = pospj.y - posicion.y;
-		float length = sqrt((xDistance * xDistance) + (yDistance * yDistance));
-		
-		velocidad.y = speed * (yDistance / length);
-		velocidad.x = speed * (xDistance / length);
-
-		if (length != 0) {
-			posicion.y += velocidad.y;
-			posicion.x += velocidad.x;
-		}
-	}
+	void update(Vector2f);
 
 private:
 	Texture text_zombie;

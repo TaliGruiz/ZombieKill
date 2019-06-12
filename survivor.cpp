@@ -113,3 +113,28 @@ void survivor::colisionVentana(Vector2f resolucion) {
 		posicion.y = (resolucion.y + 39.f) - spr_survivor.getGlobalBounds().height;
 	}
 }
+
+void survivor::movimiento_teclado()
+{
+	bool jugadorUp, jugadorDown, jugadorRight, jugadorLeft;
+
+	if (Keyboard::isKeyPressed(Keyboard::W)) { jugadorUp = true; }
+	if (!Keyboard::isKeyPressed(Keyboard::W)) { jugadorUp = false; }
+	if (Keyboard::isKeyPressed(Keyboard::S)) { jugadorDown = true; }
+	if (!Keyboard::isKeyPressed(Keyboard::S)) { jugadorDown = false; }
+	if (Keyboard::isKeyPressed(Keyboard::D)) { jugadorRight = true; }
+	if (!Keyboard::isKeyPressed(Keyboard::D)) { jugadorRight = false; }
+	if (Keyboard::isKeyPressed(Keyboard::A)) { jugadorLeft = true; }
+	if (!Keyboard::isKeyPressed(Keyboard::A)) { jugadorLeft = false; }
+	update(jugadorUp, jugadorDown, jugadorRight, jugadorLeft);
+	mover(Vector2f(velocidad.x, velocidad.y));
+}
+
+void survivor::mirarAlMouse(Window *ventana1)
+{
+	float a, b,angle;
+	a = get_posicion().x - Mouse::getPosition(*ventana1).x;
+	b = get_posicion().y - Mouse::getPosition(*ventana1).y;
+	angle = (-atan2(a, b) * 180.f / 3.14) - 97.f;
+	rotar(angle);
+}

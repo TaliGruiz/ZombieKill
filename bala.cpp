@@ -1,28 +1,12 @@
 #include "bala.h"
-/*
-bala::bala(Vector2f pos_inicial, Vector2f vel) 
+
+bullet::bullet(float _mulvel, float _mulace, float _str)
 {
-
-
-	txt_bala = new Texture;
-	txt_bala->loadFromFile("bala.png");
-
-	spr_bala = new Sprite(*txt_bala);
-	spr_bala->setPosition(pos_inicial);
-
-	velocidad = vel;
-
-	aceleracion.x = 0;
-	aceleracion.y = 9.81;
-
+	text_bala.loadFromFile("imagenes/bala.png");
+	spr_bala.setTexture(text_bala);
+	velocidad.x = 1 * _mulvel;
+	velocidad.y = 1 * _mulvel;
+	set_aceleracion({ 1 * _mulace, 1 * _mulace });
+	set_velocidad({ 1 * _mulvel, 1 * _mulvel });
+	set_str(_str);
 }
-
-void bala::actualizar(float delta_t)
-{
-	delta_t /= 10;
-	velocidad.x += aceleracion.x * delta_t;
-	velocidad.y += aceleracion.y * delta_t;
-
-	spr_bala->setPosition(spr_bala->getPosition().x + velocidad.x * delta_t, spr_bala->getPosition().y + velocidad.y * delta_t);
-
-}*/

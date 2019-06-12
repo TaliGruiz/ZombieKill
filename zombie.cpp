@@ -28,6 +28,7 @@ zombie::zombie(Vector2f _pos, float MulVel, float _str, float _life)
 	velocidad.x = 1 * MulVel;
 	velocidad.y = 1 * MulVel;
 	spr_zombie.setPosition(posicion);
+	
 }
 
 //////////// ****** Movimientos ****** ////////////
@@ -35,3 +36,20 @@ zombie::zombie(Vector2f _pos, float MulVel, float _str, float _life)
 void zombie::mover(Vector2f _mov) { spr_zombie.move(_mov); }
 
 void zombie::rotar(float _angle) { spr_zombie.setRotation(_angle); }
+
+void zombie::update(Vector2f pospj) {
+
+	float speed = 1;
+
+	float xDistance = pospj.x - posicion.x;
+	float yDistance = pospj.y - posicion.y;
+	float length = sqrt((xDistance * xDistance) + (yDistance * yDistance));
+
+	velocidad.y = speed * (yDistance / length);
+	velocidad.x = speed * (xDistance / length);
+
+	if (length != 0) {
+		posicion.y += velocidad.y;
+		posicion.x += velocidad.x;
+	}
+}

@@ -30,13 +30,11 @@ public:
 	//MOVIMIENTOS
 	
 	void update(bool, bool, bool, bool);
-	
 	void mover(Vector2f);
-
 	void rotar(float);
-
 	void colisionVentana(Vector2f);
-
+	void movimiento_teclado();
+	void mirarAlMouse(Window *);
 	//COLOR
 	void color_aprietodisparo() 
 	{
