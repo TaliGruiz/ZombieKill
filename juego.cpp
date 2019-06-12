@@ -1,14 +1,14 @@
 #include "juego.h"
 #include <iostream>
 #include <dos.h>
+#include<vector>
 using namespace std;
 
-bool jugadorUp, jugadorDown, jugadorRight, jugadorLeft;
-float angle, angle2, a, b, c, d;
+float angle2, c, d;
 Time delay = seconds(3);
 survivor pj({ 0,0 }, 1, 1), & ref = pj;
 zombie zombie1({ 200, 300 }, 1, 20, 100);
-
+Vector2f pjCenter, mousePosWindow, aimDir, aimDirNorm;
 
 
 juego::juego(Vector2f resolucion, String titulo)
@@ -56,46 +56,68 @@ void juego::gameloop(Vector2f resolucion)
 
 			ventana1->draw(spr_fondo);
 
-			//dibujo pj y mira mouse
+			///dibujo pj y mira al mouse
 			ventana1->draw(pj.get_spr_survivordisparo());
 			ventana1->draw(pj.get_spr_survivor());
 			pj.mirarAlMouse(ventana1);
 			//////******//////
 
-
+			///Dibujo Zombie
 			ventana1->draw(zombie1.get_spr_zombie());
 
-
+			///Dibujo el Crosshair
 			ventana1->draw(spr_mira);
 
-			//bala1->actualizar(tiempo2);
-			//ventana1->draw(bala1->get_sprite());
-			ventana1->display();
 
-
-
-			
 			///zombie mira a survivor
 			c = zombie1.get_posicion().x - pj.get_posicion().x;
 			d = zombie1.get_posicion().y - pj.get_posicion().y;
 			angle2 = (-atan2(c, d) * 180.f / 3.14) - 170.f;
 			zombie1.rotar(angle2);
 			
-
-
-
-			///procesar colision
+			///procesar colision pj-ventana
 			pj.colisionVentana(resolucion);
 
 			///MOVIMIENTO SURVIVOR CON TECLADO
 			pj.movimiento_teclado();
 
-
-			
 			///Zombie sigue al survivor
 			zombie1.update(pj.get_posicion());
 			zombie1.mover(Vector2f(zombie1.get_velocidad().x, zombie1.get_velocidad().y));
 			
+			bullet b1;
+			vector<bullet> balas;
+
+			balas.push_back(bullet(b1));
+			
+
+			for (size_t i = 0; i < balas.size(); i++) 
+			{
+				ventana1 -> draw(balas[i].shape);
+			}
+
+			/////*****/////*****/////
+			//update bala
+			pjCenter = pj.get_posicion();
+			mousePosWindow = Vector2f(Mouse::getPosition(*ventana1));
+			aimDir = mousePosWindow - pjCenter;
+			aimDirNorm = aimDir / sqrt(pow(aimDir.x, 2) + pow(aimDir.y, 2));
+
+			if (Mouse::isButtonPressed(Mouse::Left))
+			{
+				b1.shape.setPosition(pjCenter);
+				b1.currVelocity = aimDirNorm * b1.maxSpeed;
+
+				balas.push_back(bullet(b1));
+			}
+
+			for (size_t i = 0; i < balas.size(); i++) 
+			{
+				balas[i].shape.move(balas[i].currVelocity);
+			}
+
+			ventana1->display();
+
 		}
 	}
 
@@ -181,6 +203,10 @@ void juego::procesar_eventos()
 					pj.color_aprietodisparo();
 					sonidoDisparo.play();
 					
+					
+
+
+
 					if (Mouse::isButtonPressed(Mouse::Left)) {
 						sonidoDisparo.setLoop(true);
 						sonidoDisparo.setPitch(7);
@@ -206,4 +232,3 @@ void juego::procesar_eventos()
 	}
 
 }
-
