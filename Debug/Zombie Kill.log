@@ -1,4 +1,6 @@
-﻿  juego.cpp
+﻿  bala.cpp
+  juego.cpp
+E:\GitHub\ZombieKill\survivor.h(14,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
 E:\GitHub\ZombieKill\juego.cpp(18,64): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
 E:\GitHub\ZombieKill\juego.cpp(18,64): warning C4244:         with
 E:\GitHub\ZombieKill\juego.cpp(18,64): warning C4244:         [
@@ -11,10 +13,13 @@ E:\GitHub\ZombieKill\juego.cpp(18,50): warning C4244:             T=float
 E:\GitHub\ZombieKill\juego.cpp(18,50): warning C4244:         ]
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,42): warning C4244:  '=': conversión de 'double' a 'float'; posible pérdida de datos
   main.cpp
-E:\GitHub\ZombieKill\juego.cpp(67,43): warning C4244:  '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\GitHub\ZombieKill\juego.cpp(91,43): warning C4244:  '=': conversión de 'double' a 'float'; posible pérdida de datos
+E:\GitHub\ZombieKill\survivor.h(14,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
   survivor.cpp
 E:\GitHub\ZombieKill\main.cpp(6,12): warning C4244:  'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   zombie.cpp
+E:\GitHub\ZombieKill\survivor.h(14,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
   Generando código...
-E:\GitHub\ZombieKill\survivor.cpp(29,11): warning C4244:  'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+E:\GitHub\ZombieKill\survivor.h(14,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+  LINK : no se encontró E:\GitHub\ZombieKill\Debug\Zombie Kill.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
   Zombie Kill.vcxproj -> E:\GitHub\ZombieKill\Debug\Zombie Kill.exe

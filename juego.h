@@ -14,14 +14,13 @@ class juego
 public:
 	juego(Vector2f resolucion, String titulo);
 	void gameloop(Vector2f);
-	void cargar_graficos();
+	void cargar_graficos(Vector2f);
 	void cargar_sonidos();
 	void procesar_eventos();
 	//void procesar_eventos_joystick();
 	void cargar_fuentes();
 	void cargar_intro();
 	void cargar_menu();
-	void procesar_colision(Vector2f);
 private:
 
 	RenderWindow* ventana1;

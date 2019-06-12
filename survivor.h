@@ -6,11 +6,12 @@ private:
 	Texture text_survivor, text_survivordisparo;;
 	Sprite spr_survivor, spr_survivordisparo;
 	int life;
-	Vector2f posicion, velocidad;
+	Vector2f posicion;
+	Vector2f velocidad;
 
 public:
 	//set
-	void set_life(int _life) { life = _life; }
+	void set_life(float _life) { life = _life; }
 	void set_velocidad(Vector2f _vel) { velocidad = _vel; }
 	void set_posicion(Vector2f _pos) { posicion = _pos; }
 	void set_spr_survivor();
@@ -33,6 +34,8 @@ public:
 	void mover(Vector2f);
 
 	void rotar(float);
+
+	void colisionVentana(Vector2f);
 
 	//COLOR
 	void color_aprietodisparo() 
