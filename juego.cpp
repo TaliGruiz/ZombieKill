@@ -3,7 +3,30 @@
 #include <dos.h>
 #include<vector>
 using namespace std;
+/*
+//////////////////////////////////////////////////
+1) Barras de vida.
+2) Vector balas.
+- Vector zombies.
+- Tres tipos de ranking
+Poss	Nombre	Oleada	Kills	Tiempo	Disparos	Aciertos
+#1		Lucas	20		100		20:00	500			50
+#2		Jorge	19		90		18:00
+#3		Gonzalo	18		80		16:00
 
+- Oleadas.
+- Colisiones en genaral.
+- Puntaje en pantalla, ronda pantalla.
+- Daño de zombie y jugador.
+- Menu completo
+- Pantalla de game over(Agregar nuevo score).
+- Mejora del arma al final de cada oleada.
+- Pausa.
+- Nuevo fondo (Podria llegar a cambiar por oleadas.)
+-
+/////////////////////////////////////////////////
+
+*/
 float angle2, c, d;
 Time delay = seconds(3);
 survivor pj({ 0,0 }, 1, 1), & ref = pj;
