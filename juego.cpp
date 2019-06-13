@@ -110,11 +110,13 @@ void juego::gameloop(Vector2f resolucion)
 
 			balas.push_back(bullet(b1));
 			
-
+			/*
 			for (size_t i = 0; i < balas.size(); i++) 
 			{
 				ventana1 -> draw(balas[i].shape);
 			}
+			*/
+
 
 			/////*****/////*****/////
 			//update bala
@@ -208,7 +210,7 @@ void juego::cargar_sonidos()
 	{
 		cout << "No se pudo cargar el efecto cancion." << endl;
 	}
-	cancion_juego.setVolume(20);
+	cancion_juego.setVolume(40);
 
 }
 
@@ -237,15 +239,13 @@ void juego::procesar_eventos()
 					pj.color_aprietodisparo();
 					sonidoDisparo.play();
 				
-					
-
 
 
 					if (Mouse::isButtonPressed(Mouse::Left)) {
 						sonidoDisparo.setLoop(true);
 						sonidoDisparo.setPitch(7);
 						sonidoDisparo.play();
-						sonidoDisparo.setVolume(3);
+						sonidoDisparo.setVolume(50);
 					}
 				break;
 			}
