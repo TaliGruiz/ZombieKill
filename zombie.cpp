@@ -40,13 +40,13 @@ void zombie::rotar(float _angle) { spr_zombie.setRotation(_angle); }
 void zombie::update(Vector2f pospj) {
 
 	float speed = 1;
+	Vector2f distance;
+	distance.x = pospj.x - posicion.x;
+	distance.y = pospj.y - posicion.y;
+	float length = sqrt((distance.x * distance.x) + (distance.y * distance.y));
 
-	float xDistance = pospj.x - posicion.x;
-	float yDistance = pospj.y - posicion.y;
-	float length = sqrt((xDistance * xDistance) + (yDistance * yDistance));
-
-	velocidad.y = speed * (yDistance / length);
-	velocidad.x = speed * (xDistance / length);
+	velocidad.y = speed * (distance.y / length);
+	velocidad.x = speed * (distance.x / length);
 
 	if (length != 0) {
 		posicion.y += velocidad.y;

@@ -9,6 +9,8 @@ Time delay = seconds(3);
 survivor pj({ 0,0 }, 1, 1), & ref = pj;
 zombie zombie1({ 200, 300 }, 1, 20, 100);
 Vector2f pjCenter, mousePosWindow, aimDir, aimDirNorm;
+bullet b1;
+
 
 
 juego::juego(Vector2f resolucion, String titulo)
@@ -16,6 +18,7 @@ juego::juego(Vector2f resolucion, String titulo)
 	bool flag = false;
 	ventana1 = new RenderWindow(VideoMode(resolucion.x, resolucion.y), titulo);
 	ventana1->setFramerateLimit(60);
+	
 
 
 	game_over = false;
@@ -73,9 +76,9 @@ void juego::gameloop(Vector2f resolucion)
 			procesar_eventos();
 
 			///ventana1->draw(spr_intro1);
-
+		
 			ventana1->draw(spr_fondo);
-
+			ventana1->draw(b1.shape);
 			///dibujo pj y mira al mouse
 			ventana1->draw(pj.get_spr_survivordisparo());
 			ventana1->draw(pj.get_spr_survivor());
@@ -102,44 +105,20 @@ void juego::gameloop(Vector2f resolucion)
 			pj.movimiento_teclado();
 
 			///Zombie sigue al survivor
-			zombie1.update(pj.get_posicion());
+			zombie1.update(pj.get_spr_survivor().getPosition());
 			zombie1.mover(Vector2f(zombie1.get_velocidad().x, zombie1.get_velocidad().y));
 			
-			bullet b1;
-			vector<bullet> balas;
-
-			balas.push_back(bullet(b1));
+			///MOVIMIENTO BALA
+			b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
 			
-			/*
-			for (size_t i = 0; i < balas.size(); i++) 
-			{
-				ventana1 -> draw(balas[i].shape);
-			}
-			*/
-
-
-			/////*****/////*****/////
+			
+			/////////======================////////////////////
+			
 			//update bala
-			pjCenter = pj.get_posicion();
-			mousePosWindow = Vector2f(Mouse::getPosition(*ventana1));
-			aimDir = mousePosWindow - pjCenter;
-			aimDirNorm = aimDir / sqrt(pow(aimDir.x, 2) + pow(aimDir.y, 2));
-
-			if (Mouse::isButtonPressed(Mouse::Left))
-			{
-				b1.shape.setPosition(pjCenter);
-				b1.currVelocity = aimDirNorm * b1.maxSpeed;
-
-				balas.push_back(bullet(b1));
-			}
-
-			for (size_t i = 0; i < balas.size(); i++) 
-			{
-				balas[i].shape.move(balas[i].currVelocity);
-			}
-
+			
 			ventana1->display();
-
+			
+			//////////////////////////////////////////////////////////////
 		}
 	}
 
@@ -246,6 +225,8 @@ void juego::procesar_eventos()
 						sonidoDisparo.setPitch(7);
 						sonidoDisparo.play();
 						sonidoDisparo.setVolume(50);
+						b1.shape.setFillColor(Color(0, 0, 0, 255));
+						b1.update(pj.get_posicion(),Mouse::getPosition(*ventana1));
 					}
 				break;
 			}

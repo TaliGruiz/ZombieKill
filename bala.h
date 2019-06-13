@@ -17,7 +17,10 @@ private:
 	Vector2f currVelocity;
 	float maxSpeed;
 	*/
+	Vector2f velocidad, posicion;
+
 public:
+	Texture text_bala;
 	CircleShape shape;
 	Vector2f currVelocity;
 	float maxSpeed;
@@ -38,12 +41,19 @@ public:
 	Vector2f get_spr_bala_posicion() { return spr_bala.getPosition(); }
 	*/
 	//constructor
-	bullet(float, float, float);
-
+	//bullet(float, float, float);
+	
 	bullet(float radius = 3.f)
 		: currVelocity(0.f,0.f), maxSpeed(15.f)
 	{
+		text_bala.loadFromFile("imagenes/bala.png");
 		this->shape.setRadius(radius);
-		this->shape.setFillColor(Color::Red);
+		shape.setFillColor(Color(0, 0, 0, 0));
 	}
+
+	void update(Vector2f, Vector2i);
+	
+	void mover(Vector2f);
+
+	Vector2f get_velocidad() { return velocidad; }
 };

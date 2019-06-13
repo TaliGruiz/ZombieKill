@@ -11,3 +11,25 @@ bullet::bullet(float _mulvel, float _mulace, float _str)
 	set_str(_str);
 }
 */
+
+void bullet::update(Vector2f pospj,Vector2i posmouse) {
+
+	float speed = 10;
+	Vector2f distance;
+	distance.x = posmouse.x - pospj.x;
+	distance.y = posmouse.y - pospj.y;
+	float length = sqrt((distance.x * distance.x) + (distance.y * distance.y));
+
+	velocidad.y = speed * (distance.y / length);
+	velocidad.x = speed * (distance.x / length);
+		
+	shape.setPosition(pospj);
+
+	posicion.y += velocidad.y;
+	posicion.x += velocidad.x;
+}
+
+void bullet::mover(Vector2f _mov)
+{
+	shape.move(_mov);
+}
