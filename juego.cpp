@@ -17,6 +17,7 @@ juego::juego(Vector2f resolucion, String titulo)
 	ventana1 = new RenderWindow(VideoMode(resolucion.x, resolucion.y), titulo);
 	ventana1->setFramerateLimit(60);
 
+
 	game_over = false;
 	fps = 1 / 60.f;
 
@@ -28,13 +29,32 @@ juego::juego(Vector2f resolucion, String titulo)
 
 	///bala1 = new bala();
 
-	
+
 	ventana1->setMouseCursorVisible(false);
 
 	cargar_graficos(resolucion);
 	cargar_sonidos();
 	cargar_fuentes();
-	gameloop(resolucion);
+	cancion_menu.play();
+	while(!(Keyboard::isKeyPressed(Keyboard::Enter))){
+	ventana1->clear();
+
+	ventana1->draw(spr_intro1);
+	ventana1->draw(titulo_intro);
+	
+	ventana1->draw(titulo_enter);
+
+	ventana1->display();
+	
+	if (Keyboard::isKeyPressed(Keyboard::Enter))
+	{
+		cancion_menu.stop();
+		cancion_juego.play();
+		cancion_juego.setLoop(true);
+		gameloop(resolucion);
+		
+	}
+	}
 }
 
 void juego::gameloop(Vector2f resolucion)
@@ -131,13 +151,21 @@ void juego::cargar_fuentes()
 	}
 	else { cout << "Se cargo la fuente" << endl; }
 	
-	titulo.setString("ZOMBIE \n \t KILLA");
-	titulo.setFont(zombiefont);
-	titulo.setPosition(Vector2f(330, 450));
-	titulo.setFillColor(Color::Color(255, 0, 0, 170));
-	titulo.setCharacterSize(50);
-	titulo.setOutlineColor(Color::Color(0, 0, 0, 255));
-	titulo.setOutlineThickness(1.5);
+	titulo_intro.setString("ZOMBIE \n \t KILLA");
+	titulo_intro.setFont(zombiefont);
+	titulo_intro.setPosition(Vector2f(269, 97));
+	titulo_intro.setFillColor(Color::Color(255, 0, 0, 170));
+	titulo_intro.setCharacterSize(100);
+	titulo_intro.setOutlineColor(Color::Color(0, 0, 0, 255));
+	titulo_intro.setOutlineThickness(1.5);
+
+	titulo_enter.setString("Press \n Enter");
+	titulo_enter.setFont(zombiefont);
+	titulo_enter.setPosition(Vector2f(350, 450));
+	titulo_enter.setFillColor(Color::Color(255, 0, 0, 150));
+	titulo_enter.setCharacterSize(50);
+	titulo_enter.setOutlineColor(Color::Color(0, 0, 0, 255));
+	titulo_enter.setOutlineThickness(1.5);
 	
 }
 
@@ -170,11 +198,17 @@ void juego::cargar_sonidos()
 	sonidoDisparo.setBuffer(BuffDisparo);
 	
 
-	if (!cancion.openFromFile("sonidos/cancion.wav"))
+	if (!cancion_menu.openFromFile("sonidos/cancion.wav"))
 	{
 		cout << "No se pudo cargar el efecto cancion." << endl;
 	}
-	cancion.setVolume(40);
+	cancion_menu.setVolume(50);
+
+	if (!cancion_juego.openFromFile("sonidos/tormenta.ogg"))
+	{
+		cout << "No se pudo cargar el efecto cancion." << endl;
+	}
+	cancion_juego.setVolume(20);
 
 }
 
@@ -202,7 +236,7 @@ void juego::procesar_eventos()
 				case Mouse::Left:
 					pj.color_aprietodisparo();
 					sonidoDisparo.play();
-					
+				
 					
 
 

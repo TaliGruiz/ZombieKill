@@ -46,8 +46,8 @@ private:
 	///Sounds
 	SoundBuffer BuffDisparo;
 	Sound sonidoDisparo;
-	Music cancion;
-
+	Music cancion_menu;
+	Music cancion_juego;
 	//intro
 	Texture text_intro1;
 	Sprite spr_intro1;
@@ -58,7 +58,8 @@ private:
 
 	///fuentes
 	Font zombiefont;
-	Text titulo;
+	Text titulo_intro;
+	Text titulo_enter;
 
 	///Event
 	Event* eventos;
