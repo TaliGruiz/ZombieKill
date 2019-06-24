@@ -14,7 +14,7 @@ bullet::bullet(float _mulvel, float _mulace, float _str)
 
 void bullet::update(Vector2f pospj,Vector2i posmouse) {
 
-	float speed = 65;
+	float speed = 50;
 	Vector2f distance;
 	distance.x = posmouse.x - pospj.x;
 	distance.y = posmouse.y - pospj.y;
