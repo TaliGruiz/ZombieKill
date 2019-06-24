@@ -34,8 +34,7 @@ survivor pj({ 0,0 }, 1, 1), & ref = pj;
 zombie zombie1({ 200, 300 }, 1, 20, 100);
 Vector2f pjCenter, mousePosWindow, aimDir, aimDirNorm;
 bullet b1;
-int contBalas = 0;
-bullet* vecBalas = new bullet[30];
+
 
 
 juego::juego(Vector2f resolucion, String titulo)
@@ -43,9 +42,12 @@ juego::juego(Vector2f resolucion, String titulo)
 	bool flag = false;
 	ventana1 = new RenderWindow(VideoMode(resolucion.x, resolucion.y), titulo);
 	ventana1->setFramerateLimit(60);
+	
+
 
 	game_over = false;
 	fps = 1 / 60.f;
+
 
 	eventos = new Event;
 	reloj1 = new Clock();
@@ -100,14 +102,7 @@ void juego::gameloop(Vector2f resolucion)
 			///ventana1->draw(spr_intro1);
 
 			ventana1->draw(spr_fondo);
-			//ventana1->draw(b1.spr_bala);
-
-			if (contBalas == 30 || Keyboard::isKeyPressed(Keyboard::R)) {
-				delete(vecBalas);
-				contBalas = 0;
-				vecBalas = new bullet[30];
-			}
-
+			ventana1->draw(b1.spr_bala);
 			///dibujo pj y mira al mouse
 			ventana1->draw(pj.get_spr_survivordisparo());
 			ventana1->draw(pj.get_spr_survivor());
@@ -130,9 +125,9 @@ void juego::gameloop(Vector2f resolucion)
 			///procesar colision pj-ventana
 			pj.colisionVentana(resolucion);
 
-			/*if (Collision::CircleTest(b1.spr_bala, zombie1.get_spr_zombie())) {
+			if (Collision::CircleTest(b1.get_spr_bala(), zombie1.get_spr_zombie())) {
 				cout << "Colision pa" << endl << endl;
-			};*/
+			};
 			
 			///MOVIMIENTO SURVIVOR CON TECLADO
 			pj.movimiento_teclado();
@@ -142,8 +137,7 @@ void juego::gameloop(Vector2f resolucion)
 			zombie1.mover(Vector2f(zombie1.get_velocidad().x, zombie1.get_velocidad().y));
 			
 			///MOVIMIENTO BALA
-
-			//b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
+			b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
 			
 			
 			/////////======================////////////////////
@@ -259,14 +253,9 @@ void juego::procesar_eventos()
 						sonidoDisparo.setPitch(7);
 						sonidoDisparo.play();
 						sonidoDisparo.setVolume(50);
-						ventana1->draw(vecBalas[contBalas].spr_bala);
-						vecBalas[contBalas].spr_bala.setColor(Color(255, 255, 255, 255));
-						vecBalas[contBalas].update(pj.get_posicion(), Mouse::getPosition(*ventana1));
-						vecBalas[contBalas].mover(Vector2f(vecBalas[contBalas].get_velocidad().x, vecBalas[contBalas].get_velocidad().y));
-						contBalas++;
-						//b1.spr_bala.setColor(Color(255, 255, 255, 255));
+						b1.spr_bala.setColor(Color(255, 255, 255, 255));
 						//b1.spr_bala.setFillColor(Color(0, 0, 0, 255));
-						//b1.update(pj.get_posicion(),Mouse::getPosition(*ventana1));
+						b1.update(pj.get_posicion(),Mouse::getPosition(*ventana1));
 					}
 				break;
 			}
