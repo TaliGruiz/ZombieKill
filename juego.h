@@ -9,6 +9,8 @@
 #include "Collision.h"
 using namespace sf;
 
+
+
 class juego
 {
 public:

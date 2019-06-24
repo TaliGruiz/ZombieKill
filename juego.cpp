@@ -10,10 +10,13 @@ using namespace std;
 2) Vector balas.
 - Vector zombies.
 - Tres tipos de ranking
+
 Poss	Nombre	Oleada	Kills	Tiempo	Disparos	Aciertos
-#1		Lucas	20		100		20:00	500			50
-#2		Jorge	19		90		18:00
-#3		Gonzalo	18		80		16:00
+------------------------------------------------------------
+#1		Lucas	 20		100		20:00	500			50
+#2		Jorge	 19		90		18:00
+#3		Gonzalo	 18		80		16:00
+------------------------------------------------------------
 
 - Oleadas.
 - Colisiones en genaral.
@@ -35,7 +38,7 @@ zombie zombie1({ 200, 300 }, 1, 20, 100);
 Vector2f pjCenter, mousePosWindow, aimDir, aimDirNorm;
 bullet b1;
 bool deletebala = false;
-
+bool spr_zombie_flag = false;
 
 juego::juego(Vector2f resolucion, String titulo)
 {
@@ -116,6 +119,7 @@ void juego::gameloop(Vector2f resolucion)
 			//////******//////
 
 			///Dibujo Zombie
+			if(!spr_zombie_flag)
 			ventana1->draw(zombie1.get_spr_zombie());
 
 			///Dibujo el Crosshair
@@ -138,6 +142,7 @@ void juego::gameloop(Vector2f resolucion)
 				b1.spr_bala.setColor(Color(255, 255, 255, 0));
 				b1.set_velocidad(Vector2f(0, 0));
 				deletebala = true;
+				zombie1.set_currHp( zombie1.get_currHp() - b1.get_str() );
 			};
 			
 			///MOVIMIENTO SURVIVOR CON TECLADO
@@ -146,7 +151,11 @@ void juego::gameloop(Vector2f resolucion)
 			///Zombie sigue al survivor
 			zombie1.update(pj.get_spr_survivor().getPosition());
 			zombie1.mover(Vector2f(zombie1.get_velocidad().x, zombie1.get_velocidad().y));
-			
+			if (zombie1.get_currHp() <= 0) 
+			{
+				spr_zombie_flag = true;
+				//zombie1.eliminar();
+			}
 			///MOVIMIENTO BALA
 			b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
 			

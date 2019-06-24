@@ -1,4 +1,5 @@
 #include "zombie.h"
+#include <iostream>
 using namespace std;
 using namespace sf;
 
@@ -9,9 +10,10 @@ void zombie::set_spr_zombie()
 	text_zombie.loadFromFile("imagenes/newzombie.png");
 	spr_zombie.setTexture(text_zombie);
 	spr_zombie.setOrigin(22.5, 20);
+
 }
-void zombie::set_str(float _str) { str = _str; }
-void zombie::set_life(float _life) { life = _life; }
+void zombie::set_str(int _str) { str = _str; }
+void zombie::set_hp(int _hp) { hp = _hp; }
 void zombie::set_velocidad(Vector2f _velocidad) { velocidad = _velocidad; }
 void zombie::set_posicion(Vector2f _posicion) { posicion = _posicion; }
 void zombie::set_spr_zombie_rotation(float _ang) { spr_zombie.setRotation(_ang); }
@@ -19,11 +21,14 @@ void zombie::set_spr_zombie_posicion(Vector2f _pos) { spr_zombie.setPosition(_po
 
 //////////// ****** constructores ****** ////////////
 
-zombie::zombie(Vector2f _pos, float MulVel, float _str, float _life)
+zombie::zombie(Vector2f _pos, float MulVel, float _str, int _hp)
 {
 	set_spr_zombie();
+
 	str= _str;
-	life = _life;
+	hp = _hp;
+	
+	currHp = hp;
 	posicion = _pos;
 	velocidad.x = 1 * MulVel;
 	velocidad.y = 1 * MulVel;
@@ -52,4 +57,5 @@ void zombie::update(Vector2f pospj) {
 		posicion.y += velocidad.y;
 		posicion.x += velocidad.x;
 	}
+
 }
