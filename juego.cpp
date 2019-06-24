@@ -34,7 +34,7 @@ survivor pj({ 0,0 }, 1, 1), & ref = pj;
 zombie zombie1({ 200, 300 }, 1, 20, 100);
 Vector2f pjCenter, mousePosWindow, aimDir, aimDirNorm;
 bullet b1;
-
+bool deletebala = false;
 
 
 juego::juego(Vector2f resolucion, String titulo)
@@ -102,11 +102,17 @@ void juego::gameloop(Vector2f resolucion)
 			///ventana1->draw(spr_intro1);
 
 			ventana1->draw(spr_fondo);
-			ventana1->draw(b1.spr_bala);
+			if (!deletebala)
+				ventana1->draw(b1.spr_bala);
+			else
+				deletebala = false;
+			
 			///dibujo pj y mira al mouse
 			ventana1->draw(pj.get_spr_survivordisparo());
 			ventana1->draw(pj.get_spr_survivor());
 			pj.mirarAlMouse(ventana1);
+
+
 			//////******//////
 
 			///Dibujo Zombie
@@ -127,6 +133,11 @@ void juego::gameloop(Vector2f resolucion)
 
 			if (Collision::CircleTest(b1.get_spr_bala(), zombie1.get_spr_zombie())) {
 				cout << "Colision pa" << endl << endl;
+				b1.set_posicion(pj.get_posicion());
+				b1.spr_bala.setPosition(pj.get_posicion());
+				b1.spr_bala.setColor(Color(255, 255, 255, 0));
+				b1.set_velocidad(Vector2f(0, 0));
+				deletebala = true;
 			};
 			
 			///MOVIMIENTO SURVIVOR CON TECLADO
@@ -227,10 +238,6 @@ void juego::procesar_eventos()
 	//survivor jugadorObj;
 	while (ventana1->pollEvent(*eventos))
 	{
-		/*
-		ACA VA LO DEL PRESIONAR ENTER.
-		*/
-
 		switch (eventos->type)
 		{
 		case Event::MouseMoved:
@@ -246,15 +253,11 @@ void juego::procesar_eventos()
 					pj.color_aprietodisparo();
 					sonidoDisparo.play();
 				
-
-
 					if (Mouse::isButtonPressed(Mouse::Left)) {
-						sonidoDisparo.setLoop(true);
-						sonidoDisparo.setPitch(7);
+						sonidoDisparo.setPitch(5);
 						sonidoDisparo.play();
 						sonidoDisparo.setVolume(50);
 						b1.spr_bala.setColor(Color(255, 255, 255, 255));
-						//b1.spr_bala.setFillColor(Color(0, 0, 0, 255));
 						b1.update(pj.get_posicion(),Mouse::getPosition(*ventana1));
 					}
 				break;
@@ -266,7 +269,6 @@ void juego::procesar_eventos()
 			{
 				case Mouse::Left:
 					pj.color_sueltodisparo();
-					sonidoDisparo.setLoop(false);
 				break;
 			}
 		

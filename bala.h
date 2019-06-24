@@ -29,6 +29,12 @@ public:
 	void set_currVelocity(Vector2f vec) { currVelocity = vec; }
 	float get_maxSpeed() { return maxSpeed; }
 	Sprite get_spr_bala() { return spr_bala; }
+
+	void set_velocidad(Vector2f _vel) { velocidad = _vel; }
+
+	void set_posicion(Vector2f _pjpos) { posicion = _pjpos; }
+	
+	
 	/*
 	//set
 	void set_velocidad(Vector2f _vel) { velocidad = _vel; }
