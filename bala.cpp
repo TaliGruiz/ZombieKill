@@ -23,7 +23,7 @@ void bullet::update(Vector2f pospj,Vector2i posmouse) {
 	velocidad.y = speed * (distance.y / length);
 	velocidad.x = speed * (distance.x / length);
 		
-	shape.setPosition(pospj);
+	spr_bala.setPosition(pospj);
 
 	posicion.y += velocidad.y;
 	posicion.x += velocidad.x;
@@ -31,5 +31,5 @@ void bullet::update(Vector2f pospj,Vector2i posmouse) {
 
 void bullet::mover(Vector2f _mov)
 {
-	shape.move(_mov);
+	spr_bala.move(_mov);
 }

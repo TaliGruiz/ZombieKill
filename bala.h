@@ -21,12 +21,14 @@ private:
 
 public:
 	Texture text_bala;
+	Sprite spr_bala;
 	CircleShape shape;
 	Vector2f currVelocity;
 	float maxSpeed;
 	CircleShape get_circleshape() { return shape; }
 	void set_currVelocity(Vector2f vec) { currVelocity = vec; }
 	float get_maxSpeed() { return maxSpeed; }
+	Sprite get_spr_bala() { return spr_bala; }
 	/*
 	//set
 	void set_velocidad(Vector2f _vel) { velocidad = _vel; }
@@ -34,7 +36,7 @@ public:
 	void set_str(float _str) { str = _str; }
 	
 	//get
-	Sprite get_spr_bala() { return spr_bala; }
+	
 	float get_str() { return str; }
 	Vector2f get_velocidad() { return velocidad; }
 	Vector2f get_aceleracion() { return aceleracion; }
@@ -44,11 +46,13 @@ public:
 	//bullet(float, float, float);
 	
 	bullet(float radius = 3.f)
-		: currVelocity(0.f,0.f), maxSpeed(15.f)
+		: currVelocity(0.f,0.f), maxSpeed(20.f)
 	{
 		text_bala.loadFromFile("imagenes/bala.png");
-		this->shape.setRadius(radius);
-		shape.setFillColor(Color(0, 0, 0, 0));
+		spr_bala.setTexture(text_bala);
+		//this->shape.setRadius(radius);
+		spr_bala.setColor(Color(255, 255, 255, 0));
+		//spr_bala.setFillColor(Color(0, 0, 0, 0));
 	}
 
 	void update(Vector2f, Vector2i);

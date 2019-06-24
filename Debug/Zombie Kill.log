@@ -1,14 +1,24 @@
-﻿  juego.cpp
+﻿  bala.cpp
+  juego.cpp
 C:\Users\Gonzalo\Documents\GitHub\ZombieKill\survivor.h(14,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(42,64): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
-C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(42,64): warning C4244:         with
-C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(42,64): warning C4244:         [
-C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(42,64): warning C4244:             T=float
-C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(42,64): warning C4244:         ]
-C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(42,50): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
-C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(42,50): warning C4244:         with
-C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(42,50): warning C4244:         [
-C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(42,50): warning C4244:             T=float
-C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(42,50): warning C4244:         ]
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(43,64): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(43,64): warning C4244:         with
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(43,64): warning C4244:         [
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(43,64): warning C4244:             T=float
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(43,64): warning C4244:         ]
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(43,50): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(43,50): warning C4244:         with
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(43,50): warning C4244:         [
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(43,50): warning C4244:             T=float
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\juego.cpp(43,50): warning C4244:         ]
+  main.cpp
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,43): warning C4244:  '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\survivor.h(14,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+  survivor.cpp
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\main.cpp(6,12): warning C4244:  'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\survivor.h(14,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+  zombie.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,40): warning C4244:  '=': conversión de 'double' a 'float'; posible pérdida de datos
+  Generando código...
+C:\Users\Gonzalo\Documents\GitHub\ZombieKill\survivor.h(14,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
   Zombie Kill.vcxproj -> C:\Users\Gonzalo\Documents\GitHub\ZombieKill\Debug\Zombie Kill.exe

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <dos.h>
 #include<vector>
+#include "Collision.h"
 using namespace std;
 /*
 //////////////////////////////////////////////////
@@ -99,9 +100,9 @@ void juego::gameloop(Vector2f resolucion)
 			procesar_eventos();
 
 			///ventana1->draw(spr_intro1);
-		
+
 			ventana1->draw(spr_fondo);
-			ventana1->draw(b1.shape);
+			ventana1->draw(b1.spr_bala);
 			///dibujo pj y mira al mouse
 			ventana1->draw(pj.get_spr_survivordisparo());
 			ventana1->draw(pj.get_spr_survivor());
@@ -120,10 +121,14 @@ void juego::gameloop(Vector2f resolucion)
 			d = zombie1.get_posicion().y - pj.get_posicion().y;
 			angle2 = (-atan2(c, d) * 180.f / 3.14) - 170.f;
 			zombie1.rotar(angle2);
-			
+
 			///procesar colision pj-ventana
 			pj.colisionVentana(resolucion);
 
+			if (Collision::CircleTest(b1.get_spr_bala(), zombie1.get_spr_zombie())) {
+				cout << "Colision pa" << endl << endl;
+			};
+			
 			///MOVIMIENTO SURVIVOR CON TECLADO
 			pj.movimiento_teclado();
 
@@ -248,7 +253,8 @@ void juego::procesar_eventos()
 						sonidoDisparo.setPitch(7);
 						sonidoDisparo.play();
 						sonidoDisparo.setVolume(50);
-						b1.shape.setFillColor(Color(0, 0, 0, 255));
+						b1.spr_bala.setColor(Color(255, 255, 255, 255));
+						//b1.spr_bala.setFillColor(Color(0, 0, 0, 255));
 						b1.update(pj.get_posicion(),Mouse::getPosition(*ventana1));
 					}
 				break;
