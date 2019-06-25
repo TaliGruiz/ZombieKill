@@ -133,7 +133,7 @@ void juego::gameloop(Vector2f resolucion)
 			///Dibujo Zombie
 					///zombie mira a survivor
 
-			int contz = 0;
+			int contz = 0,muertes=0;
 			for (iter = vecz.begin(); iter != vecz.end(); iter++)
 			{
 				c = vecz[contz].get_posicion().x - pj.get_posicion().x;
@@ -157,8 +157,14 @@ void juego::gameloop(Vector2f resolucion)
 				{
 					vecz[contz].set_posicion(Vector2f(2000, 2000));
 					vecz[contz].set_spr_zombie_posicion(Vector2f(2000, 2000));
+					muertes++;
 				}
 				contz++;
+				
+			}
+			if (muertes == 5) {
+				game_over = true;
+				//POR ACA IRIA LA CARGA DE SCORES
 			}
 
 			///Dibujo el Crosshair
