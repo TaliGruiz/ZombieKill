@@ -34,11 +34,15 @@ Poss	Nombre	Oleada	Kills	Tiempo	Disparos	Aciertos
 float angle2, c, d;
 Time delay = seconds(3);
 survivor pj({ 0,0 }, 1, 1), & ref = pj;
-zombie zombie1({ 200, 300 }, 1, 20, 100);
+//zombie zombie1({ 200, 300 }, 1, 20, 100);
+zombie zombie2({ 200, 300 }, 1, 20, 100);
 Vector2f pjCenter, mousePosWindow, aimDir, aimDirNorm;
 bullet b1;
 bool deletebala = false;
 bool spr_zombie_flag = false;
+vector<zombie>::const_iterator iter;
+vector<zombie> vecz;
+
 
 juego::juego(Vector2f resolucion, String titulo)
 {
@@ -59,6 +63,14 @@ juego::juego(Vector2f resolucion, String titulo)
 
 	///bala1 = new bala();
 
+	for (int i = 0; i < 5; i++)
+	{
+		int randomx = rand() % 700;
+		int randomy = rand() % 500;
+		vecz.push_back(zombie2);
+		vecz[i].set_posicion(Vector2f(randomx, randomy));
+		vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
+	}
 
 	ventana1->setMouseCursorVisible(false);
 
@@ -119,43 +131,47 @@ void juego::gameloop(Vector2f resolucion)
 			//////******//////
 
 			///Dibujo Zombie
-			if(!spr_zombie_flag)
-			ventana1->draw(zombie1.get_spr_zombie());
+					///zombie mira a survivor
+
+			int contz = 0;
+			for (iter = vecz.begin(); iter != vecz.end(); iter++)
+			{
+				c = vecz[contz].get_posicion().x - pj.get_posicion().x;
+				d = vecz[contz].get_posicion().y - pj.get_posicion().y;
+				angle2 = (-atan2(c, d) * 180.f / 3.14) - 170.f;
+				vecz[contz].rotar(angle2);
+				vecz[contz].update(pj.get_spr_survivor().getPosition());
+				vecz[contz].mover(Vector2f(vecz[contz].get_velocidad().x, vecz[contz].get_velocidad().y));
+				ventana1->draw(vecz[contz].get_spr_zombie());
+
+				if (Collision::CircleTest(b1.get_spr_bala(), vecz[contz].get_spr_zombie())) {
+					b1.set_posicion(pj.get_posicion());
+					b1.spr_bala.setPosition(pj.get_posicion());
+					b1.spr_bala.setColor(Color(255, 255, 255, 0));
+					b1.set_velocidad(Vector2f(0, 0));
+					deletebala = true;
+					vecz[contz].set_currHp(vecz[contz].get_currHp() - b1.get_str());
+				}
+
+				if (vecz[contz].get_currHp() <= 0)
+				{
+					vecz[contz].set_posicion(Vector2f(2000, 2000));
+					vecz[contz].set_spr_zombie_posicion(Vector2f(2000, 2000));
+				}
+				contz++;
+			}
 
 			///Dibujo el Crosshair
 			ventana1->draw(spr_mira);
 
-
-			///zombie mira a survivor
-			c = zombie1.get_posicion().x - pj.get_posicion().x;
-			d = zombie1.get_posicion().y - pj.get_posicion().y;
-			angle2 = (-atan2(c, d) * 180.f / 3.14) - 170.f;
-			zombie1.rotar(angle2);
-
 			///procesar colision pj-ventana
 			pj.colisionVentana(resolucion);
-
-			if (Collision::CircleTest(b1.get_spr_bala(), zombie1.get_spr_zombie())) {
-				cout << "Colision pa" << endl << endl;
-				b1.set_posicion(pj.get_posicion());
-				b1.spr_bala.setPosition(pj.get_posicion());
-				b1.spr_bala.setColor(Color(255, 255, 255, 0));
-				b1.set_velocidad(Vector2f(0, 0));
-				deletebala = true;
-				zombie1.set_currHp( zombie1.get_currHp() - b1.get_str() );
-			};
 			
 			///MOVIMIENTO SURVIVOR CON TECLADO
 			pj.movimiento_teclado();
 
 			///Zombie sigue al survivor
-			zombie1.update(pj.get_spr_survivor().getPosition());
-			zombie1.mover(Vector2f(zombie1.get_velocidad().x, zombie1.get_velocidad().y));
-			if (zombie1.get_currHp() <= 0) 
-			{
-				spr_zombie_flag = true;
-				//zombie1.eliminar();
-			}
+	
 			///MOVIMIENTO BALA
 			b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
 			

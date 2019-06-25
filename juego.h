@@ -7,7 +7,10 @@
 #include "zombie.h"
 #include "survivor.h"
 #include "Collision.h"
+#include <vector>
+#include "zombie.h"
 using namespace sf;
+using namespace std;
 
 
 
@@ -71,5 +74,5 @@ private:
 
 	bool game_over;
 	//int fps;
-	
+
 };
