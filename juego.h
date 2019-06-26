@@ -1,4 +1,5 @@
 #pragma once
+#include<iostream>
 #include "math.h"
 #include "SFML\Graphics.hpp"
 #include "SFML\Audio.hpp"
@@ -9,9 +10,9 @@
 #include "Collision.h"
 #include <vector>
 #include "zombie.h"
+#include "score.h"
 using namespace sf;
 using namespace std;
-
 
 
 class juego
@@ -26,38 +27,39 @@ public:
 	void cargar_fuentes();
 	void cargar_intro();
 	void cargar_menu();
-private:
 
+	
+
+private:
 	RenderWindow* ventana1;
 	Clock* reloj1;
 	Time* tiempo1;
 	float tiempo2;
 	float fps;
-	
+	///rank
+	score rank;
+
 	///Sprites and textures
-	/*
-	Texture text_survivor;
-	Sprite spr_survivor;
-	*/
 	Texture text_fondo;
 	Sprite spr_fondo;
 
+	Texture text_fondoarbol;
+	Sprite spr_fondoarbol;
+
 	Texture text_mira;
 	Sprite spr_mira;
-	/*
-	Texture text_survirordisp;
-	Sprite spr_survivordisp;
-	*/
+	
 	///Sounds
 	SoundBuffer BuffDisparo;
 	Sound sonidoDisparo;
 	Music cancion_menu;
 	Music cancion_juego;
-	//intro
+
+	///intro
 	Texture text_intro1;
 	Sprite spr_intro1;
 
-	//blanco
+	///blanco
 	Texture text_blanco;
 	Sprite spr_blanco;
 
@@ -67,14 +69,14 @@ private:
 	Text titulo_intro;
 	Text titulo_enter;
 	Text text_ronda;
+	Text text_jugar;
+	Text text_score;
+	Text text_salir;
 
 	///Event
 	Event* eventos;
-
-	///Bala
-	//bala* bala1;
-
-	bool game_over;
-	//int fps;
-
+	
+	///game over
+	bool game_over=false;
+	
 };

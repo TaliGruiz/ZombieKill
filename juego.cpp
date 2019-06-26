@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_DEPRECATE
+//#define _CRT_SECURE_NO_DEPRECATE
 #include "juego.h"
 #include <iostream>
 #include <stdio.h>
@@ -9,9 +9,9 @@
 using namespace std;
 /*
 //////////////////////////////////////////////////
-1) Barras de vida.
-2) Vector balas.
-- Vector zombies.
+1) Barras de vida. ///
+2) Vector balas. ///
+- Vector zombies. ///
 - Tres tipos de ranking
 
 Poss	Nombre	Oleada	Kills	Tiempo	Disparos	Aciertos
@@ -21,23 +21,20 @@ Poss	Nombre	Oleada	Kills	Tiempo	Disparos	Aciertos
 #3		Gonzalo	 18		80		16:00
 ------------------------------------------------------------
 
-- Oleadas.
+- Oleadas. ///
 - Colisiones en genaral.
-- Puntaje en pantalla, ronda pantalla.
-- Daño de zombie y jugador.
+- Puntaje en pantalla, ronda pantalla. ///
+- Daño de zombie y jugador. 
 - Menu completo
 - Pantalla de game over(Agregar nuevo score).
-- Mejora del arma al final de cada oleada.
 - Pausa.
-- Nuevo fondo (Podria llegar a cambiar por oleadas.)
--
 /////////////////////////////////////////////////
 
 */
+
 float angle2, c, d;
 Time delay = seconds(3);
-survivor pj({ 0,0 }, 1, 1), & ref = pj;
-//zombie zombie1({ 200, 300 }, 1, 20, 100);
+survivor pj({ 400,300 }, 1, 1), & ref = pj;
 zombie zombie2({ 200, 300 }, 1, 100);
 Vector2f pjCenter, mousePosWindow, aimDir, aimDirNorm;
 bullet b1;
@@ -47,186 +44,249 @@ int cantz = 5;
 vector<zombie>::const_iterator iter;
 vector<zombie> vecz;
 int contronda = 1;
+bool flag = true;
+int tipomenu=0;
 
 juego::juego(Vector2f resolucion, String titulo)
 {
-	bool flag = false;
-	ventana1 = new RenderWindow(VideoMode(resolucion.x, resolucion.y), titulo);
-	ventana1->setFramerateLimit(60);
 	
+		ventana1 = new RenderWindow(VideoMode(resolucion.x, resolucion.y), titulo);
+		ventana1->setFramerateLimit(60);
+
+		fps = 1 / 60.f;
 
 
-	game_over = false;
-	fps = 1 / 60.f;
+		eventos = new Event;
+		reloj1 = new Clock();
+		tiempo1 = new Time();
+		tiempo2 = 0.f;
 
 
-	eventos = new Event;
-	reloj1 = new Clock();
-	tiempo1 = new Time();
-	tiempo2 = 0.f;
+		//PRIMERA RONDA
+		for (int i = 0; i < cantz; i++)
+		{
+			int random3 = rand() % 800;
+			//int random4 = rand() % 600;
+			int randomx = rand() % 10 + random3;
+			int randomy = rand() % 20 + 0;
+			vecz.push_back(zombie2);
+			vecz[i].set_posicion(Vector2f(randomx, randomy));
+			vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
+		}
+		/////*****/////
 
-	///bala1 = new bala();
+		cargar_graficos(resolucion);
+		cargar_sonidos();
+		cargar_fuentes();
+		ventana1->draw(spr_mira);
 
-	for (int i = 0; i < cantz; i++)
-	{
-		int random3 = rand() % 800;
-		//int random4 = rand() % 600;
-		int randomx = rand() % 10 + random3;
-		int randomy = rand() % 20 + 0;
-		vecz.push_back(zombie2);
-		vecz[i].set_posicion(Vector2f(randomx, randomy));
-		vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
-	}
+		//ventana1->setMouseCursorVisible(false);
 
-	ventana1->setMouseCursorVisible(false);
-
-	cargar_graficos(resolucion);
-	cargar_sonidos();
-	cargar_fuentes();
-	cancion_menu.play();
-	while(!(Keyboard::isKeyPressed(Keyboard::Enter))){
-	ventana1->clear();
-
-	ventana1->draw(spr_intro1);
-	ventana1->draw(titulo_intro);
-	
-	ventana1->draw(titulo_enter);
-
-	ventana1->display();
-	
-	if (Keyboard::isKeyPressed(Keyboard::Enter))
-	{
 		
-		cancion_menu.stop();
-		cancion_juego.play();
-		cancion_juego.setLoop(true);
-		gameloop(resolucion);
-		
-	}
-	}
+		cancion_menu.play();
+
+		while (!(Keyboard::isKeyPressed(Keyboard::Enter))) {
+			ventana1->clear();
+
+			ventana1->draw(spr_intro1);
+			ventana1->draw(titulo_intro);
+
+			ventana1->draw(titulo_enter);
+
+			ventana1->display();
+
+			if (Keyboard::isKeyPressed(Keyboard::Enter))
+			{
+				game_over = true;
+				tipomenu = 1;
+				//cancion_menu.stop();
+				//cancion_juego.play();
+				cancion_juego.setLoop(true);
+				gameloop(resolucion);
+
+			}
+		}
 }
 
 void juego::gameloop(Vector2f resolucion)
 {
 	while (!game_over)
-	{
-		*tiempo1 = reloj1->getElapsedTime();
-		 
-		if (tiempo1->asSeconds() > tiempo2 + fps)
 		{
-			tiempo2 = tiempo1->asSeconds();
+			*tiempo1 = reloj1->getElapsedTime();
 
-			ventana1->clear();
-
-
-			procesar_eventos();
-
-			///ventana1->draw(spr_intro1);
-
-			ventana1->draw(spr_fondo);
-			if (!deletebala)
-				ventana1->draw(b1.spr_bala);
-			else
-				deletebala = false;
-			
-			///dibujo pj y mira al mouse
-			ventana1->draw(pj.get_spr_survivordisparo());
-			ventana1->draw(pj.get_spr_survivor());
-			pj.mirarAlMouse(ventana1);
-
-
-			//////******//////
-
-			///Dibujo Zombie
-					///zombie mira a survivor
-
-			int contz = 0,muertes=0;
-			for (iter = vecz.begin(); iter != vecz.end(); iter++)
+			if (tiempo1->asSeconds() > tiempo2 + fps)
 			{
-				c = vecz[contz].get_posicion().x - pj.get_posicion().x;
-				d = vecz[contz].get_posicion().y - pj.get_posicion().y;
-				angle2 = (-atan2(c, d) * 180.f / 3.14) - 170.f;
-				vecz[contz].rotar(angle2);
-				vecz[contz].update(pj.get_spr_survivor().getPosition());
-				vecz[contz].mover(Vector2f(vecz[contz].get_velocidad().x, vecz[contz].get_velocidad().y));
-				ventana1->draw(vecz[contz].get_spr_zombie());
+				tiempo2 = tiempo1->asSeconds();
+
+				ventana1->clear();
 
 
+				procesar_eventos();
 
-				if (Collision::CircleTest(b1.get_spr_bala(), vecz[contz].get_spr_zombie())) {
-					b1.set_posicion(pj.get_posicion());
-					b1.spr_bala.setPosition(pj.get_posicion());
-					b1.spr_bala.setColor(Color(255, 255, 255, 0));
-					b1.set_velocidad(Vector2f(0, 0));
-					deletebala = true;
-					vecz[contz].set_currHp(vecz[contz].get_currHp() - b1.get_str());
-				}
-
-				if (vecz[contz].get_currHp() <= 0)
-				{
-					vecz[contz].set_posicion(Vector2f(810, 610));
-					vecz[contz].set_spr_zombie_posicion(Vector2f(810, 610));
-					muertes++;
-				}
-				contz++;
 				
-			}
-			if (muertes == cantz) {
-				contronda++;
-				vecz.clear();
-				cantz += 2;
-				for (int i = 0; i < cantz; i++)
+
+
+				ventana1->draw(spr_fondo);
+				if (!deletebala)
+					ventana1->draw(b1.spr_bala);
+				else
+					deletebala = false;
+
+				///dibujo pj y mira al mouse
+				ventana1->draw(pj.get_spr_survivordisparo());
+				ventana1->draw(pj.get_spr_survivor());
+				
+
+
+				pj.mirarAlMouse(ventana1);
+				
+				ventana1->draw(spr_fondoarbol);
+
+				///Dibujo el Crosshair
+				ventana1->draw(spr_mira);
+				ventana1->draw(text_ronda);
+				
+				//////******//////
+
+
+				int contz = 0, muertes = 0;
+				for (iter = vecz.begin(); iter != vecz.end(); iter++)
 				{
-					int random1 = rand() % 800;
-					int random2 = rand() % 600;
-					int randomx = rand() % 10 + random1;
-					int randomy = rand() % 10 + random2;
-					vecz.push_back(zombie2);
-					vecz[i].set_posicion(Vector2f(randomx, randomy));
-					vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
+					c = vecz[contz].get_posicion().x - pj.get_posicion().x;
+					d = vecz[contz].get_posicion().y - pj.get_posicion().y;
+					angle2 = (-atan2(c, d) * 180.f / 3.14) - 170.f;
+
+					vecz[contz].rotar(angle2);
+					vecz[contz].update(pj.get_spr_survivor().getPosition());
+					vecz[contz].mover(Vector2f(vecz[contz].get_velocidad().x, vecz[contz].get_velocidad().y));
+					ventana1->draw(vecz[contz].get_spr_zombie());
+
+
+
+					if (Collision::CircleTest(b1.get_spr_bala(), vecz[contz].get_spr_zombie())) {
+						b1.set_posicion(pj.get_posicion());
+						b1.spr_bala.setPosition(pj.get_posicion());
+						b1.spr_bala.setColor(Color(255, 255, 255, 0));
+						b1.set_velocidad(Vector2f(0, 0));
+						deletebala = true;
+						vecz[contz].set_currHp(vecz[contz].get_currHp() - b1.get_str());
+					}
+
+					if (vecz[contz].get_currHp() <= 0)
+					{
+						vecz[contz].set_posicion(Vector2f(810, 610));
+						vecz[contz].set_spr_zombie_posicion(Vector2f(810, 610));
+						muertes++;
+					}
+
+					if (Collision::PixelPerfectTest(vecz[contz].get_spr_zombie(), pj.get_spr_survivor())) 
+					{
+						game_over = true;
+						tipomenu = 1;
+					}
+
+					contz++;
+
+
+
 				}
-				//POR ACA IRIA LA CARGA DE SCORES
-				FILE* p;
-				p = fopen("Scores.dat", "ab");
-				if (p == NULL) { exit(1); }
-				fclose(p);
+				if (muertes == cantz) {
+					contronda++;
+					vecz.clear();
+					cantz += 2;
+					for (int i = 0; i < cantz; i++)
+					{
+						int random1 = rand() % 800;
+						int random2 = rand() % 600;
+						int randomx = rand() % 10 + random1;
+						int randomy = rand() % 10 + random2;
+						vecz.push_back(zombie2);
+						vecz[i].set_posicion(Vector2f(randomx, randomy));
+						vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
+					}
+					//POR ACA IRIA LA CARGA DE SCORES
+					FILE* p;
+					p = fopen("Scores.dat", "ab");
+					if (p == NULL) { exit(1); }
+					fclose(p);
+				}
+
+
+
+				
+				///procesar colision pj-ventana
+				pj.colisionVentana(resolucion);
+
+				///MOVIMIENTO SURVIVOR CON TECLADO
+				pj.movimiento_teclado();
+
+				///Zombie sigue al survivor
+
+				///MOVIMIENTO BALA
+				b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
+
+				/////////======================////////////////////
+
+				//update bala
+
+				text_ronda.setString(" RONDA   " + to_string(contronda));
+				text_ronda.setFont(zombienumfont);
+				text_ronda.setPosition(Vector2f(650, 10));
+				text_ronda.setFillColor(Color::Color(255, 0, 0, 150));
+				text_ronda.setCharacterSize(20);
+				text_ronda.setOutlineColor(Color::Color(0, 0, 0, 255));
+				text_ronda.setOutlineThickness(1.5);
+
+				ventana1->display();
+
+				//////////////////////////////////////////////////////////////
+			}
+		}
+	
+	while (game_over)
+		{
+			ventana1->clear();
+			//ventana1->setMouseCursorVisible(true);
+
+			switch (tipomenu)
+			{
+			case 1:
+				ventana1->draw(spr_intro1);
+				ventana1->draw(text_jugar);
+				ventana1->draw(text_score);
+				ventana1->draw(text_salir);
+				ventana1->display();
+				if (Mouse::isButtonPressed(Mouse::Left) && Mouse::getPosition(*ventana1).x && Mouse::getPosition(*ventana1).y)
+				{
+					IntRect playButtonRect(text_jugar.getPosition().x, text_jugar.getPosition().y, text_jugar.getGlobalBounds().width, text_jugar.getGlobalBounds().height);
+
+					if (playButtonRect.contains(sf::Mouse::getPosition(*ventana1)))
+					{
+						cancion_menu.stop();
+						cancion_juego.play();
+						tipomenu = 0;
+						game_over = false;
+						gameloop(resolucion);
+					}
+				}
+
+
+				break;
 			}
 
-			
+			/*
+			Event event;
+			sf::String playerInput;
+			sf::Text playerText;
 
-			///Dibujo el Crosshair
-			ventana1->draw(spr_mira);
-			ventana1->draw(text_ronda);
-
-			///procesar colision pj-ventana
-			pj.colisionVentana(resolucion);
-			
-			///MOVIMIENTO SURVIVOR CON TECLADO
-			pj.movimiento_teclado();
-
-			///Zombie sigue al survivor
-	
-			///MOVIMIENTO BALA
-			b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
-			
-			
-			/////////======================////////////////////
-			
-			//update bala
-			
-			text_ronda.setString(" RONDA   " + to_string(contronda));
-			text_ronda.setFont(zombienumfont);
-			text_ronda.setPosition(Vector2f(650, 10));
-			text_ronda.setFillColor(Color::Color(255, 0, 0, 150));
-			text_ronda.setCharacterSize(20);
-			text_ronda.setOutlineColor(Color::Color(0, 0, 0, 255));
-			text_ronda.setOutlineThickness(1.5);
-
-			ventana1->display();
-			
-			//////////////////////////////////////////////////////////////
+				if (event.type == sf::Event::TextEntered)
+				{
+					playerInput += event.text.unicode;
+					playerText.setString(playerInput);
+				}
+			ventana1->draw(playerText);
+			*/
 		}
-	}
 
 }
 
@@ -245,9 +305,35 @@ void juego::cargar_fuentes()
 	}
 	else { cout << "Se cargo la fuente" << endl; }
 
+	text_jugar.setString("JUGAR");
+	text_jugar.setFont(zombiefont);
+	text_jugar.setPosition(Vector2f(350, 50));
+	text_jugar.setFillColor(Color::Color(255, 0, 0, 170));
+	text_jugar.setCharacterSize(50);
+	text_jugar.setOutlineColor(Color::Color(0, 0, 0, 255));
+	text_jugar.setOutlineThickness(1.5);
 
+	text_score.setString("RANKING");
+	text_score.setFont(zombiefont);
+	text_score.setPosition(Vector2f(350, 250));
+	text_score.setFillColor(Color::Color(255, 0, 0, 170));
+	text_score.setCharacterSize(50);
+	text_score.setOutlineColor(Color::Color(0, 0, 0, 255));
+	text_score.setOutlineThickness(1.5);
 
-	
+	text_salir.setString("SALIR");
+	text_salir.setFont(zombiefont);
+	text_salir.setPosition(Vector2f(350, 450));
+	text_salir.setFillColor(Color::Color(255, 0, 0, 170));
+	text_salir.setCharacterSize(50);
+	text_salir.setOutlineColor(Color::Color(0, 0, 0, 255));
+	text_salir.setOutlineThickness(1.5);
+
+	String playerInput;
+	Text playerText;
+	playerText.setFont(zombiefont);
+	playerText.setPosition(400, 300);
+	playerText.setCharacterSize(50);
 	
 	titulo_intro.setString("ZOMBIE \n \t KILLA");
 	titulo_intro.setFont(zombiefont);
@@ -275,11 +361,16 @@ void juego::cargar_graficos(Vector2f resolucion)
 	
 	text_blanco.loadFromFile("imagenes/blanco.jpg");
 	spr_blanco.setTexture(text_blanco);
-	spr_blanco.setColor(Color(255, 255, 255, 0));
+	spr_blanco.setScale(resolucion.x / text_blanco.getSize().x, resolucion.y / text_blanco.getSize().y);
+	spr_blanco.setColor(Color(255, 255, 255, 255));
 
-	text_fondo.loadFromFile("imagenes/fondo.jpeg");
+	text_fondo.loadFromFile("imagenes/fondo.png");
 	spr_fondo.setTexture(text_fondo);
 	spr_fondo.setScale(resolucion.x / text_fondo.getSize().x, resolucion.y / text_fondo.getSize().y);
+
+	text_fondoarbol.loadFromFile("imagenes/fondoarbol.png");
+	spr_fondoarbol.setTexture(text_fondoarbol);
+	spr_fondo.setScale(resolucion.x / text_fondoarbol.getSize().x, resolucion.y / text_fondoarbol.getSize().y);
 	
 	text_mira.loadFromFile("imagenes/crosshair.png");
 	spr_mira.setTexture(text_mira);
