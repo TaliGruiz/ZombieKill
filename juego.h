@@ -33,7 +33,7 @@ private:
 	Time* tiempo1;
 	float tiempo2;
 	float fps;
-
+	
 	///Sprites and textures
 	/*
 	Texture text_survivor;
@@ -63,8 +63,10 @@ private:
 
 	///fuentes
 	Font zombiefont;
+	Font zombienumfont;
 	Text titulo_intro;
 	Text titulo_enter;
+	Text text_ronda;
 
 	///Event
 	Event* eventos;

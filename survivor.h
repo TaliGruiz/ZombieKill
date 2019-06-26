@@ -6,6 +6,7 @@ private:
 	Texture text_survivor, text_survivordisparo;;
 	Sprite spr_survivor, spr_survivordisparo;
 	int life;
+	int currHp;
 	Vector2f posicion;
 	Vector2f velocidad;
 
@@ -16,6 +17,7 @@ public:
 	void set_posicion(Vector2f _pos) { posicion = _pos; }
 	void set_spr_survivor();
 	void set_spr_survivordisparo();
+	void set_currHp(int _hp) { currHp = _hp; }
 
 	//get
 	Sprite get_spr_survivor() { return spr_survivor; }
@@ -23,7 +25,7 @@ public:
 	int get_life() { return life; }
 	Vector2f get_velocidad() { return velocidad; }
 	Vector2f get_posicion() { return posicion; }
-
+	int get_currHp() { return currHp; }
 	//constructor
 	survivor(Vector2f, float, float);
 

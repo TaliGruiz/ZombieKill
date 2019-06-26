@@ -1,5 +1,8 @@
+#define _CRT_SECURE_NO_DEPRECATE
 #include "juego.h"
 #include <iostream>
+#include <stdio.h>
+#include <cstdlib>
 #include <dos.h>
 #include<vector>
 #include "Collision.h"
@@ -35,14 +38,15 @@ float angle2, c, d;
 Time delay = seconds(3);
 survivor pj({ 0,0 }, 1, 1), & ref = pj;
 //zombie zombie1({ 200, 300 }, 1, 20, 100);
-zombie zombie2({ 200, 300 }, 1, 20, 100);
+zombie zombie2({ 200, 300 }, 1, 100);
 Vector2f pjCenter, mousePosWindow, aimDir, aimDirNorm;
 bullet b1;
 bool deletebala = false;
 bool spr_zombie_flag = false;
+int cantz = 5;
 vector<zombie>::const_iterator iter;
 vector<zombie> vecz;
-
+int contronda = 1;
 
 juego::juego(Vector2f resolucion, String titulo)
 {
@@ -63,10 +67,12 @@ juego::juego(Vector2f resolucion, String titulo)
 
 	///bala1 = new bala();
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < cantz; i++)
 	{
-		int randomx = rand() % 700;
-		int randomy = rand() % 500;
+		int random3 = rand() % 800;
+		//int random4 = rand() % 600;
+		int randomx = rand() % 10 + random3;
+		int randomy = rand() % 20 + 0;
 		vecz.push_back(zombie2);
 		vecz[i].set_posicion(Vector2f(randomx, randomy));
 		vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
@@ -90,6 +96,7 @@ juego::juego(Vector2f resolucion, String titulo)
 	
 	if (Keyboard::isKeyPressed(Keyboard::Enter))
 	{
+		
 		cancion_menu.stop();
 		cancion_juego.play();
 		cancion_juego.setLoop(true);
@@ -144,6 +151,8 @@ void juego::gameloop(Vector2f resolucion)
 				vecz[contz].mover(Vector2f(vecz[contz].get_velocidad().x, vecz[contz].get_velocidad().y));
 				ventana1->draw(vecz[contz].get_spr_zombie());
 
+
+
 				if (Collision::CircleTest(b1.get_spr_bala(), vecz[contz].get_spr_zombie())) {
 					b1.set_posicion(pj.get_posicion());
 					b1.spr_bala.setPosition(pj.get_posicion());
@@ -155,20 +164,39 @@ void juego::gameloop(Vector2f resolucion)
 
 				if (vecz[contz].get_currHp() <= 0)
 				{
-					vecz[contz].set_posicion(Vector2f(2000, 2000));
-					vecz[contz].set_spr_zombie_posicion(Vector2f(2000, 2000));
+					vecz[contz].set_posicion(Vector2f(810, 610));
+					vecz[contz].set_spr_zombie_posicion(Vector2f(810, 610));
 					muertes++;
 				}
 				contz++;
 				
 			}
-			if (muertes == 5) {
-				game_over = true;
+			if (muertes == cantz) {
+				contronda++;
+				vecz.clear();
+				cantz += 2;
+				for (int i = 0; i < cantz; i++)
+				{
+					int random1 = rand() % 800;
+					int random2 = rand() % 600;
+					int randomx = rand() % 10 + random1;
+					int randomy = rand() % 10 + random2;
+					vecz.push_back(zombie2);
+					vecz[i].set_posicion(Vector2f(randomx, randomy));
+					vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
+				}
 				//POR ACA IRIA LA CARGA DE SCORES
+				FILE* p;
+				p = fopen("Scores.dat", "ab");
+				if (p == NULL) { exit(1); }
+				fclose(p);
 			}
+
+			
 
 			///Dibujo el Crosshair
 			ventana1->draw(spr_mira);
+			ventana1->draw(text_ronda);
 
 			///procesar colision pj-ventana
 			pj.colisionVentana(resolucion);
@@ -186,6 +214,14 @@ void juego::gameloop(Vector2f resolucion)
 			
 			//update bala
 			
+			text_ronda.setString(" RONDA   " + to_string(contronda));
+			text_ronda.setFont(zombienumfont);
+			text_ronda.setPosition(Vector2f(650, 10));
+			text_ronda.setFillColor(Color::Color(255, 0, 0, 150));
+			text_ronda.setCharacterSize(20);
+			text_ronda.setOutlineColor(Color::Color(0, 0, 0, 255));
+			text_ronda.setOutlineThickness(1.5);
+
 			ventana1->display();
 			
 			//////////////////////////////////////////////////////////////
@@ -196,11 +232,22 @@ void juego::gameloop(Vector2f resolucion)
 
 void juego::cargar_fuentes() 
 {
+	
 	if (!zombiefont.loadFromFile("fuentes/zombiefont.ttf"))
 	{
 		cout << "No se pudo cargar la fuente" << endl;
 	}
 	else { cout << "Se cargo la fuente" << endl; }
+
+	if (!zombienumfont.loadFromFile("fuentes/Scary Halloween Font.ttf"))
+	{
+		cout << "No se pudo cargar la fuente" << endl;
+	}
+	else { cout << "Se cargo la fuente" << endl; }
+
+
+
+	
 	
 	titulo_intro.setString("ZOMBIE \n \t KILLA");
 	titulo_intro.setFont(zombiefont);
@@ -230,7 +277,7 @@ void juego::cargar_graficos(Vector2f resolucion)
 	spr_blanco.setTexture(text_blanco);
 	spr_blanco.setColor(Color(255, 255, 255, 0));
 
-	text_fondo.loadFromFile("imagenes/fondo.jpg");
+	text_fondo.loadFromFile("imagenes/fondo.jpeg");
 	spr_fondo.setTexture(text_fondo);
 	spr_fondo.setScale(resolucion.x / text_fondo.getSize().x, resolucion.y / text_fondo.getSize().y);
 	
@@ -259,7 +306,7 @@ void juego::cargar_sonidos()
 	{
 		cout << "No se pudo cargar el efecto cancion." << endl;
 	}
-	cancion_juego.setVolume(40);
+	cancion_juego.setVolume(70);
 
 }
 
@@ -285,7 +332,7 @@ void juego::procesar_eventos()
 					sonidoDisparo.play();
 				
 					if (Mouse::isButtonPressed(Mouse::Left)) {
-						sonidoDisparo.setPitch(5);
+						sonidoDisparo.setPitch(3);
 						sonidoDisparo.play();
 						sonidoDisparo.setVolume(50);
 						b1.spr_bala.setColor(Color(255, 255, 255, 255));

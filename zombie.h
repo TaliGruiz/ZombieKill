@@ -25,7 +25,7 @@ public:
 	Vector2f get_posicion() { return spr_zombie.getPosition(); }
 
 	//constructores
-	zombie(Vector2f, float, float, int);
+	zombie(Vector2f, float, int);
 	void eliminar() { delete this; }
 	//movimientos
 	void mover(Vector2f);

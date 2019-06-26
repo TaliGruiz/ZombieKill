@@ -21,11 +21,10 @@ void zombie::set_spr_zombie_posicion(Vector2f _pos) { spr_zombie.setPosition(_po
 
 //////////// ****** constructores ****** ////////////
 
-zombie::zombie(Vector2f _pos, float MulVel, float _str, int _hp)
+zombie::zombie(Vector2f _pos, float MulVel, int _hp)
 {
 	set_spr_zombie();
-
-	str= _str;
+	str = 1;
 	hp = _hp;
 	
 	currHp = hp;
@@ -44,7 +43,7 @@ void zombie::rotar(float _angle) { spr_zombie.setRotation(_angle); }
 
 void zombie::update(Vector2f pospj) {
 
-	float speed = 1;
+	float speed = 0.5;
 	Vector2f distance;
 	distance.x = pospj.x - posicion.x;
 	distance.y = pospj.y - posicion.y;

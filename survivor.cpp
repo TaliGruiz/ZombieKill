@@ -28,11 +28,12 @@ survivor::survivor(Vector2f _pos, float _mulvel, float _life)
 	velocidad.x = 1 * _mulvel;
 	velocidad.y = 1 * _mulvel;
 	set_life(_life);
+	currHp = life;
 }
 
 void survivor::update(bool jugadorUp, bool jugadorDown, bool jugadorRight, bool jugadorLeft) {
 
-	float speed = 3;
+	float speed = 2;
 
 	if (jugadorRight) {
 		velocidad.x = speed;
