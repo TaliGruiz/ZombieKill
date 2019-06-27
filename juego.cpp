@@ -14,22 +14,21 @@ using namespace std;
 - Vector zombies. ///
 - Tres tipos de ranking
 
-Poss	Nombre	Oleada	Kills	Tiempo	Disparos	Aciertos
-------------------------------------------------------------
-#1		Lucas	 20		100		20:00	500			50
-#2		Jorge	 19		90		18:00
-#3		Gonzalo	 18		80		16:00
-------------------------------------------------------------
+Poss	Nombre	Oleada	Kills   aim %
+-------------------------------------
+#1		Lucas	 20		100		 50%
+#2		Jorge	 19		90		 40%
+#3		Gonzalo	 18		80		 30%
+-------------------------------------
 
 - Oleadas. ///
-- Colisiones en genaral.
+- Colisiones en general.
 - Puntaje en pantalla, ronda pantalla. ///
 - Daño de zombie y jugador. 
 - Menu completo
 - Pantalla de game over(Agregar nuevo score).
 - Pausa.
 /////////////////////////////////////////////////
-
 */
 
 float angle2, c, d;
@@ -46,6 +45,11 @@ vector<zombie> vecz;
 int contronda = 1;
 bool flag = true;
 int tipomenu=0;
+Event escribirNombre;
+sf::String playerInput;
+sf::Text playerText;
+
+
 
 juego::juego(Vector2f resolucion, String titulo)
 {
@@ -80,7 +84,7 @@ juego::juego(Vector2f resolucion, String titulo)
 		cargar_fuentes();
 		ventana1->draw(spr_mira);
 
-		//ventana1->setMouseCursorVisible(false);
+		ventana1->setMouseCursorVisible(false);
 
 		
 		cancion_menu.play();
@@ -120,11 +124,7 @@ void juego::gameloop(Vector2f resolucion)
 
 				ventana1->clear();
 
-
 				procesar_eventos();
-
-				
-
 
 				ventana1->draw(spr_fondo);
 				if (!deletebala)
@@ -132,22 +132,12 @@ void juego::gameloop(Vector2f resolucion)
 				else
 					deletebala = false;
 
-				///dibujo pj y mira al mouse
-				ventana1->draw(pj.get_spr_survivordisparo());
-				ventana1->draw(pj.get_spr_survivor());
-				
-
-
+				///MOVIMIENTO SURVIVOR CON TECLADO
+				pj.movimiento_teclado();
+				///survivor mira direccion al mouse
 				pj.mirarAlMouse(ventana1);
 				
-				ventana1->draw(spr_fondoarbol);
-
-				///Dibujo el Crosshair
-				ventana1->draw(spr_mira);
-				ventana1->draw(text_ronda);
-				
 				//////******//////
-
 
 				int contz = 0, muertes = 0;
 				for (iter = vecz.begin(); iter != vecz.end(); iter++)
@@ -211,32 +201,28 @@ void juego::gameloop(Vector2f resolucion)
 					fclose(p);
 				}
 
-
-
-				
-				///procesar colision pj-ventana
+				///procesar colision pj - ventana
 				pj.colisionVentana(resolucion);
 
-				///MOVIMIENTO SURVIVOR CON TECLADO
-				pj.movimiento_teclado();
-
-				///Zombie sigue al survivor
-
-				///MOVIMIENTO BALA
-				b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
 
 				/////////======================////////////////////
 
-				//update bala
-
+				///update bala
 				text_ronda.setString(" RONDA   " + to_string(contronda));
-				text_ronda.setFont(zombienumfont);
-				text_ronda.setPosition(Vector2f(650, 10));
-				text_ronda.setFillColor(Color::Color(255, 0, 0, 150));
-				text_ronda.setCharacterSize(20);
-				text_ronda.setOutlineColor(Color::Color(0, 0, 0, 255));
-				text_ronda.setOutlineThickness(1.5);
+				///MOVIMIENTO BALA
+				b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
 
+
+				///dibujo pj y mira al mouse
+				ventana1->draw(pj.get_spr_survivordisparo());
+				ventana1->draw(pj.get_spr_survivor());
+				///dibujo arbol
+				ventana1->draw(spr_fondoarbol);
+				///dibujo mira
+				ventana1->draw(spr_mira);
+				///dibujo texto ronda
+				ventana1->draw(text_ronda);
+				///display
 				ventana1->display();
 
 				//////////////////////////////////////////////////////////////
@@ -244,35 +230,38 @@ void juego::gameloop(Vector2f resolucion)
 		}
 	
 	while (game_over)
+	{
+		ventana1->clear();
+		
+		ventana1->setMouseCursorVisible(true);
+		switch (tipomenu)
 		{
-			ventana1->clear();
-			//ventana1->setMouseCursorVisible(true);
-
-			switch (tipomenu)
+		case 1:
+			ventana1->draw(spr_intro1);
+			ventana1->draw(text_jugar);
+			ventana1->draw(text_score);
+			ventana1->draw(text_salir);
+			ventana1->display();
+			if (Mouse::isButtonPressed(Mouse::Left) && Mouse::getPosition(*ventana1).x && Mouse::getPosition(*ventana1).y)
 			{
-			case 1:
-				ventana1->draw(spr_intro1);
-				ventana1->draw(text_jugar);
-				ventana1->draw(text_score);
-				ventana1->draw(text_salir);
-				ventana1->display();
-				if (Mouse::isButtonPressed(Mouse::Left) && Mouse::getPosition(*ventana1).x && Mouse::getPosition(*ventana1).y)
+				IntRect playButtonRect(text_jugar.getPosition().x, text_jugar.getPosition().y, text_jugar.getGlobalBounds().width, text_jugar.getGlobalBounds().height);
+				bool banderita = true;
+				if (playButtonRect.contains(sf::Mouse::getPosition(*ventana1)))
 				{
-					IntRect playButtonRect(text_jugar.getPosition().x, text_jugar.getPosition().y, text_jugar.getGlobalBounds().width, text_jugar.getGlobalBounds().height);
-
-					if (playButtonRect.contains(sf::Mouse::getPosition(*ventana1)))
-					{
-						cancion_menu.stop();
-						cancion_juego.play();
-						tipomenu = 0;
-						game_over = false;
-						gameloop(resolucion);
-					}
+					cancion_menu.stop();
+					cancion_juego.play();
+					tipomenu = 0;
+					game_over = false;
+					ventana1->setMouseCursorVisible(false);
+					gameloop(resolucion);
+					
 				}
-
-
-				break;
 			}
+			break;
+		
+			
+		
+		}
 
 			/*
 			Event event;
@@ -286,7 +275,7 @@ void juego::gameloop(Vector2f resolucion)
 				}
 			ventana1->draw(playerText);
 			*/
-		}
+	}
 
 }
 
@@ -304,6 +293,13 @@ void juego::cargar_fuentes()
 		cout << "No se pudo cargar la fuente" << endl;
 	}
 	else { cout << "Se cargo la fuente" << endl; }
+
+	text_ronda.setFont(zombienumfont);
+	text_ronda.setPosition(Vector2f(650, 10));
+	text_ronda.setFillColor(Color::Color(255, 0, 0, 150));
+	text_ronda.setCharacterSize(20);
+	text_ronda.setOutlineColor(Color::Color(0, 0, 0, 255));
+	text_ronda.setOutlineThickness(1.5);
 
 	text_jugar.setString("JUGAR");
 	text_jugar.setFont(zombiefont);
