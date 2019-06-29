@@ -34,5 +34,4 @@ void menu::drawmain(RenderWindow *ventana1)
 
 void menu::menuloop(bool _menuloop) 
 {
-
 }

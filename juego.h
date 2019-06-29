@@ -6,13 +6,15 @@
 #include "SFML\System.hpp"
 #include "menu.h"
 #include "score.h"
-
 #include "bala.h"
 #include "zombie.h"
 #include "survivor.h"
 #include "Collision.h"
 #include <vector>
 #include "zombie.h"
+
+#define CANT_OPCIONES_MENU 3
+
 using namespace sf;
 using namespace std;
 
@@ -20,20 +22,30 @@ using namespace std;
 class juego
 {
 public:
+	//MENU
+	void menu_pressenter(Vector2f);
+	void menu_principal(Vector2f);
+	void menu_ranking();
+	//dibujar menu
+	void menu_dibujar_principal();
+    void menu_dibujar_pressenter();
+	void menu_efectoblanco(IntRect, IntRect , IntRect);
+	// / / / / / ***** \ \ \ \ \ \ \
+
 	juego(Vector2f resolucion, String titulo);
 	void gameloop(Vector2f);
 	void cargar_graficos(Vector2f);
 	void cargar_sonidos();
 	void procesar_eventos();
-	//void procesar_eventos_joystick();
 	void cargar_fuentes();
 	void cargar_intro();
 	void cargar_menu();
-	Font get_zombienumfont() { return zombienumfont; }
+	Font get_scaryfont() { return scaryfont; }
 	
 
 private:
 	RenderWindow* ventana1;
+	Event clickearMenu;
 	Clock* reloj1;
 	Time* tiempo1;
 	float tiempo2;
@@ -67,18 +79,21 @@ private:
 
 	///fuentes
 	Font zombiefont;
-	Font zombienumfont;
+	Font scaryfont;
+	///textos
 	Text titulo_intro;
 	Text titulo_enter;
 	Text text_ronda;
 	Text text_jugar;
 	Text text_score;
 	Text text_salir;
+	Text menutext[CANT_OPCIONES_MENU];
 
 	///Event
 	Event* eventos;
 	
 	///game over
-	bool game_over=false;
-	
+	bool game_over = false;
+	///menu loop
+	bool menuloop = true;
 };

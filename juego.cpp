@@ -44,18 +44,12 @@ vector<zombie>::const_iterator iter;
 vector<zombie> vecz;
 int contronda = 1;
 bool flag = true;
-int tipomenu=0;
-Event escribirNombre;
-sf::String playerInput;
-sf::Text playerText;
-
-
 
 juego::juego(Vector2f resolucion, String titulo)
 {
-	
 		ventana1 = new RenderWindow(VideoMode(resolucion.x, resolucion.y), titulo);
 		ventana1->setFramerateLimit(60);
+
 		cargar_graficos(resolucion);
 		cargar_sonidos();
 		cargar_fuentes();
@@ -69,8 +63,6 @@ juego::juego(Vector2f resolucion, String titulo)
 		tiempo1 = new Time();
 		tiempo2 = 0.f;
 
-
-		
 		//PRIMERA RONDA
 		for (int i = 0; i < cantz; i++)
 		{
@@ -84,34 +76,9 @@ juego::juego(Vector2f resolucion, String titulo)
 		}
 		/////*****/////
 
-		
-
-		
 		cancion_menu.play();
-
-		while (!(Keyboard::isKeyPressed(Keyboard::Enter))) {
-			ventana1->clear();
-
-			ventana1->draw(spr_intro1);
-			ventana1->draw(titulo_intro);
-
-			ventana1->draw(titulo_enter);
-
-			ventana1->display();
-
-			if (Keyboard::isKeyPressed(Keyboard::Enter))
-			{
-				menu menucito(resolucion.x, resolucion.y, juego::get_zombienumfont());
-				menucito.draw(ventana1);
-				game_over = true;
-				tipomenu = 1;
-				//cancion_menu.stop();
-				//cancion_juego.play();
-				cancion_juego.setLoop(true);
-				gameloop(resolucion);
-
-			}
-		}
+		cancion_menu.setLoop(true);
+		menu_pressenter(resolucion);
 }
 
 void juego::gameloop(Vector2f resolucion)
@@ -174,7 +141,6 @@ void juego::gameloop(Vector2f resolucion)
 					if (Collision::PixelPerfectTest(vecz[contz].get_spr_zombie(), pj.get_spr_survivor())) 
 					{
 						game_over = true;
-						tipomenu = 1;
 					}
 
 					contz++;
@@ -248,7 +214,6 @@ void juego::gameloop(Vector2f resolucion)
 			if (Mouse::isButtonPressed(Mouse::Left) && Mouse::getPosition(*ventana1).x && Mouse::getPosition(*ventana1).y)
 			{
 				IntRect playButtonRect(text_jugar.getPosition().x, text_jugar.getPosition().y, text_jugar.getGlobalBounds().width, text_jugar.getGlobalBounds().height);
-				bool banderita = true;
 				if (playButtonRect.contains(sf::Mouse::getPosition(*ventana1)))
 				{
 					cancion_menu.stop();
@@ -287,53 +252,50 @@ void juego::cargar_fuentes()
 	
 	if (!zombiefont.loadFromFile("fuentes/zombiefont.ttf"))
 	{
-		cout << "No se pudo cargar la fuente" << endl;
+		cout << "No se pudo cargar la fuente zombie" << endl;
 	}
-	else { cout << "Se cargo la fuente" << endl; }
+	else { cout << "Se cargo la fuente zombie" << endl; }
 
-	if (!zombienumfont.loadFromFile("fuentes/Scary Halloween Font.ttf"))
+	if (!scaryfont.loadFromFile("fuentes/Scary Halloween Font.ttf"))
 	{
-		cout << "No se pudo cargar la fuente" << endl;
+		cout << "No se pudo cargar la fuente scary" << endl;
 	}
-	else { cout << "Se cargo la fuente" << endl; }
+	else { cout << "Se cargo la fuente scary" << endl; }
 
-	text_ronda.setFont(zombienumfont);
+	//Textos menus
+	menutext[0].setFont(scaryfont);
+	menutext[0].setFillColor(Color::Red);
+	menutext[0].setString("JUGAR");
+	menutext[0].setPosition(Vector2f(350, 50));
+	menutext[0].setCharacterSize(40);
+	menutext[0].setOutlineColor(Color::Color(0, 0, 0, 255));
+	menutext[0].setOutlineThickness(1.5);
+
+	menutext[1].setFont(scaryfont);
+	menutext[1].setFillColor(Color::Red);
+	menutext[1].setString("RANKING");
+	menutext[1].setPosition(Vector2f(320, 250));
+	menutext[1].setCharacterSize(40);
+	menutext[1].setOutlineColor(Color::Color(0, 0, 0, 255));
+	menutext[1].setOutlineThickness(1.5);
+
+	menutext[2].setFont(scaryfont);
+	menutext[2].setFillColor(Color::Red);
+	menutext[2].setString("SALIR");
+	menutext[2].setPosition(Vector2f(350, 450));
+	menutext[2].setCharacterSize(40);
+	menutext[2].setOutlineColor(Color::Color(0, 0, 0, 255));
+	menutext[2].setOutlineThickness(1.5);
+
+	//Texto Rounds
+	text_ronda.setFont(scaryfont);
 	text_ronda.setPosition(Vector2f(650, 10));
 	text_ronda.setFillColor(Color::Color(255, 0, 0, 150));
 	text_ronda.setCharacterSize(20);
 	text_ronda.setOutlineColor(Color::Color(0, 0, 0, 255));
 	text_ronda.setOutlineThickness(1.5);
 
-	text_jugar.setString("JUGAR");
-	text_jugar.setFont(zombiefont);
-	text_jugar.setPosition(Vector2f(350, 50));
-	text_jugar.setFillColor(Color::Color(255, 0, 0, 170));
-	text_jugar.setCharacterSize(50);
-	text_jugar.setOutlineColor(Color::Color(0, 0, 0, 255));
-	text_jugar.setOutlineThickness(1.5);
-
-	text_score.setString("RANKING");
-	text_score.setFont(zombiefont);
-	text_score.setPosition(Vector2f(350, 250));
-	text_score.setFillColor(Color::Color(255, 0, 0, 170));
-	text_score.setCharacterSize(50);
-	text_score.setOutlineColor(Color::Color(0, 0, 0, 255));
-	text_score.setOutlineThickness(1.5);
-
-	text_salir.setString("SALIR");
-	text_salir.setFont(zombiefont);
-	text_salir.setPosition(Vector2f(350, 450));
-	text_salir.setFillColor(Color::Color(255, 0, 0, 170));
-	text_salir.setCharacterSize(50);
-	text_salir.setOutlineColor(Color::Color(0, 0, 0, 255));
-	text_salir.setOutlineThickness(1.5);
-
-	String playerInput;
-	Text playerText;
-	playerText.setFont(zombiefont);
-	playerText.setPosition(400, 300);
-	playerText.setCharacterSize(50);
-	
+	//zombie killa
 	titulo_intro.setString("ZOMBIE \n \t KILLA");
 	titulo_intro.setFont(zombiefont);
 	titulo_intro.setPosition(Vector2f(269, 97));
@@ -342,6 +304,7 @@ void juego::cargar_fuentes()
 	titulo_intro.setOutlineColor(Color::Color(0, 0, 0, 255));
 	titulo_intro.setOutlineThickness(1.5);
 
+	//press enter
 	titulo_enter.setString("Press \n Enter");
 	titulo_enter.setFont(zombiefont);
 	titulo_enter.setPosition(Vector2f(350, 450));
@@ -386,15 +349,15 @@ void juego::cargar_sonidos()
 	sonidoDisparo.setBuffer(BuffDisparo);
 	
 
-	if (!cancion_menu.openFromFile("sonidos/cancion.wav"))
+	if (!cancion_menu.openFromFile("sonidos/twdtheme.ogg"))
 	{
-		cout << "No se pudo cargar el efecto cancion." << endl;
+		cout << "No se pudo cargar el efecto cancion menu." << endl;
 	}
 	cancion_menu.setVolume(50);
 
 	if (!cancion_juego.openFromFile("sonidos/tormenta.ogg"))
 	{
-		cout << "No se pudo cargar el efecto cancion." << endl;
+		cout << "No se pudo cargar el efecto cancion tormenta." << endl;
 	}
 	cancion_juego.setVolume(70);
 
@@ -416,7 +379,6 @@ void juego::procesar_eventos()
 		case Event::MouseButtonPressed:
 			switch (eventos->key.code)
 			{
-				
 				case Mouse::Left:
 					pj.color_aprietodisparo();
 					sonidoDisparo.play();
@@ -446,3 +408,83 @@ void juego::procesar_eventos()
 	}
 
 }
+
+///MENUS
+void juego::menu_dibujar_principal() 
+{
+	ventana1->clear();
+	ventana1->setMouseCursorVisible(true);
+	ventana1->draw(spr_intro1);
+	ventana1->draw(menutext[0]);
+	ventana1->draw(menutext[1]);
+	ventana1->draw(menutext[2]);
+	ventana1->display();
+}
+void juego::menu_dibujar_pressenter() 
+{
+	ventana1->clear();
+	ventana1->draw(spr_intro1);
+	ventana1->draw(titulo_intro);
+	ventana1->draw(titulo_enter);
+	ventana1->display();
+}
+void juego::menu_efectoblanco(IntRect botonjugar,IntRect botonranking, IntRect botonsalir) 
+{
+	if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
+		menutext[0].setFillColor(Color::White);
+	if (!(botonjugar.contains(sf::Mouse::getPosition(*ventana1))))
+		menutext[0].setFillColor(Color::Red);
+	if (botonranking.contains(sf::Mouse::getPosition(*ventana1)))
+		menutext[1].setFillColor(Color::White);
+	if (!(botonranking.contains(sf::Mouse::getPosition(*ventana1))))
+		menutext[1].setFillColor(Color::Red);
+	if (botonsalir.contains(sf::Mouse::getPosition(*ventana1)))
+		menutext[2].setFillColor(Color::White);
+	if (!(botonsalir.contains(sf::Mouse::getPosition(*ventana1))))
+		menutext[2].setFillColor(Color::Red);
+}
+void juego::menu_pressenter(Vector2f resolucion)
+{
+	while (!(Keyboard::isKeyPressed(Keyboard::Enter))) {
+		menu_dibujar_pressenter();
+		if (Keyboard::isKeyPressed(Keyboard::Enter))
+		{
+			menu_principal(resolucion);
+		}
+	}
+}
+
+void juego::menu_principal(Vector2f resolucion)
+{
+	IntRect botonjugar(menutext[0].getPosition().x, menutext[0].getPosition().y, menutext[0].getGlobalBounds().width, menutext[0].getGlobalBounds().height);
+	IntRect botonranking(menutext[1].getPosition().x, menutext[1].getPosition().y, menutext[1].getGlobalBounds().width, menutext[1].getGlobalBounds().height);
+	IntRect botonsalir(menutext[2].getPosition().x, menutext[2].getPosition().y, menutext[2].getGlobalBounds().width, menutext[2].getGlobalBounds().height);
+
+	while (true)
+	{
+		menu_dibujar_principal();
+		menu_efectoblanco(botonjugar, botonranking, botonsalir);
+
+		if (Mouse::isButtonPressed(Mouse::Left))
+		{
+			if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
+			{
+				cancion_menu.stop();
+				cancion_juego.play();
+				game_over = false;
+				ventana1->setMouseCursorVisible(false);
+				gameloop(resolucion);
+
+			}
+
+			if (botonranking.contains(Mouse::getPosition(*ventana1))) 
+			{
+				
+			}
+
+			if (botonsalir.contains(Mouse::getPosition(*ventana1))) exit(1);
+		}
+	}
+}
+
+	
