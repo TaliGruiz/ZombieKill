@@ -56,9 +56,13 @@ juego::juego(Vector2f resolucion, String titulo)
 	
 		ventana1 = new RenderWindow(VideoMode(resolucion.x, resolucion.y), titulo);
 		ventana1->setFramerateLimit(60);
-
+		cargar_graficos(resolucion);
+		cargar_sonidos();
+		cargar_fuentes();
+		ventana1->draw(spr_mira);
+		ventana1->setMouseCursorVisible(false);
+		
 		fps = 1 / 60.f;
-
 
 		eventos = new Event;
 		reloj1 = new Clock();
@@ -66,6 +70,7 @@ juego::juego(Vector2f resolucion, String titulo)
 		tiempo2 = 0.f;
 
 
+		
 		//PRIMERA RONDA
 		for (int i = 0; i < cantz; i++)
 		{
@@ -79,12 +84,7 @@ juego::juego(Vector2f resolucion, String titulo)
 		}
 		/////*****/////
 
-		cargar_graficos(resolucion);
-		cargar_sonidos();
-		cargar_fuentes();
-		ventana1->draw(spr_mira);
-
-		ventana1->setMouseCursorVisible(false);
+		
 
 		
 		cancion_menu.play();
@@ -101,6 +101,8 @@ juego::juego(Vector2f resolucion, String titulo)
 
 			if (Keyboard::isKeyPressed(Keyboard::Enter))
 			{
+				menu menucito(resolucion.x, resolucion.y, juego::get_zombienumfont());
+				menucito.draw(ventana1);
 				game_over = true;
 				tipomenu = 1;
 				//cancion_menu.stop();
@@ -229,6 +231,7 @@ void juego::gameloop(Vector2f resolucion)
 			}
 		}
 	
+	/*
 	while (game_over)
 	{
 		ventana1->clear();
@@ -263,7 +266,7 @@ void juego::gameloop(Vector2f resolucion)
 		
 		}
 
-			/*
+			
 			Event event;
 			sf::String playerInput;
 			sf::Text playerText;
@@ -274,9 +277,9 @@ void juego::gameloop(Vector2f resolucion)
 					playerText.setString(playerInput);
 				}
 			ventana1->draw(playerText);
-			*/
+			
 	}
-
+	*/
 }
 
 void juego::cargar_fuentes() 

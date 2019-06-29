@@ -4,13 +4,15 @@
 #include "SFML\Graphics.hpp"
 #include "SFML\Audio.hpp"
 #include "SFML\System.hpp"
+#include "menu.h"
+#include "score.h"
+
 #include "bala.h"
 #include "zombie.h"
 #include "survivor.h"
 #include "Collision.h"
 #include <vector>
 #include "zombie.h"
-#include "score.h"
 using namespace sf;
 using namespace std;
 
@@ -27,7 +29,7 @@ public:
 	void cargar_fuentes();
 	void cargar_intro();
 	void cargar_menu();
-
+	Font get_zombienumfont() { return zombienumfont; }
 	
 
 private:

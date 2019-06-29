@@ -145,6 +145,7 @@ sfml-main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="juego.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu.cpp" />
     <ClCompile Include="score.cpp" />
     <ClCompile Include="survivor.cpp" />
     <ClCompile Include="zombie.cpp" />
@@ -153,6 +154,7 @@ sfml-main.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi
     <ClInclude Include="bala.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="juego.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="score.h" />
     <ClInclude Include="survivor.h" />
     <ClInclude Include="zombie.h" />
