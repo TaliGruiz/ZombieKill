@@ -14,7 +14,7 @@
 #include "zombie.h"
 
 #define CANT_OPCIONES_MENU 3
-
+#define CANT_ZOMBIES 5
 using namespace sf;
 using namespace std;
 
@@ -29,7 +29,7 @@ public:
 	//dibujar menu
 	void menu_dibujar_principal();
     void menu_dibujar_pressenter();
-	void menu_efectoblanco(IntRect, IntRect , IntRect);
+	void menu_dibujar_efectoblanco(IntRect, IntRect , IntRect);
 	// / / / / / ***** \ \ \ \ \ \ \
 
 	juego(Vector2f resolucion, String titulo);

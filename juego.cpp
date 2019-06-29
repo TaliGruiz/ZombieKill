@@ -1,4 +1,3 @@
-//#define _CRT_SECURE_NO_DEPRECATE
 #include "juego.h"
 #include <iostream>
 #include <stdio.h>
@@ -39,7 +38,7 @@ Vector2f pjCenter, mousePosWindow, aimDir, aimDirNorm;
 bullet b1;
 bool deletebala = false;
 bool spr_zombie_flag = false;
-int cantz = 5;
+int cantz;
 vector<zombie>::const_iterator iter;
 vector<zombie> vecz;
 int contronda = 1;
@@ -62,20 +61,7 @@ juego::juego(Vector2f resolucion, String titulo)
 		reloj1 = new Clock();
 		tiempo1 = new Time();
 		tiempo2 = 0.f;
-
-		//PRIMERA RONDA
-		for (int i = 0; i < cantz; i++)
-		{
-			int random3 = rand() % 800;
-			//int random4 = rand() % 600;
-			int randomx = rand() % 10 + random3;
-			int randomy = rand() % 20 + 0;
-			vecz.push_back(zombie2);
-			vecz[i].set_posicion(Vector2f(randomx, randomy));
-			vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
-		}
-		/////*****/////
-
+		
 		cancion_menu.play();
 		cancion_menu.setLoop(true);
 		menu_pressenter(resolucion);
@@ -90,9 +76,7 @@ void juego::gameloop(Vector2f resolucion)
 			if (tiempo1->asSeconds() > tiempo2 + fps)
 			{
 				tiempo2 = tiempo1->asSeconds();
-
 				ventana1->clear();
-
 				procesar_eventos();
 
 				ventana1->draw(spr_fondo);
@@ -105,7 +89,23 @@ void juego::gameloop(Vector2f resolucion)
 				pj.movimiento_teclado();
 				///survivor mira direccion al mouse
 				pj.mirarAlMouse(ventana1);
-				
+
+				//CARGO VECTOR POR PRIMERA VEZ
+				if (contronda == 0) 
+				{
+					for (int i = 0; i < cantz; i++)
+					{
+						contronda = 1;
+						int random3 = rand() % 800;
+						int random4 = rand() % 600;
+						int randomx = rand() % 10 + random3;
+						int randomy = rand() % 20 + 0;
+						vecz.push_back(zombie2);
+						vecz[i].set_posicion(Vector2f(randomx, randomy));
+						vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
+					}
+				}
+
 				//////******//////
 
 				int contz = 0, muertes = 0;
@@ -119,8 +119,6 @@ void juego::gameloop(Vector2f resolucion)
 					vecz[contz].update(pj.get_spr_survivor().getPosition());
 					vecz[contz].mover(Vector2f(vecz[contz].get_velocidad().x, vecz[contz].get_velocidad().y));
 					ventana1->draw(vecz[contz].get_spr_zombie());
-
-
 
 					if (Collision::CircleTest(b1.get_spr_bala(), vecz[contz].get_spr_zombie())) {
 						b1.set_posicion(pj.get_posicion());
@@ -140,12 +138,14 @@ void juego::gameloop(Vector2f resolucion)
 
 					if (Collision::PixelPerfectTest(vecz[contz].get_spr_zombie(), pj.get_spr_survivor())) 
 					{
+						vecz.clear();
 						game_over = true;
+						cancion_juego.stop();
+						cancion_menu.play();
+						return;
 					}
 
 					contz++;
-
-
 
 				}
 				if (muertes == cantz) {
@@ -172,14 +172,12 @@ void juego::gameloop(Vector2f resolucion)
 				///procesar colision pj - ventana
 				pj.colisionVentana(resolucion);
 
-
 				/////////======================////////////////////
 
 				///update bala
 				text_ronda.setString(" RONDA   " + to_string(contronda));
 				///MOVIMIENTO BALA
 				b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
-
 
 				///dibujo pj y mira al mouse
 				ventana1->draw(pj.get_spr_survivordisparo());
@@ -196,55 +194,7 @@ void juego::gameloop(Vector2f resolucion)
 				//////////////////////////////////////////////////////////////
 			}
 		}
-	
-	/*
-	while (game_over)
-	{
-		ventana1->clear();
-		
-		ventana1->setMouseCursorVisible(true);
-		switch (tipomenu)
-		{
-		case 1:
-			ventana1->draw(spr_intro1);
-			ventana1->draw(text_jugar);
-			ventana1->draw(text_score);
-			ventana1->draw(text_salir);
-			ventana1->display();
-			if (Mouse::isButtonPressed(Mouse::Left) && Mouse::getPosition(*ventana1).x && Mouse::getPosition(*ventana1).y)
-			{
-				IntRect playButtonRect(text_jugar.getPosition().x, text_jugar.getPosition().y, text_jugar.getGlobalBounds().width, text_jugar.getGlobalBounds().height);
-				if (playButtonRect.contains(sf::Mouse::getPosition(*ventana1)))
-				{
-					cancion_menu.stop();
-					cancion_juego.play();
-					tipomenu = 0;
-					game_over = false;
-					ventana1->setMouseCursorVisible(false);
-					gameloop(resolucion);
-					
-				}
-			}
-			break;
-		
-			
-		
-		}
 
-			
-			Event event;
-			sf::String playerInput;
-			sf::Text playerText;
-
-				if (event.type == sf::Event::TextEntered)
-				{
-					playerInput += event.text.unicode;
-					playerText.setString(playerInput);
-				}
-			ventana1->draw(playerText);
-			
-	}
-	*/
 }
 
 void juego::cargar_fuentes() 
@@ -428,7 +378,7 @@ void juego::menu_dibujar_pressenter()
 	ventana1->draw(titulo_enter);
 	ventana1->display();
 }
-void juego::menu_efectoblanco(IntRect botonjugar,IntRect botonranking, IntRect botonsalir) 
+void juego::menu_dibujar_efectoblanco(IntRect botonjugar,IntRect botonranking, IntRect botonsalir) 
 {
 	if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
 		menutext[0].setFillColor(Color::White);
@@ -443,14 +393,13 @@ void juego::menu_efectoblanco(IntRect botonjugar,IntRect botonranking, IntRect b
 	if (!(botonsalir.contains(sf::Mouse::getPosition(*ventana1))))
 		menutext[2].setFillColor(Color::Red);
 }
+
 void juego::menu_pressenter(Vector2f resolucion)
 {
 	while (!(Keyboard::isKeyPressed(Keyboard::Enter))) {
 		menu_dibujar_pressenter();
 		if (Keyboard::isKeyPressed(Keyboard::Enter))
-		{
 			menu_principal(resolucion);
-		}
 	}
 }
 
@@ -463,18 +412,20 @@ void juego::menu_principal(Vector2f resolucion)
 	while (true)
 	{
 		menu_dibujar_principal();
-		menu_efectoblanco(botonjugar, botonranking, botonsalir);
+		menu_dibujar_efectoblanco(botonjugar, botonranking, botonsalir);
 
 		if (Mouse::isButtonPressed(Mouse::Left))
 		{
 			if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
 			{
+				contronda = 0;
+				cantz = CANT_ZOMBIES;
+
 				cancion_menu.stop();
 				cancion_juego.play();
 				game_over = false;
 				ventana1->setMouseCursorVisible(false);
 				gameloop(resolucion);
-
 			}
 
 			if (botonranking.contains(Mouse::getPosition(*ventana1))) 
@@ -486,5 +437,3 @@ void juego::menu_principal(Vector2f resolucion)
 		}
 	}
 }
-
-	
