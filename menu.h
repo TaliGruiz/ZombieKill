@@ -11,7 +11,10 @@ public:
 	menu(float, float,Font);
 	void moveUp();
 	void moveDown();
-	void draw(RenderWindow*);
+	void drawpessenter(RenderWindow*);
+	void drawmain(RenderWindow*);
+	void drawrank(RenderWindow*);
+	void menuloop(bool);
 private:
 	Text menutext[OPCIONES_MENU];
 };

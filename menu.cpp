@@ -24,10 +24,15 @@ menu::menu(float ancho, float alto, Font scaryfont)
 	menutext[2].setOutlineThickness(1.5);
 }
 
-void menu::draw(RenderWindow *ventana1) 
+void menu::drawmain(RenderWindow *ventana1) 
 {
 	for (int i = 0; i < OPCIONES_MENU; i++) 
 	{
 		ventana1->draw(menutext[i]);
 	}
+}
+
+void menu::menuloop(bool _menuloop) 
+{
+
 }
