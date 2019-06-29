@@ -65,6 +65,12 @@ private:
 	Texture text_mira;
 	Sprite spr_mira;
 	
+	Texture text_puntero1;
+	Sprite spr_puntero1;
+
+	Texture text_puntero2;
+	Sprite spr_puntero2;
+
 	///Sounds
 	SoundBuffer BuffDisparo;
 	Sound sonidoDisparo;

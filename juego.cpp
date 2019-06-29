@@ -6,12 +6,13 @@
 #include<vector>
 #include "Collision.h"
 using namespace std;
+
 /*
 //////////////////////////////////////////////////
 1) Barras de vida. ///
 2) Vector balas. ///
 - Vector zombies. ///
-- Tres tipos de ranking
+- Tres tipos de ranking///
 
 Poss	Nombre	Oleada	Kills   aim %
 -------------------------------------
@@ -21,12 +22,12 @@ Poss	Nombre	Oleada	Kills   aim %
 -------------------------------------
 
 - Oleadas. ///
-- Colisiones en general.
+- Colisiones en general.///
 - Puntaje en pantalla, ronda pantalla. ///
 - Daño de zombie y jugador. 
-- Menu completo
-- Pantalla de game over(Agregar nuevo score).
-- Pausa.
+- Menu completo///
+- Pantalla de game over(Agregar nuevo score).///
+
 /////////////////////////////////////////////////
 */
 
@@ -290,6 +291,15 @@ void juego::cargar_graficos(Vector2f resolucion)
 	text_mira.loadFromFile("imagenes/crosshair.png");
 	spr_mira.setTexture(text_mira);
 	spr_mira.setColor(Color(0, 255, 0, 255));
+
+	text_puntero1.loadFromFile("imagenes/punterozombie1.png");
+	spr_puntero1.setTexture(text_puntero1);
+	spr_puntero1.setColor(Color(255, 255, 255, 0));
+
+	text_puntero2.loadFromFile("imagenes/punterozombie2.png");
+	spr_puntero2.setTexture(text_puntero2);
+	spr_puntero2.setColor(Color(255, 255, 255, 255));
+
 }
 
 void juego::cargar_sonidos()
@@ -366,14 +376,19 @@ void juego::procesar_eventos()
 void juego::menu_dibujar_principal() 
 {
 	ventana1->clear();
-	spr_mira.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+
+	spr_puntero1.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+	spr_puntero2.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
 
 	ventana1->setMouseCursorVisible(false);
 	ventana1->draw(spr_intro1);
 	ventana1->draw(menutext[0]);
 	ventana1->draw(menutext[1]);
 	ventana1->draw(menutext[2]);
-	ventana1->draw(spr_mira);
+
+	ventana1->draw(spr_puntero1);
+	ventana1->draw(spr_puntero2);
+	
 	ventana1->display();
 }
 
@@ -450,8 +465,17 @@ void juego::menu_principal(Vector2f resolucion)
 		menu_dibujar_principal();
 		menu_dibujar_efectoblanco(botonjugar, botonranking, botonsalir);
 
+		if (!Mouse::isButtonPressed(Mouse::Left)) 
+		{
+			spr_puntero1.setColor(Color(255, 255, 255, 0));
+			spr_puntero2.setColor(Color(255, 255, 255, 255));
+		}
+
 		if (Mouse::isButtonPressed(Mouse::Left))
 		{
+			spr_puntero1.setColor(Color(255, 255, 255, 255));
+			spr_puntero2.setColor(Color(255, 255, 255, 0));
+
 			if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
 			{
 				contronda = 0;
@@ -469,6 +493,7 @@ void juego::menu_principal(Vector2f resolucion)
 			}
 
 			if (botonsalir.contains(Mouse::getPosition(*ventana1))) exit(1);
+
 		}
 	}
 }
