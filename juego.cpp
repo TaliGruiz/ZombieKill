@@ -162,23 +162,18 @@ void juego::gameloop(Vector2f resolucion)
 						vecz[i].set_posicion(Vector2f(randomx, randomy));
 						vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
 					}
-					//POR ACA IRIA LA CARGA DE SCORES
-					FILE* p;
-					p = fopen("Scores.dat", "ab");
-					if (p == NULL) { exit(1); }
-					fclose(p);
+					
 				}
 
+				
+				/////////======================////////////////////
+				
 				///procesar colision pj - ventana
 				pj.colisionVentana(resolucion);
-
-				/////////======================////////////////////
-
 				///update bala
 				text_ronda.setString(" RONDA   " + to_string(contronda));
 				///MOVIMIENTO BALA
 				b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
-
 				///dibujo pj y mira al mouse
 				ventana1->draw(pj.get_spr_survivordisparo());
 				ventana1->draw(pj.get_spr_survivor());
@@ -211,6 +206,14 @@ void juego::cargar_fuentes()
 		cout << "No se pudo cargar la fuente scary" << endl;
 	}
 	else { cout << "Se cargo la fuente scary" << endl; }
+
+	hasMuerto.setFont(zombiefont);
+	hasMuerto.setFillColor(Color::Red);
+	hasMuerto.setString("HAS \n \t MUERTO");
+	hasMuerto.setPosition(Vector2f(350, 250));
+	hasMuerto.setCharacterSize(60);
+	hasMuerto.setOutlineColor(Color::Color(0, 0, 0, 255));
+	hasMuerto.setOutlineThickness(1.5);
 
 	//Textos menus
 	menutext[0].setFont(scaryfont);
@@ -359,17 +362,21 @@ void juego::procesar_eventos()
 
 }
 
-///MENUS
+///MENU - MENU Dibujos
 void juego::menu_dibujar_principal() 
 {
 	ventana1->clear();
-	ventana1->setMouseCursorVisible(true);
+	spr_mira.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+
+	ventana1->setMouseCursorVisible(false);
 	ventana1->draw(spr_intro1);
 	ventana1->draw(menutext[0]);
 	ventana1->draw(menutext[1]);
 	ventana1->draw(menutext[2]);
+	ventana1->draw(spr_mira);
 	ventana1->display();
 }
+
 void juego::menu_dibujar_pressenter() 
 {
 	ventana1->clear();
@@ -378,7 +385,8 @@ void juego::menu_dibujar_pressenter()
 	ventana1->draw(titulo_enter);
 	ventana1->display();
 }
-void juego::menu_dibujar_efectoblanco(IntRect botonjugar,IntRect botonranking, IntRect botonsalir) 
+
+void juego::menu_dibujar_efectoblanco(IntRect botonjugar, IntRect botonranking, IntRect botonsalir)
 {
 	if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
 		menutext[0].setFillColor(Color::White);
@@ -403,6 +411,34 @@ void juego::menu_pressenter(Vector2f resolucion)
 	}
 }
 
+void juego::menu_escribirNombre(Vector2f resolucion)
+{
+	/*
+	ventana1->clear();
+	ventana1->draw(spr_intro1);
+
+	Event setname;
+	String playerInput;
+	Text playerText;
+	playerText.setPosition(350, 50);
+	playerText.setFillColor(Color::Red);
+
+	while (true)
+	{
+		if (setname.type == Event::TextEntered)
+		{
+			if (setname.text.unicode < 128)
+			{
+				playerInput += setname.text.unicode;
+				playerText.setString(playerInput);
+			}
+		}
+		ventana1->draw(playerText);
+		ventana1->display();
+	}
+	*/
+}
+
 void juego::menu_principal(Vector2f resolucion)
 {
 	IntRect botonjugar(menutext[0].getPosition().x, menutext[0].getPosition().y, menutext[0].getGlobalBounds().width, menutext[0].getGlobalBounds().height);
@@ -420,7 +456,6 @@ void juego::menu_principal(Vector2f resolucion)
 			{
 				contronda = 0;
 				cantz = CANT_ZOMBIES;
-
 				cancion_menu.stop();
 				cancion_juego.play();
 				game_over = false;

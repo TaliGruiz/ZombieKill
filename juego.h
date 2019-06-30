@@ -24,8 +24,10 @@ class juego
 public:
 	//MENU
 	void menu_pressenter(Vector2f);
+	void menu_escribirNombre(Vector2f);
 	void menu_principal(Vector2f);
 	void menu_ranking();
+
 	//dibujar menu
 	void menu_dibujar_principal();
     void menu_dibujar_pressenter();
@@ -88,6 +90,7 @@ private:
 	Text text_score;
 	Text text_salir;
 	Text menutext[CANT_OPCIONES_MENU];
+	Text hasMuerto;
 
 	///Event
 	Event* eventos;
