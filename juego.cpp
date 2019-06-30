@@ -307,7 +307,6 @@ void juego::cargar_sonidos()
 	if (!BuffDisparo.loadFromFile("sonidos/shot.wav"))
 	{
 		cout << "No se pudo cargar el efecto disparo." << endl;
-
 	}
 	sonidoDisparo.setBuffer(BuffDisparo);
 	
@@ -382,10 +381,11 @@ void juego::menu_dibujar_principal()
 
 	ventana1->setMouseCursorVisible(false);
 	ventana1->draw(spr_intro1);
+	///dibujo las opciones
 	ventana1->draw(menutext[0]);
 	ventana1->draw(menutext[1]);
 	ventana1->draw(menutext[2]);
-
+	///dibujo el puntero
 	ventana1->draw(spr_puntero1);
 	ventana1->draw(spr_puntero2);
 	
@@ -428,7 +428,7 @@ void juego::menu_pressenter(Vector2f resolucion)
 
 void juego::menu_escribirNombre(Vector2f resolucion)
 {
-	/*
+	
 	ventana1->clear();
 	ventana1->draw(spr_intro1);
 
@@ -444,14 +444,15 @@ void juego::menu_escribirNombre(Vector2f resolucion)
 		{
 			if (setname.text.unicode < 128)
 			{
-				playerInput += setname.text.unicode;
+				playerInput += static_cast<char>(setname.text.unicode);
 				playerText.setString(playerInput);
 			}
+			ventana1->draw(playerText);
+
 		}
-		ventana1->draw(playerText);
 		ventana1->display();
 	}
-	*/
+	
 }
 
 void juego::menu_principal(Vector2f resolucion)
@@ -483,7 +484,6 @@ void juego::menu_principal(Vector2f resolucion)
 				cancion_menu.stop();
 				cancion_juego.play();
 				game_over = false;
-				ventana1->setMouseCursorVisible(false);
 				gameloop(resolucion);
 			}
 
@@ -493,7 +493,6 @@ void juego::menu_principal(Vector2f resolucion)
 			}
 
 			if (botonsalir.contains(Mouse::getPosition(*ventana1))) exit(1);
-
 		}
 	}
 }
