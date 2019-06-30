@@ -45,6 +45,8 @@ vector<zombie> vecz;
 int contronda = 1;
 bool flag = true;
 
+
+
 juego::juego(Vector2f resolucion, String titulo)
 {
 		ventana1 = new RenderWindow(VideoMode(resolucion.x, resolucion.y), titulo);
@@ -65,7 +67,11 @@ juego::juego(Vector2f resolucion, String titulo)
 		
 		cancion_menu.play();
 		cancion_menu.setLoop(true);
+		menu_escribirNombre(resolucion);
 		menu_pressenter(resolucion);
+		
+		//ventana1->draw(playername);
+
 }
 
 void juego::gameloop(Vector2f resolucion)
@@ -398,9 +404,14 @@ void juego::menu_dibujar_pressenter()
 	ventana1->draw(spr_intro1);
 	ventana1->draw(titulo_intro);
 	ventana1->draw(titulo_enter);
+	ventana1->draw(playername);
 	ventana1->display();
 }
 
+void juego::menu_dibujar_escribirNombre()
+{
+
+}
 void juego::menu_dibujar_efectoblanco(IntRect botonjugar, IntRect botonranking, IntRect botonsalir)
 {
 	if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
@@ -423,11 +434,30 @@ void juego::menu_pressenter(Vector2f resolucion)
 		menu_dibujar_pressenter();
 		if (Keyboard::isKeyPressed(Keyboard::Enter))
 			menu_principal(resolucion);
+			menu_escribirNombre(resolucion);
+			
 	}
+
 }
 
 void juego::menu_escribirNombre(Vector2f resolucion)
 {
+	while (ventana1->pollEvent(*eventos))
+	{
+
+		if (eventos->type == Event::TextEntered)
+		{
+
+			playerInput += eventos->text.unicode;
+			playername.setString(playerInput);
+			playername.setFont(zombiefont);
+			playername.setPosition(Vector2f(350, 300));
+			playername.setCharacterSize(50);
+			playername.setOutlineColor(Color::Color(0, 0, 0, 255));
+			playername.setOutlineThickness(1.5);
+		}
+
+	}
 	/*
 	ventana1->clear();
 	ventana1->draw(spr_intro1);

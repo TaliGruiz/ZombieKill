@@ -31,6 +31,7 @@ public:
 	//dibujar menu
 	void menu_dibujar_principal();
     void menu_dibujar_pressenter();
+	void menu_dibujar_escribirNombre();
 	void menu_dibujar_efectoblanco(IntRect, IntRect , IntRect);
 	// / / / / / ***** \ \ \ \ \ \ \
 
@@ -98,6 +99,8 @@ private:
 	Text menutext[CANT_OPCIONES_MENU];
 	Text hasMuerto;
 
+	String playerInput;
+	Text playername;
 	///Event
 	Event* eventos;
 	
