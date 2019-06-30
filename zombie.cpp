@@ -7,10 +7,17 @@ using namespace sf;
 
 void zombie::set_spr_zombie()
 {
-	text_zombie.loadFromFile("imagenes/newzombie.png");
+	int randomimg = rand() % 3;
+	if(randomimg==0)
+	text_zombie.loadFromFile("imagenes/zombie1.png"); 
+	if (randomimg == 1)
+	text_zombie.loadFromFile("imagenes/zombie2.png"); 
+	if (randomimg == 2)
+	text_zombie.loadFromFile("imagenes/zombie3.png"); 
+
+	//text_zombie.loadFromFile("imagenes/zombie1.png");
 	spr_zombie.setTexture(text_zombie);
 	spr_zombie.setOrigin(22.5, 20);
-
 }
 void zombie::set_str(int _str) { str = _str; }
 void zombie::set_hp(int _hp) { hp = _hp; }

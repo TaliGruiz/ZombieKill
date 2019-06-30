@@ -428,7 +428,7 @@ void juego::menu_pressenter(Vector2f resolucion)
 
 void juego::menu_escribirNombre(Vector2f resolucion)
 {
-	
+	/*
 	ventana1->clear();
 	ventana1->draw(spr_intro1);
 
@@ -452,7 +452,7 @@ void juego::menu_escribirNombre(Vector2f resolucion)
 		}
 		ventana1->display();
 	}
-	
+	*/
 }
 
 void juego::menu_principal(Vector2f resolucion)
