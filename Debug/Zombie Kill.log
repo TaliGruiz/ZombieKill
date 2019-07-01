@@ -151,6 +151,7 @@ C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(534,75): warning C424
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(534,75): warning C4244:         [
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(534,75): warning C4244:             T=int
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(534,75): warning C4244:         ]
+  main.cpp
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(534,46): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(534,46): warning C4244:         with
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(534,46): warning C4244:         [
@@ -160,4 +161,13 @@ C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(534,46): warning C424
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(534,46): warning C4244:         [
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(534,46): warning C4244:             T=int
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(534,46): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+  survivor.cpp
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\main.cpp(9,12): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+  zombie.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,40): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+  LINK : C:\Users\kryat\Desktop\proyecto juego\ZombieKill\Debug\Zombie Kill.exe not found or not built by the last incremental link; performing full link
   Zombie Kill.vcxproj -> C:\Users\kryat\Desktop\proyecto juego\ZombieKill\Debug\Zombie Kill.exe

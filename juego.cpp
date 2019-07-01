@@ -344,7 +344,7 @@ void juego::cargar_sonidos()
 	}
 	sonidoDisparo.setBuffer(BuffDisparo);
 	
-	if (!cancion_menu.openFromFile("sonidos/twdtheme.ogg"))
+	if (!cancion_menu.openFromFile("sonidos/main theme.ogg"))
 	{
 		cout << "No se pudo cargar el efecto cancion menu." << endl;
 	}
