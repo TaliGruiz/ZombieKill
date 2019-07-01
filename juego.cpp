@@ -67,7 +67,6 @@ juego::juego(Vector2f resolucion, String titulo)
 		
 		cancion_menu.play();
 		cancion_menu.setLoop(true);
-		menu_escribirNombre(resolucion);
 		menu_pressenter(resolucion);
 		
 		//ventana1->draw(playername);
@@ -264,6 +263,16 @@ void juego::cargar_fuentes()
 	titulo_intro.setOutlineColor(Color::Color(0, 0, 0, 255));
 	titulo_intro.setOutlineThickness(1.5);
 
+	//ingrese nombre
+
+	titulo_ingrese_nombre.setString("INGRESE \n NOMBRE");
+	titulo_ingrese_nombre.setFont(zombiefont);
+	titulo_ingrese_nombre.setPosition(Vector2f(269, 97));
+	titulo_ingrese_nombre.setFillColor(Color::Color(255, 0, 0, 170));
+	titulo_ingrese_nombre.setCharacterSize(100);
+	titulo_ingrese_nombre.setOutlineColor(Color::Color(0, 0, 0, 255));
+	titulo_ingrese_nombre.setOutlineThickness(1.5);
+
 	//press enter
 	titulo_enter.setString("Press \n Enter");
 	titulo_enter.setFont(zombiefont);
@@ -272,7 +281,27 @@ void juego::cargar_fuentes()
 	titulo_enter.setCharacterSize(50);
 	titulo_enter.setOutlineColor(Color::Color(0, 0, 0, 255));
 	titulo_enter.setOutlineThickness(1.5);
-	
+
+	//game over
+
+	titulo_game_over.setString("GAME OVER");
+	titulo_game_over.setPosition(Vector2f(269, 40));
+	titulo_game_over.setFillColor(Color::Color(255, 0, 0, 170));
+	titulo_game_over.setFont(zombiefont);
+	titulo_game_over.setCharacterSize(80);
+	titulo_game_over.setOutlineColor(Color::Color(0, 0, 0, 255));
+	titulo_game_over.setOutlineThickness(1.8);
+
+
+
+	//creators
+	titulo_creators.setString("CREADORES \n\n Lucas Abbiatici \n\n Jorge Bravo \n\n Gonzalo Ruiz");
+	titulo_creators.setFont(zombiefont);
+	titulo_creators.setPosition(Vector2f(350, 200));
+	titulo_creators.setFillColor(Color::Color(255, 0, 0, 150));
+	titulo_creators.setCharacterSize(30);
+	titulo_creators.setOutlineColor(Color::Color(0, 0, 0, 255));
+	titulo_creators.setOutlineThickness(1.5);
 }
 
 void juego::cargar_graficos(Vector2f resolucion)
@@ -343,7 +372,18 @@ void juego::procesar_eventos()
 			
 			spr_mira.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
 			break;
-		
+
+		case Event::TextEntered:
+
+			playerInput += eventos->text.unicode;
+			playername.setString(playerInput);
+			playername.setFont(zombiefont);
+			playername.setPosition(Vector2f(350, 300));
+			playername.setCharacterSize(50);
+			playername.setOutlineColor(Color::Color(0, 0, 0, 255));
+			playername.setOutlineThickness(1.5);
+			break;
+
 		case Event::MouseButtonPressed:
 			switch (eventos->key.code)
 			{
@@ -404,13 +444,30 @@ void juego::menu_dibujar_pressenter()
 	ventana1->draw(spr_intro1);
 	ventana1->draw(titulo_intro);
 	ventana1->draw(titulo_enter);
-	ventana1->draw(playername);
 	ventana1->display();
 }
 
 void juego::menu_dibujar_escribirNombre()
 {
+	
+	ventana1->clear();
+	ventana1->draw(spr_intro1);
+	ventana1->draw(titulo_ingrese_nombre);
+	ventana1->draw(titulo_enter);
+	ventana1->draw(playername);	
+	ventana1->display();
 
+	
+}
+
+void juego::menu_dibujar_game_over()
+{
+	ventana1->clear();
+	ventana1->draw(spr_intro1);
+	ventana1->draw(titulo_game_over);
+	ventana1->draw(titulo_creators);
+	//ventana1->draw(playername);
+	ventana1->display();
 }
 void juego::menu_dibujar_efectoblanco(IntRect botonjugar, IntRect botonranking, IntRect botonsalir)
 {
@@ -434,7 +491,6 @@ void juego::menu_pressenter(Vector2f resolucion)
 		menu_dibujar_pressenter();
 		if (Keyboard::isKeyPressed(Keyboard::Enter))
 			menu_principal(resolucion);
-			menu_escribirNombre(resolucion);
 			
 	}
 
@@ -442,20 +498,36 @@ void juego::menu_pressenter(Vector2f resolucion)
 
 void juego::menu_escribirNombre(Vector2f resolucion)
 {
-	while (ventana1->pollEvent(*eventos))
-	{
-
-		if (eventos->type == Event::TextEntered)
+	while (!(Keyboard::isKeyPressed(Keyboard::Enter)))
+	{	
+		procesar_eventos();
+		menu_dibujar_escribirNombre();
+		if (Keyboard::isKeyPressed(Keyboard::Enter))
 		{
+				contronda = 0;
+				cantz = CANT_ZOMBIES;
+				cancion_menu.stop();
+				cancion_juego.play();
+				game_over = false;
+				gameloop(resolucion);
+		 }
+		
+		
 
-			playerInput += eventos->text.unicode;
-			playername.setString(playerInput);
-			playername.setFont(zombiefont);
-			playername.setPosition(Vector2f(350, 300));
-			playername.setCharacterSize(50);
-			playername.setOutlineColor(Color::Color(0, 0, 0, 255));
-			playername.setOutlineThickness(1.5);
-		}
+
+		
+		/*if (Keyboard::isKeyPressed(Keyboard::Enter))
+		{
+			contronda = 0;
+			cantz = CANT_ZOMBIES;
+			cancion_menu.stop();
+			cancion_juego.play();
+			game_over = false;
+			gameloop(resolucion);
+			
+		
+		}*/
+	
 
 	}
 	/*
@@ -509,12 +581,16 @@ void juego::menu_principal(Vector2f resolucion)
 
 			if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
 			{
-				contronda = 0;
+				
+				/*contronda = 0;
 				cantz = CANT_ZOMBIES;
 				cancion_menu.stop();
 				cancion_juego.play();
 				game_over = false;
-				gameloop(resolucion);
+				gameloop(resolucion);*/
+				menu_escribirNombre(resolucion);
+				
+				
 			}
 
 			if (botonranking.contains(Mouse::getPosition(*ventana1))) 

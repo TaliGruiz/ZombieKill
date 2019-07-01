@@ -31,6 +31,7 @@ public:
 	//dibujar menu
 	void menu_dibujar_principal();
     void menu_dibujar_pressenter();
+	void menu_dibujar_game_over();
 	void menu_dibujar_escribirNombre();
 	void menu_dibujar_efectoblanco(IntRect, IntRect , IntRect);
 	// / / / / / ***** \ \ \ \ \ \ \
@@ -91,6 +92,9 @@ private:
 	Font scaryfont;
 	///textos
 	Text titulo_intro;
+	Text titulo_ingrese_nombre;
+	Text titulo_game_over;
+	Text titulo_creators;
 	Text titulo_enter;
 	Text text_ronda;
 	Text text_jugar;
