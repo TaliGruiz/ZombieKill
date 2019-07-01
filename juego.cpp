@@ -155,6 +155,7 @@ void juego::gameloop(Vector2f resolucion)
 
 				}
 				if (muertes == cantz) {
+					Sonido_endRound.play();
 					contronda++;
 					vecz.clear();
 					cantz += 2;
@@ -283,7 +284,6 @@ void juego::cargar_fuentes()
 	titulo_enter.setOutlineThickness(1.5);
 
 	//game over
-
 	titulo_game_over.setString("GAME OVER");
 	titulo_game_over.setPosition(Vector2f(269, 40));
 	titulo_game_over.setFillColor(Color::Color(255, 0, 0, 170));
@@ -291,7 +291,6 @@ void juego::cargar_fuentes()
 	titulo_game_over.setCharacterSize(80);
 	titulo_game_over.setOutlineColor(Color::Color(0, 0, 0, 255));
 	titulo_game_over.setOutlineThickness(1.8);
-
 
 
 	//creators
@@ -345,7 +344,6 @@ void juego::cargar_sonidos()
 	}
 	sonidoDisparo.setBuffer(BuffDisparo);
 	
-
 	if (!cancion_menu.openFromFile("sonidos/twdtheme.ogg"))
 	{
 		cout << "No se pudo cargar el efecto cancion menu." << endl;
@@ -354,16 +352,21 @@ void juego::cargar_sonidos()
 
 	if (!cancion_juego.openFromFile("sonidos/tormenta.ogg"))
 	{
-		cout << "No se pudo cargar el efecto cancion tormenta." << endl;
+		cout << "No se pudo cargar el efecto tormenta." << endl;
 	}
-	cancion_juego.setVolume(70);
+	cancion_juego.setVolume(60);
 
+	if (!BuffendRound.loadFromFile("sonidos/endround.ogg"))
+	{
+		cout << "no se pudo cargar el buffer endRound" << endl;
+	}
+	Sonido_endRound.setBuffer(BuffendRound);
+	Sonido_endRound.setVolume(50);
 }
 
 void juego::procesar_eventos()
 {	
 	
-	//survivor jugadorObj;
 	while (ventana1->pollEvent(*eventos))
 	{
 		switch (eventos->type)
@@ -371,17 +374,6 @@ void juego::procesar_eventos()
 		case Event::MouseMoved:
 			
 			spr_mira.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
-			break;
-
-		case Event::TextEntered:
-
-			playerInput += eventos->text.unicode;
-			playername.setString(playerInput);
-			playername.setFont(zombiefont);
-			playername.setPosition(Vector2f(350, 300));
-			playername.setCharacterSize(50);
-			playername.setOutlineColor(Color::Color(0, 0, 0, 255));
-			playername.setOutlineThickness(1.5);
 			break;
 
 		case Event::MouseButtonPressed:
@@ -417,6 +409,11 @@ void juego::procesar_eventos()
 
 }
 
+void juego::procesar_escritura() 
+{
+	
+}
+
 ///MENU - MENU Dibujos
 void juego::menu_dibujar_principal() 
 {
@@ -449,7 +446,7 @@ void juego::menu_dibujar_pressenter()
 
 void juego::menu_dibujar_escribirNombre()
 {
-	
+
 	ventana1->clear();
 	ventana1->draw(spr_intro1);
 	ventana1->draw(titulo_ingrese_nombre);
@@ -469,6 +466,7 @@ void juego::menu_dibujar_game_over()
 	//ventana1->draw(playername);
 	ventana1->display();
 }
+
 void juego::menu_dibujar_efectoblanco(IntRect botonjugar, IntRect botonranking, IntRect botonsalir)
 {
 	if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
@@ -487,74 +485,46 @@ void juego::menu_dibujar_efectoblanco(IntRect botonjugar, IntRect botonranking, 
 
 void juego::menu_pressenter(Vector2f resolucion)
 {
-	while (!(Keyboard::isKeyPressed(Keyboard::Enter))) {
+	
+	while (!(Keyboard::isKeyPressed(Keyboard::Enter))) 
+	{
 		menu_dibujar_pressenter();
 		if (Keyboard::isKeyPressed(Keyboard::Enter))
 			menu_principal(resolucion);
-			
 	}
 
 }
 
 void juego::menu_escribirNombre(Vector2f resolucion)
 {
-	while (!(Keyboard::isKeyPressed(Keyboard::Enter)))
-	{	
-		procesar_eventos();
-		menu_dibujar_escribirNombre();
-		if (Keyboard::isKeyPressed(Keyboard::Enter))
-		{
-				contronda = 0;
-				cantz = CANT_ZOMBIES;
-				cancion_menu.stop();
-				cancion_juego.play();
-				game_over = false;
-				gameloop(resolucion);
-		 }
-		
-		
-
-
-		
-		/*if (Keyboard::isKeyPressed(Keyboard::Enter))
-		{
-			contronda = 0;
-			cantz = CANT_ZOMBIES;
-			cancion_menu.stop();
-			cancion_juego.play();
-			game_over = false;
-			gameloop(resolucion);
-			
-		
-		}*/
-	
-
-	}
-	/*
-	ventana1->clear();
-	ventana1->draw(spr_intro1);
-
-	Event setname;
-	String playerInput;
-	Text playerText;
-	playerText.setPosition(350, 50);
-	playerText.setFillColor(Color::Red);
-
-	while (true)
+	while (!Keyboard::isKeyPressed(Keyboard::Enter))
 	{
-		if (setname.type == Event::TextEntered)
-		{
-			if (setname.text.unicode < 128)
-			{
-				playerInput += static_cast<char>(setname.text.unicode);
-				playerText.setString(playerInput);
-			}
-			ventana1->draw(playerText);
+		menu_dibujar_escribirNombre();
 
+		while (ventana1->pollEvent(*eventos))
+		{
+
+			switch (eventos->type)
+			{
+			case Event::TextEntered:
+				playerInput += eventos->text.unicode;
+				playername.setString(playerInput);
+				playername.setFont(zombiefont);
+				playername.setPosition(Vector2f(350, 300));
+				playername.setCharacterSize(50);
+				playername.setOutlineColor(Color::Color(0, 0, 0, 255));
+				playername.setOutlineThickness(1.5);
+				break;
+			}
 		}
-		ventana1->display();
+		if (Keyboard::isKeyPressed(Keyboard::Enter)) 
+		{
+			playerInput = "";
+			return;
+		}
+
 	}
-	*/
+	
 }
 
 void juego::menu_principal(Vector2f resolucion)
@@ -566,6 +536,7 @@ void juego::menu_principal(Vector2f resolucion)
 	while (true)
 	{
 		menu_dibujar_principal();
+
 		menu_dibujar_efectoblanco(botonjugar, botonranking, botonsalir);
 
 		if (!Mouse::isButtonPressed(Mouse::Left)) 
@@ -581,15 +552,13 @@ void juego::menu_principal(Vector2f resolucion)
 
 			if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
 			{
-				
-				/*contronda = 0;
+				menu_escribirNombre(resolucion);
+				contronda = 0;
 				cantz = CANT_ZOMBIES;
 				cancion_menu.stop();
 				cancion_juego.play();
 				game_over = false;
-				gameloop(resolucion);*/
-				menu_escribirNombre(resolucion);
-				
+				gameloop(resolucion);
 				
 			}
 

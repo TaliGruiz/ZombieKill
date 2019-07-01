@@ -41,6 +41,7 @@ public:
 	void cargar_graficos(Vector2f);
 	void cargar_sonidos();
 	void procesar_eventos();
+	void procesar_escritura();
 	void cargar_fuentes();
 	void cargar_intro();
 	void cargar_menu();
@@ -78,7 +79,8 @@ private:
 	Sound sonidoDisparo;
 	Music cancion_menu;
 	Music cancion_juego;
-
+	SoundBuffer BuffendRound;
+	Sound Sonido_endRound;
 	///intro
 	Texture text_intro1;
 	Sprite spr_intro1;
@@ -104,7 +106,9 @@ private:
 	Text hasMuerto;
 
 	String playerInput;
+
 	Text playername;
+	
 	///Event
 	Event* eventos;
 	
