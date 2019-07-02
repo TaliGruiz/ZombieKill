@@ -45,6 +45,8 @@ vector<zombie> vecz;
 int contronda = 1;
 bool flag = true;
 
+int rank_canttiros, rank_rondas = 1, rank_tirosacertados;
+float rank_accuracy;
 
 
 juego::juego(Vector2f resolucion, String titulo)
@@ -80,8 +82,14 @@ juego::juego(Vector2f resolucion, String titulo)
 
 void juego::gameloop(Vector2f resolucion,int dificultad)
 {
+	rank_canttiros = 0;
+	rank_rondas = 1;
+	rank_tirosacertados = 0;
+	rank_accuracy = 0;
+
 	int sumarzombies;
 	float speedzombie;
+
 	switch (dificultad)
 	{
 	case 1:
@@ -173,6 +181,7 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 					ventana1->draw(vecz[contz].get_spr_zombie());
 
 					if (Collision::CircleTest(b1.get_spr_bala(), vecz[contz].get_spr_zombie())) {
+						rank_tirosacertados ++;
 						b1.set_posicion(pj.get_posicion());
 						b1.spr_bala.setPosition(pj.get_posicion());
 						b1.spr_bala.setColor(Color(255, 255, 255, 0));
@@ -190,6 +199,15 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 
 					if (Collision::PixelPerfectTest(vecz[contz].get_spr_zombie(), pj.get_spr_survivor())) 
 					{
+
+						rank_accuracy = rank_tirosacertados * 100 / rank_canttiros;
+						ranking.set_rondas(rank_rondas);
+						ranking.set_accuracy(rank_accuracy);
+						ranking.set_tiros(rank_canttiros);
+						ranking.set_tirosacertados(rank_tirosacertados);
+
+						ranking.grabarendisco();
+
 						vecz.clear();
 						game_over = true;
 						cancion_juego.stop();
@@ -201,6 +219,8 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 
 				}
 				if (muertes == cantz) {
+					rank_rondas ++;
+
 					Sonido_endRound.play();
 					contronda++;
 					vecz.clear();
@@ -283,6 +303,44 @@ void juego::cargar_fuentes()
 	hasMuerto.setOutlineColor(Color::Color(0, 0, 0, 255));
 	hasMuerto.setOutlineThickness(1.5);
 
+	//textos ranking jugadores
+	txt_jugadores[0].setFont(scaryfont);
+	txt_jugadores[0].setFillColor(Color::Red);
+	txt_jugadores[0].setCharacterSize(20);
+	txt_jugadores[0].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_jugadores[0].setOutlineThickness(1.5);
+
+	txt_jugadores[1].setFont(scaryfont);
+	txt_jugadores[1].setFillColor(Color::Red);
+	txt_jugadores[1].setCharacterSize(20);
+	txt_jugadores[1].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_jugadores[1].setOutlineThickness(1.5);
+
+	txt_jugadores[2].setFont(scaryfont);
+	txt_jugadores[2].setFillColor(Color::Red);
+	txt_jugadores[2].setCharacterSize(20);
+	txt_jugadores[2].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_jugadores[2].setOutlineThickness(1.5);
+
+	txt_jugadores[3].setFont(scaryfont);
+	txt_jugadores[3].setFillColor(Color::Red);
+	txt_jugadores[3].setCharacterSize(20);
+	txt_jugadores[3].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_jugadores[3].setOutlineThickness(1.5);
+
+	txt_jugadores[4].setFont(scaryfont);
+	txt_jugadores[4].setFillColor(Color::Red);
+	txt_jugadores[4].setCharacterSize(20);
+	txt_jugadores[4].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_jugadores[4].setOutlineThickness(1.5);
+
+	txt_jugadores[5].setFont(scaryfont);
+	txt_jugadores[5].setFillColor(Color::Red);
+	txt_jugadores[5].setCharacterSize(20);
+	txt_jugadores[5].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_jugadores[5].setOutlineThickness(1.5);
+
+
 	//textos menu dificultad
 	text_selecdif.setFont(scaryfont);
 	text_selecdif.setFillColor(Color::Red);
@@ -316,18 +374,64 @@ void juego::cargar_fuentes()
 	text_dif[2].setOutlineColor(Color::Color(0, 0, 0, 255));
 	text_dif[2].setOutlineThickness(1.5);
 	
-	/*
+	
+	//textos ranking
+	txt_rank[0].setFont(scaryfont);
+	txt_rank[0].setFillColor(Color::Red);
+	txt_rank[0].setString("POS");
+	txt_rank[0].setPosition(Vector2f(20, 20));
+	txt_rank[0].setCharacterSize(20);
+	txt_rank[0].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_rank[0].setOutlineThickness(1.5);
+
+	txt_rank[1].setFont(scaryfont);
+	txt_rank[1].setFillColor(Color::Red);
+	txt_rank[1].setString("NOMBRE");
+	txt_rank[1].setPosition(Vector2f(100, 20));
+	txt_rank[1].setCharacterSize(20);
+	txt_rank[1].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_rank[1].setOutlineThickness(1.5);
+
+	txt_rank[2].setFont(scaryfont);
+	txt_rank[2].setFillColor(Color::Red);
+	txt_rank[2].setString("RONDAS");
+	txt_rank[2].setPosition(Vector2f(250, 20));
+	txt_rank[2].setCharacterSize(20);
+	txt_rank[2].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_rank[2].setOutlineThickness(1.5);
+
+	txt_rank[3].setFont(scaryfont);
+	txt_rank[3].setFillColor(Color::Red);
+	txt_rank[3].setString("DISP.TOT");
+	txt_rank[3].setPosition(Vector2f(400, 20));
+	txt_rank[3].setCharacterSize(20);
+	txt_rank[3].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_rank[3].setOutlineThickness(1.5);
+
+	txt_rank[4].setFont(scaryfont);
+	txt_rank[4].setFillColor(Color::Red);
+	txt_rank[4].setString("DISP.ACERT");
+	txt_rank[4].setPosition(Vector2f(550, 20));
+	txt_rank[4].setCharacterSize(20);
+	txt_rank[4].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_rank[4].setOutlineThickness(1.5);
+	
+	txt_rank[5].setFont(scaryfont);
+	txt_rank[5].setFillColor(Color::Red);
+	txt_rank[5].setString("ACC");
+	txt_rank[5].setPosition(Vector2f(700, 20));
+	txt_rank[5].setCharacterSize(20);
+	txt_rank[5].setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_rank[5].setOutlineThickness(1.5);
 
 	text_atras.setFont(scaryfont);
 	text_atras.setFillColor(Color::Red);
 	text_atras.setString("Atras");
-	text_atras.setPosition(Vector2f(50, 560));
-	text_atras.setCharacterSize(40);
+	text_atras.setPosition(Vector2f(20, 560));
+	text_atras.setCharacterSize(20);
 	text_atras.setOutlineColor(Color::Color(0, 0, 0, 255));
 	text_atras.setOutlineThickness(1.5);
-	
-	*/
-	
+
 	//Textos menu principal
 	menutext[0].setFont(scaryfont);
 	menutext[0].setFillColor(Color::Red);
@@ -488,8 +592,10 @@ void juego::procesar_eventos()
 				case Mouse::Left:
 					pj.color_aprietodisparo();
 					sonidoDisparo.play();
-				
+					
 					if (Mouse::isButtonPressed(Mouse::Left)) {
+						
+						rank_canttiros++; ///cuento tiros
 						sonidoDisparo.setPitch(3);
 						sonidoDisparo.play();
 						sonidoDisparo.setVolume(50);
@@ -514,6 +620,7 @@ void juego::procesar_eventos()
 	}
 
 }
+
 
 ///MENU - MENU Dibujos
 void juego::menu_dibujar_principal() 
@@ -572,7 +679,6 @@ void juego::menu_dibujar_dificultad()
 	spr_puntero1.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
 	spr_puntero2.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
 
-
 	ventana1->clear();
 	ventana1->draw(spr_intro1);
 	ventana1->draw(text_dif[0]);
@@ -617,6 +723,29 @@ void juego::menu_dibujar_efectoblanco_dificulad(IntRect botonfacil, IntRect boto
 		text_dif[2].setFillColor(Color::Red);
 }
 
+void juego::menu_dibujar_ranking(IntRect botonatras)
+{
+	spr_puntero1.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+	spr_puntero2.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+
+	if (botonatras.contains(sf::Mouse::getPosition(*ventana1)))
+		text_atras.setFillColor(Color::White);
+	if (!(botonatras.contains(sf::Mouse::getPosition(*ventana1))))
+		text_atras.setFillColor(Color::Red);
+	ventana1->draw(txt_rank[0]);
+	ventana1->draw(txt_rank[1]);
+	ventana1->draw(txt_rank[2]);
+	ventana1->draw(txt_rank[3]);
+	ventana1->draw(txt_rank[4]);
+	ventana1->draw(txt_rank[5]);
+	ventana1->draw(text_atras);
+	ventana1->draw(spr_puntero1);
+	ventana1->draw(spr_puntero2);
+	ventana1->display();
+}
+
+
+///MENU - MENU
 void juego::menu_pressenter(Vector2f resolucion)
 {
 	
@@ -653,6 +782,12 @@ void juego::menu_escribirNombre(Vector2f resolucion)
 		}
 		if (Keyboard::isKeyPressed(Keyboard::Enter)) 
 		{
+			
+			char nombre[30];
+			size_t length = playerInput.copy(nombre, playerInput.size() , 0);
+			nombre[length] = '\0';
+			ranking.set_nombre(nombre);
+
 			playerInput = "";
 			return;
 		}
@@ -699,7 +834,7 @@ void juego::menu_principal(Vector2f resolucion)
 
 			if (botonranking.contains(Mouse::getPosition(*ventana1))) 
 			{
-				
+				menu_ranking();
 			}
 
 			if (botonsalir.contains(Mouse::getPosition(*ventana1))) exit(1);
@@ -768,3 +903,53 @@ void juego::menu_dificultad(Vector2f resolucion)
 		}
 	}
 }
+
+void juego::menu_ranking() 
+{
+	IntRect botonatras(text_atras.getPosition().x, text_atras.getPosition().y, text_atras.getGlobalBounds().width, text_atras.getGlobalBounds().height);
+	score* vec;
+	vec = ordenar_ranking();
+	txt_jugadores[0].setPosition(Vector2f(35, 45));
+	txt_jugadores[1].setPosition(Vector2f(100, 45));
+	txt_jugadores[2].setPosition(Vector2f(280, 45));
+	txt_jugadores[3].setPosition(Vector2f(430, 45));
+	txt_jugadores[4].setPosition(Vector2f(590, 45));
+	txt_jugadores[5].setPosition(Vector2f(710, 45));
+
+	txt_jugadores[0].setString(to_string(1));
+	txt_jugadores[1].setString("kryat");
+	txt_jugadores[2].setString("30");
+	txt_jugadores[3].setString("300");
+	txt_jugadores[4].setString("100");
+	txt_jugadores[5].setString("33");
+	while (true)
+	{
+		ventana1->clear();
+		ventana1->draw(txt_jugadores[0]);
+		ventana1->draw(txt_jugadores[1]);
+		ventana1->draw(txt_jugadores[2]);
+		ventana1->draw(txt_jugadores[3]);
+		ventana1->draw(txt_jugadores[4]);
+		ventana1->draw(txt_jugadores[5]);
+
+		menu_dibujar_ranking(botonatras);
+		//ordenar_ranking();
+
+		if (!Mouse::isButtonPressed(Mouse::Left))
+		{
+			spr_puntero1.setColor(Color(255, 255, 255, 0));
+			spr_puntero2.setColor(Color(255, 255, 255, 255));
+		}
+
+		if (Mouse::isButtonPressed(Mouse::Left))
+		{
+			spr_puntero1.setColor(Color(255, 255, 255, 255));
+			spr_puntero2.setColor(Color(255, 255, 255, 0));
+			if (botonatras.contains(sf::Mouse::getPosition(*ventana1)))
+			{
+				return;
+			}
+		}
+	}
+}
+

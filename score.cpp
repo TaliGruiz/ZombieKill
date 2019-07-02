@@ -42,3 +42,10 @@ void score::modificarendisco(int pos)
 	fwrite(this, sizeof * this, 1, p);
 	fclose(p);
 }
+
+bool score::operator>(score obj) 
+{
+	if (rondas > obj.rondas)return true;
+	return false;
+}
+
