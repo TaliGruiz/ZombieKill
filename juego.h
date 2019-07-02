@@ -51,26 +51,29 @@ public:
 	void cargar_sonidos();
 	void procesar_eventos();
 	void cargar_fuentes();
+	void cargar_fuentes_ranking();
 	void cargar_intro();
 	void cargar_menu();
 	Font get_scaryfont() { return scaryfont; }
-
-	///func general
-	score* ordenar_ranking() 
+	
+	void ordenar_ranking() 
 	{
-		score obj, * vecobj, aux;
-		int posy = 40;
+		score obj, * vecobj, aux, vecmostrar[5];
 		int pos = 0, cantreg = 0, i=0, j, posmin;
+
 		while (obj.leerdedisco(pos++)) cantreg++;
 		vecobj = new score[cantreg];
+
 		pos = 0;
+		
 		while (obj.leerdedisco(pos++))
 		{
 			vecobj[i] = obj;
 			i++;
 		}
-
-		for (i = 0; i < cantreg - 1; i++) {
+		
+		for (i = 0; i < cantreg - 1; i++) 
+		{
 			posmin = i;
 			for (j = i + 1; j < cantreg; j++)
 			{
@@ -83,46 +86,53 @@ public:
 				vecobj[posmin] = aux;
 			}
 		}
+		
+		txt_jugadores[0].setString(to_string(1));
+		txt_jugadores[1].setString(vecobj[0].get_nombre());
+		txt_jugadores[2].setString(to_string(vecobj[0].get_rondas()));
+		txt_jugadores[3].setString(to_string(vecobj[0].get_tiros()));
+		txt_jugadores[4].setString(to_string(vecobj[0].get_tirosacertados()));
+		txt_jugadores[5].setString(to_string(vecobj[0].get_accuracy()));
 
-		ventana1->display();
+		txt_jugadores[6].setString(to_string(2));
+		txt_jugadores[7].setString(vecobj[1].get_nombre());
+		txt_jugadores[8].setString(to_string(vecobj[1].get_rondas()));
+		txt_jugadores[9].setString(to_string(vecobj[1].get_tiros()));
+		txt_jugadores[10].setString(to_string(vecobj[1].get_tirosacertados()));
+		txt_jugadores[11].setString(to_string(vecobj[1].get_accuracy()));
 
-		return vecobj;
+		txt_jugadores[12].setString(to_string(3));
+		txt_jugadores[13].setString(vecobj[2].get_nombre());
+		txt_jugadores[14].setString(to_string(vecobj[2].get_rondas()));
+		txt_jugadores[15].setString(to_string(vecobj[2].get_tiros()));
+		txt_jugadores[16].setString(to_string(vecobj[2].get_tirosacertados()));
+		txt_jugadores[17].setString(to_string(vecobj[2].get_accuracy()));
+
+		txt_jugadores[18].setString(to_string(4));
+		txt_jugadores[19].setString(vecobj[3].get_nombre());
+		txt_jugadores[20].setString(to_string(vecobj[3].get_rondas()));
+		txt_jugadores[21].setString(to_string(vecobj[3].get_tiros()));
+		txt_jugadores[22].setString(to_string(vecobj[3].get_tirosacertados()));
+		txt_jugadores[23].setString(to_string(vecobj[3].get_accuracy()));
+
+		txt_jugadores[24].setString(to_string(5));
+		txt_jugadores[25].setString(vecobj[4].get_nombre());
+		txt_jugadores[26].setString(to_string(vecobj[4].get_rondas()));
+		txt_jugadores[27].setString(to_string(vecobj[4].get_tiros()));
+		txt_jugadores[28].setString(to_string(vecobj[4].get_tirosacertados()));
+		txt_jugadores[29].setString(to_string(vecobj[4].get_accuracy()));
+		
+		delete vecobj;	
 	}
-
-
-	void mostrar_vector(score* vecobj)
+	
+	void dibujar_vector()
 	{
-		int posy = 40;
-		score obj;
-		int pos = 0, cantreg = 0, i;
-		while (obj.leerdedisco(pos++)) cantreg++;
-		for (i = 0; i < cantreg; i++)
+		for (int i = 0; i < 30; i+6)
 		{
-
-			txt_jugadores[0].setPosition(Vector2f(50, posy));
-			txt_jugadores[1].setPosition(Vector2f(100, posy));
-			txt_jugadores[2].setPosition(Vector2f(200, posy));
-			txt_jugadores[3].setPosition(Vector2f(300, posy));
-			txt_jugadores[4].setPosition(Vector2f(400, posy));
-			txt_jugadores[5].setPosition(Vector2f(500, posy));
-
-			txt_jugadores[0].setString(to_string(i + 1));
-			txt_jugadores[1].setString(vecobj[i].get_nombre());
-			txt_jugadores[2].setString(to_string(vecobj[i].get_rondas()));
-			txt_jugadores[3].setString(to_string(vecobj[i].get_tiros()));
-			txt_jugadores[4].setString(to_string(vecobj[i].get_tirosacertados()));
-			txt_jugadores[5].setString(to_string(vecobj[i].get_accuracy()));
-			
-			ventana1->draw(txt_jugadores[0]);
-			ventana1->draw(txt_jugadores[1]);
-			ventana1->draw(txt_jugadores[2]);
-			ventana1->draw(txt_jugadores[3]);
-			ventana1->draw(txt_jugadores[4]);
-			ventana1->draw(txt_jugadores[5]);
-
-			posy += 40;
+			ventana1->draw(txt_jugadores[i]);
 		}
 	}
+	
 private:
 	score ranking;
 	RenderWindow* ventana1;
@@ -184,7 +194,7 @@ private:
 	Text hasMuerto;
 	Text text_atras;
 	Text text_selecdif;
-	Text txt_jugadores[6];
+	Text txt_jugadores[30];
 
 	string playerInput;
 
