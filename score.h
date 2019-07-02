@@ -26,7 +26,7 @@ public:
 
 	///disco
 	bool leerdedisco(int);
-	void grabarendisco();
+	bool grabarendisco();
 	void modificarendisco(int);
 
 	///operadores

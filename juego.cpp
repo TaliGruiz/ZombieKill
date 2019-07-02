@@ -83,6 +83,7 @@ juego::juego(Vector2f resolucion, String titulo)
 
 void juego::gameloop(Vector2f resolucion,int dificultad)
 {
+	int pos = 0;
 	rank_canttiros = 0;
 	rank_rondas = 1;
 	rank_tirosacertados = 0;
@@ -202,13 +203,15 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 					{
 
 						rank_accuracy = rank_tirosacertados * 100 / rank_canttiros;
+						
 						ranking.set_rondas(rank_rondas);
-						ranking.set_accuracy(rank_accuracy);
 						ranking.set_tiros(rank_canttiros);
 						ranking.set_tirosacertados(rank_tirosacertados);
-
-						ranking.grabarendisco();
-
+						ranking.set_accuracy(rank_accuracy);
+						bool grabo = ranking.grabarendisco();
+						if (!grabo)cout << "no grabo" << endl;
+						if(grabo)cout << "grabo" << endl;
+						
 						vecz.clear();
 						game_over = true;
 						cancion_juego.stop();

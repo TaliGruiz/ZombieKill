@@ -58,10 +58,17 @@ public:
 	
 	void ordenar_ranking() 
 	{
-		score obj, * vecobj, aux, vecmostrar[5];
+		score obj, *vecobj, aux, vecmostrar[5];
 		int pos = 0, cantreg = 0, i=0, j, posmin;
 
-		while (obj.leerdedisco(pos++)) cantreg++;
+		while (obj.leerdedisco(pos++))
+		{
+			cout << "si leyo" << endl;
+			cantreg++;
+		}
+
+		cout << cantreg << endl;
+
 		vecobj = new score[cantreg];
 
 		pos = 0;

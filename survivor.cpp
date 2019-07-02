@@ -133,7 +133,7 @@ void survivor::movimiento_teclado()
 
 void survivor::mirarAlMouse(Window *ventana1)
 {
-	float a, b,angle;
+	float a, b, angle;
 	a = get_posicion().x - Mouse::getPosition(*ventana1).x;
 	b = get_posicion().y - Mouse::getPosition(*ventana1).y;
 	angle = (-atan2(a, b) * 180.f / 3.14) - 97.f;
