@@ -14,7 +14,9 @@
 #include "zombie.h"
 
 #define CANT_OPCIONES_MENU 3
-#define CANT_ZOMBIES 5
+#define CANT_ZOMBIES 3
+#define CANT_DIFICULTAD 3
+
 using namespace sf;
 using namespace std;
 
@@ -27,21 +29,23 @@ public:
 	void menu_escribirNombre(Vector2f);
 	void menu_principal(Vector2f);
 	void menu_ranking();
-
+	void menu_dificultad(Vector2f);
+	
 	//dibujar menu
 	void menu_dibujar_principal();
     void menu_dibujar_pressenter();
 	void menu_dibujar_game_over();
 	void menu_dibujar_escribirNombre();
 	void menu_dibujar_efectoblanco(IntRect, IntRect , IntRect);
+	void menu_dibujar_efectoblanco_dificulad(IntRect, IntRect, IntRect);
+	void menu_dibujar_dificultad();
 	// / / / / / ***** \ \ \ \ \ \ \
 
 	juego(Vector2f resolucion, String titulo);
-	void gameloop(Vector2f);
+	void gameloop(Vector2f, int);
 	void cargar_graficos(Vector2f);
 	void cargar_sonidos();
 	void procesar_eventos();
-	void procesar_escritura();
 	void cargar_fuentes();
 	void cargar_intro();
 	void cargar_menu();
@@ -102,8 +106,11 @@ private:
 	Text text_jugar;
 	Text text_score;
 	Text text_salir;
-	Text menutext[CANT_OPCIONES_MENU];
+	Text menutext [CANT_OPCIONES_MENU];
+	Text text_dif[CANT_DIFICULTAD];
 	Text hasMuerto;
+	Text text_atras;
+	Text text_selecdif;
 
 	String playerInput;
 

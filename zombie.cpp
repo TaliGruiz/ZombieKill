@@ -48,9 +48,8 @@ void zombie::mover(Vector2f _mov) { spr_zombie.move(_mov); }
 
 void zombie::rotar(float _angle) { spr_zombie.setRotation(_angle); }
 
-void zombie::update(Vector2f pospj) {
+void zombie::update(Vector2f pospj,float speed) {
 
-	float speed = 0.5;
 	Vector2f distance;
 	distance.x = pospj.x - posicion.x;
 	distance.y = pospj.y - posicion.y;

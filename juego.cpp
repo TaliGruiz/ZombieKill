@@ -78,8 +78,34 @@ juego::juego(Vector2f resolucion, String titulo)
 
 }
 
-void juego::gameloop(Vector2f resolucion)
+void juego::gameloop(Vector2f resolucion,int dificultad)
 {
+	int sumarzombies;
+	float speedzombie;
+	switch (dificultad)
+	{
+	case 1:
+		zombie2.set_hp(60);
+		zombie2.set_currHp(60);
+		sumarzombies = 2;
+		speedzombie = 0.5;
+		break;
+	
+	case 2:
+		zombie2.set_hp(100);
+		zombie2.set_currHp(100);
+		sumarzombies = 3;
+		speedzombie = 0.7;
+		break;
+	
+	case 3: 
+		zombie2.set_hp(140);
+		zombie2.set_currHp(140);
+		sumarzombies = 4;
+		speedzombie = 1.0;
+		break;
+	}
+
 	while (!game_over)
 		{
 			*tiempo1 = reloj1->getElapsedTime();
@@ -142,7 +168,7 @@ void juego::gameloop(Vector2f resolucion)
 					angle2 = (-atan2(c, d) * 180.f / 3.14) - 170.f;
 
 					vecz[contz].rotar(angle2);
-					vecz[contz].update(pj.get_spr_survivor().getPosition());
+					vecz[contz].update(pj.get_spr_survivor().getPosition(),speedzombie);
 					vecz[contz].mover(Vector2f(vecz[contz].get_velocidad().x, vecz[contz].get_velocidad().y));
 					ventana1->draw(vecz[contz].get_spr_zombie());
 
@@ -178,7 +204,7 @@ void juego::gameloop(Vector2f resolucion)
 					Sonido_endRound.play();
 					contronda++;
 					vecz.clear();
-					cantz += 2;
+					cantz += sumarzombies;
 					for (int i = 0; i < cantz; i++)
 					{
 						int random = rand() % 4 + 1;
@@ -257,7 +283,52 @@ void juego::cargar_fuentes()
 	hasMuerto.setOutlineColor(Color::Color(0, 0, 0, 255));
 	hasMuerto.setOutlineThickness(1.5);
 
-	//Textos menus
+	//textos menu dificultad
+	text_selecdif.setFont(scaryfont);
+	text_selecdif.setFillColor(Color::Red);
+	text_selecdif.setString("Seleccionar Dificultad");
+	text_selecdif.setPosition(Vector2f(130, 50));
+	text_selecdif.setCharacterSize(40);
+	text_selecdif.setOutlineColor(Color::Color(0, 0, 0, 255));
+	text_selecdif.setOutlineThickness(1.5);
+	
+	text_dif[0].setFont(scaryfont);
+	text_dif[0].setFillColor(Color::Red);
+	text_dif[0].setString("FACIL");
+	text_dif[0].setPosition(Vector2f(355, 200));
+	text_dif[0].setCharacterSize(40);
+	text_dif[0].setOutlineColor(Color::Color(0, 0, 0, 255));
+	text_dif[0].setOutlineThickness(1.5);
+
+	text_dif[1].setFont(scaryfont);
+	text_dif[1].setFillColor(Color::Red);
+	text_dif[1].setString("MEDIA");
+	text_dif[1].setPosition(Vector2f(345, 350));
+	text_dif[1].setCharacterSize(40);
+	text_dif[1].setOutlineColor(Color::Color(0, 0, 0, 255));
+	text_dif[1].setOutlineThickness(1.5);
+
+	text_dif[2].setFont(scaryfont);
+	text_dif[2].setFillColor(Color::Red);
+	text_dif[2].setString("DIFICIL");
+	text_dif[2].setPosition(Vector2f(340, 500));
+	text_dif[2].setCharacterSize(40);
+	text_dif[2].setOutlineColor(Color::Color(0, 0, 0, 255));
+	text_dif[2].setOutlineThickness(1.5);
+	
+	/*
+
+	text_atras.setFont(scaryfont);
+	text_atras.setFillColor(Color::Red);
+	text_atras.setString("Atras");
+	text_atras.setPosition(Vector2f(50, 560));
+	text_atras.setCharacterSize(40);
+	text_atras.setOutlineColor(Color::Color(0, 0, 0, 255));
+	text_atras.setOutlineThickness(1.5);
+	
+	*/
+	
+	//Textos menu principal
 	menutext[0].setFont(scaryfont);
 	menutext[0].setFillColor(Color::Red);
 	menutext[0].setString("JUGAR");
@@ -444,11 +515,6 @@ void juego::procesar_eventos()
 
 }
 
-void juego::procesar_escritura() 
-{
-	
-}
-
 ///MENU - MENU Dibujos
 void juego::menu_dibujar_principal() 
 {
@@ -498,7 +564,24 @@ void juego::menu_dibujar_game_over()
 	ventana1->draw(spr_intro1);
 	ventana1->draw(titulo_game_over);
 	ventana1->draw(titulo_creators);
-	//ventana1->draw(playername);
+	ventana1->display();
+}
+
+void juego::menu_dibujar_dificultad()
+{	
+	spr_puntero1.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+	spr_puntero2.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+
+
+	ventana1->clear();
+	ventana1->draw(spr_intro1);
+	ventana1->draw(text_dif[0]);
+	ventana1->draw(text_dif[1]);
+	ventana1->draw(text_dif[2]);
+	ventana1->draw(text_selecdif);
+	ventana1->draw(spr_puntero1);
+	ventana1->draw(spr_puntero2);
+
 	ventana1->display();
 }
 
@@ -516,6 +599,22 @@ void juego::menu_dibujar_efectoblanco(IntRect botonjugar, IntRect botonranking, 
 		menutext[2].setFillColor(Color::White);
 	if (!(botonsalir.contains(sf::Mouse::getPosition(*ventana1))))
 		menutext[2].setFillColor(Color::Red);
+}
+
+void juego::menu_dibujar_efectoblanco_dificulad(IntRect botonfacil, IntRect botonmedia, IntRect botondificil)
+{
+	if (botonfacil.contains(sf::Mouse::getPosition(*ventana1)))
+		text_dif[0].setFillColor(Color::White);
+	if (!(botonfacil.contains(sf::Mouse::getPosition(*ventana1))))
+		text_dif[0].setFillColor(Color::Red);
+	if (botonmedia.contains(sf::Mouse::getPosition(*ventana1)))
+		text_dif[1].setFillColor(Color::White);
+	if (!(botonmedia.contains(sf::Mouse::getPosition(*ventana1))))
+		text_dif[1].setFillColor(Color::Red);
+	if (botondificil.contains(sf::Mouse::getPosition(*ventana1)))
+		text_dif[2].setFillColor(Color::White);
+	if (!(botondificil.contains(sf::Mouse::getPosition(*ventana1))))
+		text_dif[2].setFillColor(Color::Red);
 }
 
 void juego::menu_pressenter(Vector2f resolucion)
@@ -571,7 +670,6 @@ void juego::menu_principal(Vector2f resolucion)
 	while (true)
 	{
 		menu_dibujar_principal();
-
 		menu_dibujar_efectoblanco(botonjugar, botonranking, botonsalir);
 
 		if (!Mouse::isButtonPressed(Mouse::Left)) 
@@ -588,13 +686,15 @@ void juego::menu_principal(Vector2f resolucion)
 			if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
 			{
 				menu_escribirNombre(resolucion);
-				contronda = 0;
+				menu_dificultad(resolucion);
+				/*
 				cantz = CANT_ZOMBIES;
+				contronda = 0;
 				cancion_menu.stop();
 				cancion_juego.play();
 				game_over = false;
 				gameloop(resolucion);
-				
+				*/
 			}
 
 			if (botonranking.contains(Mouse::getPosition(*ventana1))) 
@@ -603,6 +703,68 @@ void juego::menu_principal(Vector2f resolucion)
 			}
 
 			if (botonsalir.contains(Mouse::getPosition(*ventana1))) exit(1);
+		}
+	}
+}
+
+void juego::menu_dificultad(Vector2f resolucion)
+{
+	IntRect botonfacil(text_dif[0].getPosition().x, text_dif[0].getPosition().y, text_dif[0].getGlobalBounds().width, text_dif[0].getGlobalBounds().height);
+	IntRect botonmedia(text_dif[1].getPosition().x, text_dif[1].getPosition().y, text_dif[1].getGlobalBounds().width, text_dif[1].getGlobalBounds().height);
+	IntRect botondificil(text_dif[2].getPosition().x, text_dif[2].getPosition().y, text_dif[2].getGlobalBounds().width, text_dif[2].getGlobalBounds().height);
+	IntRect botonatras(text_atras.getPosition().x, text_atras.getPosition().y, text_atras.getGlobalBounds().width, text_atras.getGlobalBounds().height);
+
+	spr_puntero1.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+	spr_puntero2.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+	ventana1->setMouseCursorVisible(false);
+	ventana1->draw(spr_intro1);
+
+	while (true)
+	{
+		menu_dibujar_dificultad();
+		menu_dibujar_efectoblanco_dificulad(botonfacil, botonmedia, botondificil);
+
+		if (!Mouse::isButtonPressed(Mouse::Left))
+		{
+			spr_puntero1.setColor(Color(255, 255, 255, 0));
+			spr_puntero2.setColor(Color(255, 255, 255, 255));
+		}
+
+		if (Mouse::isButtonPressed(Mouse::Left))
+		{
+			spr_puntero1.setColor(Color(255, 255, 255, 255));
+			spr_puntero2.setColor(Color(255, 255, 255, 0));
+
+			if (botonfacil.contains(sf::Mouse::getPosition(*ventana1)))
+			{
+				contronda = 0;
+				cantz = CANT_ZOMBIES;
+				cancion_menu.stop();
+				cancion_juego.play();
+				game_over = false;
+				gameloop(resolucion, 1);
+				return;
+			}
+			if (botonmedia.contains(sf::Mouse::getPosition(*ventana1)))
+			{
+				contronda = 0;
+				cantz = CANT_ZOMBIES + 2;
+				cancion_menu.stop();
+				cancion_juego.play();
+				game_over = false;
+				gameloop(resolucion, 2);
+				return;
+			}
+			if (botondificil.contains(sf::Mouse::getPosition(*ventana1)))
+			{
+				contronda = 0;
+				cantz = CANT_ZOMBIES + 4;
+				cancion_menu.stop();
+				cancion_juego.play();
+				game_over = false;
+				gameloop(resolucion, 3);
+				return;
+			}
 		}
 	}
 }

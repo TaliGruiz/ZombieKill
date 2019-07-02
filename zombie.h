@@ -27,13 +27,14 @@ public:
 	//constructores
 	zombie(Vector2f, float, int);
 	void eliminar() { delete this; }
+
 	//movimientos
 	void mover(Vector2f);
 	void set_spr_zombie_posicion(Vector2f);
 	void rotar(float);
 
 	//zombie sigue survivor
-	void update(Vector2f);
+	void update(Vector2f, float);
 
 private:
 	Text hpbar;
