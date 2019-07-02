@@ -18,6 +18,8 @@ public:
 	void set_spr_survivor();
 	void set_spr_survivordisparo();
 	void set_currHp(int _hp) { currHp = _hp; }
+	void set_spr_survivor_posicion(Vector2f _pos) { spr_survivor.setPosition(_pos); }
+	void set_spr_survivordisparo_posicion(Vector2f _pos) { spr_survivordisparo.setPosition(_pos); }
 
 	//get
 	Sprite get_spr_survivor() { return spr_survivor; }
@@ -26,6 +28,8 @@ public:
 	Vector2f get_velocidad() { return velocidad; }
 	Vector2f get_posicion() { return posicion; }
 	int get_currHp() { return currHp; }
+
+
 	//constructor
 	survivor(Vector2f, float, float);
 

@@ -60,6 +60,11 @@ juego::juego(Vector2f resolucion, String titulo)
 		
 		fps = 1 / 60.f;
 
+		///Respawn survivor
+		pj.set_posicion(Vector2f(400, 300));
+		pj.set_spr_survivor_posicion(Vector2f(400, 300));
+		pj.set_spr_survivordisparo_posicion(Vector2f(400, 300));
+
 		eventos = new Event;
 		reloj1 = new Clock();
 		tiempo1 = new Time();
@@ -97,18 +102,33 @@ void juego::gameloop(Vector2f resolucion)
 				pj.mirarAlMouse(ventana1);
 
 				//CARGO VECTOR POR PRIMERA VEZ
-				if (contronda == 0) 
+				if (contronda == 0)
 				{
 					for (int i = 0; i < cantz; i++)
 					{
 						contronda = 1;
-						int random3 = rand() % 800;
-						int random4 = rand() % 600;
-						int randomx = rand() % 10 + random3;
-						int randomy = rand() % 20 + 0;
+						int random = rand() % 4 + 1;
+						int randomx = rand() % 800;
+						int randomy = rand() % 600;
 						vecz.push_back(zombie2);
-						vecz[i].set_posicion(Vector2f(randomx, randomy));
-						vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
+						switch (random) {
+						case 1:
+							vecz[i].set_posicion(Vector2f(randomx, -80));
+							vecz[i].set_spr_zombie_posicion(Vector2f(randomx, -80));
+							break;
+						case 2:
+							vecz[i].set_posicion(Vector2f(880, randomy));
+							vecz[i].set_spr_zombie_posicion(Vector2f(880, randomy));
+							break;
+						case 3:
+							vecz[i].set_posicion(Vector2f(randomx, 680));
+							vecz[i].set_spr_zombie_posicion(Vector2f(randomx, 680));
+							break;
+						case 4:
+							vecz[i].set_posicion(Vector2f(-80, randomy));
+							vecz[i].set_spr_zombie_posicion(Vector2f(-80, randomy));
+							break;
+						}
 					}
 				}
 
@@ -161,15 +181,30 @@ void juego::gameloop(Vector2f resolucion)
 					cantz += 2;
 					for (int i = 0; i < cantz; i++)
 					{
-						int random1 = rand() % 800;
-						int random2 = rand() % 600;
-						int randomx = rand() % 10 + random1;
-						int randomy = rand() % 10 + random2;
+						int random = rand() % 4 + 1;
+						int randomx = rand() % 800;
+						int randomy = rand() % 600;
 						vecz.push_back(zombie2);
-						vecz[i].set_posicion(Vector2f(randomx, randomy));
-						vecz[i].set_spr_zombie_posicion(Vector2f(randomx, randomy));
+						switch (random) {
+						case 1:
+							vecz[i].set_posicion(Vector2f(randomx, -80));
+							vecz[i].set_spr_zombie_posicion(Vector2f(randomx, -80));
+							break;
+						case 2:
+							vecz[i].set_posicion(Vector2f(880, randomy));
+							vecz[i].set_spr_zombie_posicion(Vector2f(880, randomy));
+							break;
+						case 3:
+							vecz[i].set_posicion(Vector2f(randomx, 680));
+							vecz[i].set_spr_zombie_posicion(Vector2f(randomx, 680));
+							break;
+						case 4:
+							vecz[i].set_posicion(Vector2f(-80, randomy));
+							vecz[i].set_spr_zombie_posicion(Vector2f(-80, randomy));
+							break;
+						}
 					}
-					
+
 				}
 
 				
