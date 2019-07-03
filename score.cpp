@@ -10,7 +10,8 @@ bool score::leerdedisco(int pos)
 		std::cout << "No pudo abrir archivo. 1" << endl;
 		exit(1);
 	}
-	bool leyo = fread(this, sizeof (*this) * pos, 1, p);
+	fseek(p, sizeof * this * pos,0);
+	bool leyo = fread(this, sizeof (*this), 1, p);
 	fclose(p);
 	return leyo;
 }
