@@ -506,6 +506,112 @@ void juego::cargar_graficos(Vector2f resolucion)
 	spr_puntero2.setTexture(text_puntero2);
 	spr_puntero2.setColor(Color(255, 255, 255, 255));
 
+	text_fondozombie[0].loadFromFile("fondozombie/fondozombie (1).jpg");
+	text_fondozombie[1].loadFromFile("fondozombie/fondozombie (2).jpg");
+	text_fondozombie[2].loadFromFile("fondozombie/fondozombie (3).jpg");
+	text_fondozombie[3].loadFromFile("fondozombie/fondozombie (4).jpg");
+	text_fondozombie[4].loadFromFile("fondozombie/fondozombie (5).jpg");
+	text_fondozombie[5].loadFromFile("fondozombie/fondozombie (6).jpg");
+	text_fondozombie[6].loadFromFile("fondozombie/fondozombie (7).jpg");
+	text_fondozombie[7].loadFromFile("fondozombie/fondozombie (8).jpg");
+	text_fondozombie[8].loadFromFile("fondozombie/fondozombie (9).jpg");
+	text_fondozombie[9].loadFromFile("fondozombie/fondozombie (10).jpg");
+	text_fondozombie[10].loadFromFile("fondozombie/fondozombie (11).jpg");
+	text_fondozombie[11].loadFromFile("fondozombie/fondozombie (12).jpg");
+	text_fondozombie[12].loadFromFile("fondozombie/fondozombie (13).jpg");
+	text_fondozombie[13].loadFromFile("fondozombie/fondozombie (14).jpg");
+	text_fondozombie[14].loadFromFile("fondozombie/fondozombie (15).jpg");
+	text_fondozombie[15].loadFromFile("fondozombie/fondozombie (16).jpg");
+	text_fondozombie[16].loadFromFile("fondozombie/fondozombie (17).jpg");
+	text_fondozombie[17].loadFromFile("fondozombie/fondozombie (18).jpg");
+	text_fondozombie[18].loadFromFile("fondozombie/fondozombie (19).jpg");
+	text_fondozombie[19].loadFromFile("fondozombie/fondozombie (20).jpg");
+	text_fondozombie[20].loadFromFile("fondozombie/fondozombie (21).jpg");
+	text_fondozombie[21].loadFromFile("fondozombie/fondozombie (22).jpg");
+	text_fondozombie[22].loadFromFile("fondozombie/fondozombie (23).jpg");
+	text_fondozombie[23].loadFromFile("fondozombie/fondozombie (24).jpg");
+	text_fondozombie[24].loadFromFile("fondozombie/fondozombie (25).jpg");
+	text_fondozombie[25].loadFromFile("fondozombie/fondozombie (26).jpg");
+	text_fondozombie[26].loadFromFile("fondozombie/fondozombie (27).jpg");
+	text_fondozombie[27].loadFromFile("fondozombie/fondozombie (28).jpg");
+	text_fondozombie[28].loadFromFile("fondozombie/fondozombie (29).jpg");
+	text_fondozombie[29].loadFromFile("fondozombie/fondozombie (30).jpg");
+	text_fondozombie[30].loadFromFile("fondozombie/fondozombie (31).jpg");
+	text_fondozombie[31].loadFromFile("fondozombie/fondozombie (32).jpg");
+	text_fondozombie[32].loadFromFile("fondozombie/fondozombie (33).jpg");
+	text_fondozombie[33].loadFromFile("fondozombie/fondozombie (34).jpg");
+	text_fondozombie[34].loadFromFile("fondozombie/fondozombie (35).jpg");
+	text_fondozombie[35].loadFromFile("fondozombie/fondozombie (36).jpg");
+	text_fondozombie[36].loadFromFile("fondozombie/fondozombie (37).jpg");
+	text_fondozombie[37].loadFromFile("fondozombie/fondozombie (38).jpg");
+	text_fondozombie[38].loadFromFile("fondozombie/fondozombie (39).jpg");
+	text_fondozombie[39].loadFromFile("fondozombie/fondozombie (40).jpg");
+	text_fondozombie[40].loadFromFile("fondozombie/fondozombie (41).jpg");
+	text_fondozombie[41].loadFromFile("fondozombie/fondozombie (42).jpg");
+	text_fondozombie[42].loadFromFile("fondozombie/fondozombie (43).jpg");
+	text_fondozombie[43].loadFromFile("fondozombie/fondozombie (44).jpg");
+	text_fondozombie[44].loadFromFile("fondozombie/fondozombie (45).jpg");
+	text_fondozombie[45].loadFromFile("fondozombie/fondozombie (46).jpg");
+	text_fondozombie[46].loadFromFile("fondozombie/fondozombie (47).jpg");
+	text_fondozombie[47].loadFromFile("fondozombie/fondozombie (48).jpg");
+	text_fondozombie[48].loadFromFile("fondozombie/fondozombie (49).jpg");
+	text_fondozombie[49].loadFromFile("fondozombie/fondozombie (50).jpg");
+	text_fondozombie[50].loadFromFile("fondozombie/fondozombie (51).jpg");
+	text_fondozombie[51].loadFromFile("fondozombie/fondozombie (52).jpg");
+	text_fondozombie[52].loadFromFile("fondozombie/fondozombie (53).jpg");
+	text_fondozombie[53].loadFromFile("fondozombie/fondozombie (54).jpg");
+	text_fondozombie[54].loadFromFile("fondozombie/fondozombie (55).jpg");
+	text_fondozombie[55].loadFromFile("fondozombie/fondozombie (56).jpg");
+	text_fondozombie[56].loadFromFile("fondozombie/fondozombie (57).jpg");
+	text_fondozombie[57].loadFromFile("fondozombie/fondozombie (58).jpg");
+	text_fondozombie[58].loadFromFile("fondozombie/fondozombie (59).jpg");
+	text_fondozombie[59].loadFromFile("fondozombie/fondozombie (60).jpg");
+	text_fondozombie[60].loadFromFile("fondozombie/fondozombie (61).jpg");
+	text_fondozombie[61].loadFromFile("fondozombie/fondozombie (62).jpg");
+	text_fondozombie[62].loadFromFile("fondozombie/fondozombie (63).jpg");
+	text_fondozombie[63].loadFromFile("fondozombie/fondozombie (64).jpg");
+	text_fondozombie[64].loadFromFile("fondozombie/fondozombie (65).jpg");
+	text_fondozombie[65].loadFromFile("fondozombie/fondozombie (66).jpg");
+	text_fondozombie[66].loadFromFile("fondozombie/fondozombie (67).jpg");
+	text_fondozombie[67].loadFromFile("fondozombie/fondozombie (68).jpg");
+	text_fondozombie[68].loadFromFile("fondozombie/fondozombie (69).jpg");
+	text_fondozombie[69].loadFromFile("fondozombie/fondozombie (70).jpg");
+	text_fondozombie[70].loadFromFile("fondozombie/fondozombie (71).jpg");
+	text_fondozombie[71].loadFromFile("fondozombie/fondozombie (72).jpg");
+	text_fondozombie[72].loadFromFile("fondozombie/fondozombie (73).jpg");
+	text_fondozombie[73].loadFromFile("fondozombie/fondozombie (74).jpg");
+	text_fondozombie[74].loadFromFile("fondozombie/fondozombie (75).jpg");
+	text_fondozombie[75].loadFromFile("fondozombie/fondozombie (76).jpg");
+	text_fondozombie[76].loadFromFile("fondozombie/fondozombie (77).jpg");
+	text_fondozombie[77].loadFromFile("fondozombie/fondozombie (78).jpg");
+	text_fondozombie[78].loadFromFile("fondozombie/fondozombie (79).jpg");
+	text_fondozombie[79].loadFromFile("fondozombie/fondozombie (80).jpg");
+	text_fondozombie[80].loadFromFile("fondozombie/fondozombie (81).jpg");
+	text_fondozombie[81].loadFromFile("fondozombie/fondozombie (82).jpg");
+	text_fondozombie[82].loadFromFile("fondozombie/fondozombie (83).jpg");
+	text_fondozombie[83].loadFromFile("fondozombie/fondozombie (84).jpg");
+	text_fondozombie[84].loadFromFile("fondozombie/fondozombie (85).jpg");
+	text_fondozombie[85].loadFromFile("fondozombie/fondozombie (86).jpg");
+	text_fondozombie[86].loadFromFile("fondozombie/fondozombie (87).jpg");
+	text_fondozombie[87].loadFromFile("fondozombie/fondozombie (88).jpg");
+	text_fondozombie[88].loadFromFile("fondozombie/fondozombie (89).jpg");
+	text_fondozombie[89].loadFromFile("fondozombie/fondozombie (90).jpg");
+	text_fondozombie[90].loadFromFile("fondozombie/fondozombie (91).jpg");
+	text_fondozombie[91].loadFromFile("fondozombie/fondozombie (92).jpg");
+	text_fondozombie[92].loadFromFile("fondozombie/fondozombie (93).jpg");
+	text_fondozombie[93].loadFromFile("fondozombie/fondozombie (94).jpg");
+	text_fondozombie[94].loadFromFile("fondozombie/fondozombie (95).jpg");
+	text_fondozombie[95].loadFromFile("fondozombie/fondozombie (96).jpg");
+	text_fondozombie[96].loadFromFile("fondozombie/fondozombie (97).jpg");
+	text_fondozombie[97].loadFromFile("fondozombie/fondozombie (98).jpg");
+	text_fondozombie[98].loadFromFile("fondozombie/fondozombie (99).jpg");
+	text_fondozombie[99].loadFromFile("fondozombie/fondozombie (100).jpg");
+
+	for (int i = 0; i < 100; i++) 
+	{
+		spr_fondozombie[i].setTexture(text_fondozombie[i]);
+		spr_fondozombie[i].setScale(resolucion.x / text_fondozombie[i].getSize().x, resolucion.y / text_fondozombie[i].getSize().y);
+	}
 }
 
 void juego::cargar_sonidos()
@@ -594,7 +700,72 @@ void juego::procesar_eventos()
 
 
 ///MENU - MENU Dibujos
-void juego::menu_dibujar_principal() 
+void juego::menu_dibujar_principal(Vector2f resolucion,IntRect botonjugar, IntRect botonranking, IntRect botonsalir)
+{
+	ventana1->clear();
+
+	
+	ventana1->setMouseCursorVisible(false);
+	//ventana1->draw(spr_intro1);
+
+	for (int i = 0; i < 100; i++) 
+	{
+		spr_puntero1.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+		spr_puntero2.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+
+		ventana1->draw(spr_fondozombie[i]);
+		///dibujo las opciones
+		ventana1->draw(menutext[0]);
+		ventana1->draw(menutext[1]);
+		ventana1->draw(menutext[2]);
+		///dibujo el puntero
+		ventana1->draw(spr_puntero1);
+		ventana1->draw(spr_puntero2);
+
+		menu_dibujar_efectoblanco(botonjugar, botonranking, botonsalir);
+
+		ventana1->display();
+
+		if (!Mouse::isButtonPressed(Mouse::Left))
+		{
+			spr_puntero1.setColor(Color(255, 255, 255, 0));
+			spr_puntero2.setColor(Color(255, 255, 255, 255));
+
+		}
+
+		if (Mouse::isButtonPressed(Mouse::Left))
+		{
+			spr_puntero1.setColor(Color(255, 255, 255, 255));
+			spr_puntero2.setColor(Color(255, 255, 255, 0));
+
+			if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
+			{
+				menu_escribirNombre(resolucion);
+				menu_dificultad(resolucion);
+				/*
+				cantz = CANT_ZOMBIES;
+				contronda = 0;
+				cancion_menu.stop();
+				cancion_juego.play();
+				game_over = false;
+				gameloop(resolucion);
+				*/
+			}
+
+			if (botonranking.contains(Mouse::getPosition(*ventana1)))
+			{
+				menu_ranking();
+			}
+
+			if (botonsalir.contains(Mouse::getPosition(*ventana1))) exit(1);
+		}
+
+	}
+
+	
+}
+/*
+void juego::menu_dibujar_principal()
 {
 	ventana1->clear();
 
@@ -602,7 +773,13 @@ void juego::menu_dibujar_principal()
 	spr_puntero2.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
 
 	ventana1->setMouseCursorVisible(false);
-	ventana1->draw(spr_intro1);
+	//ventana1->draw(spr_intro1);
+
+	for (int i = 0; i < 100; i++)
+	{
+		ventana1->draw(spr_fondozombie[i]);
+	}
+
 	///dibujo las opciones
 	ventana1->draw(menutext[0]);
 	ventana1->draw(menutext[1]);
@@ -610,10 +787,10 @@ void juego::menu_dibujar_principal()
 	///dibujo el puntero
 	ventana1->draw(spr_puntero1);
 	ventana1->draw(spr_puntero2);
-	
+
 	ventana1->display();
 }
-
+*/
 void juego::menu_dibujar_pressenter() 
 {
 	ventana1->clear();
@@ -878,43 +1055,11 @@ void juego::menu_principal(Vector2f resolucion)
 
 	while (true)
 	{
-		menu_dibujar_principal();
-		menu_dibujar_efectoblanco(botonjugar, botonranking, botonsalir);
+		menu_dibujar_principal(resolucion, botonjugar, botonranking, botonsalir);
+		//menu_dibujar_efectoblanco(botonjugar, botonranking, botonsalir);
 		
 
-		if (!Mouse::isButtonPressed(Mouse::Left)) 
-		{
-			spr_puntero1.setColor(Color(255, 255, 255, 0));
-			spr_puntero2.setColor(Color(255, 255, 255, 255));
-			
-		}
-
-		if (Mouse::isButtonPressed(Mouse::Left))
-		{
-			spr_puntero1.setColor(Color(255, 255, 255, 255));
-			spr_puntero2.setColor(Color(255, 255, 255, 0));
-
-			if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
-			{
-				menu_escribirNombre(resolucion);
-				menu_dificultad(resolucion);
-				/*
-				cantz = CANT_ZOMBIES;
-				contronda = 0;
-				cancion_menu.stop();
-				cancion_juego.play();
-				game_over = false;
-				gameloop(resolucion);
-				*/
-			}
-
-			if (botonranking.contains(Mouse::getPosition(*ventana1))) 
-			{
-				menu_ranking();
-			}
-
-			if (botonsalir.contains(Mouse::getPosition(*ventana1))) exit(1);
-		}
+		
 	}
 }
 

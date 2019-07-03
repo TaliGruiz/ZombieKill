@@ -35,7 +35,7 @@ public:
 	void menu_dificultad(Vector2f);
 
 	//dibujar menu
-	void menu_dibujar_principal();
+	void menu_dibujar_principal(Vector2f, IntRect , IntRect , IntRect );
 	void menu_dibujar_pressenter();
 	void menu_dibujar_game_over();
 	void menu_dibujar_escribirNombre();
@@ -548,6 +548,9 @@ private:
 	///blanco
 	Texture text_blanco;
 	Sprite spr_blanco;
+
+	Texture text_fondozombie[100];
+	Sprite spr_fondozombie[100];
 
 	///fuentes
 	Font zombiefont;
