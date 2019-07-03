@@ -9,24 +9,17 @@ using namespace std;
 
 /*
 //////////////////////////////////////////////////
-1) Barras de vida. ///
-2) Vector balas. ///
-- Vector zombies. ///
-- Tres tipos de ranking///
-
-Poss	Nombre	Oleada	Kills   aim %
--------------------------------------
-#1		Lucas	 20		100		 50%
-#2		Jorge	 19		90		 40%
-#3		Gonzalo	 18		80		 30%
--------------------------------------
-
-- Oleadas. ///
-- Colisiones en general.///
-- Puntaje en pantalla, ronda pantalla. ///
-- Daño de zombie y jugador. 
-- Menu completo///
-- Pantalla de game over(Agregar nuevo score).///
+- Barras de vida. 
+- pausa.
+- menu - instrucciones.
+- quitar consola.
+- pantalla completa.
+- menu - opciones(cambiar musica, cambiar teclas).
+- DISTINTOS SPRITES DE ZOMBIES
+- 
+- 
+- 
+- Pantalla de game over.
 
 /////////////////////////////////////////////////
 */
@@ -36,17 +29,9 @@ Time delay = seconds(3);
 survivor pj({ 400,300 }, 1, 1), & ref = pj;
 zombie zombie2({ 200, 300 }, 1, 100);
 Vector2f pjCenter, mousePosWindow, aimDir, aimDirNorm;
-bullet b1;
-bool deletebala = false;
-bool spr_zombie_flag = false;
-int cantz;
 vector<zombie>::const_iterator iter;
 vector<zombie> vecz;
-int contronda = 1;
-bool flag = true;
 
-int rank_canttiros, rank_rondas = 1, rank_tirosacertados;
-float rank_accuracy;
 
 
 juego::juego(Vector2f resolucion, String titulo)
@@ -57,7 +42,6 @@ juego::juego(Vector2f resolucion, String titulo)
 		cargar_graficos(resolucion);
 		cargar_sonidos();
 		cargar_fuentes();
-		cargar_fuentes_ranking();
 		ventana1->draw(spr_mira);
 		ventana1->setMouseCursorVisible(false);
 		
@@ -298,10 +282,32 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 
 }
 
-void juego::cargar_fuentes_ranking() 
+void juego::cargar_fuentes() 
 {
-	int i,posy=0,posx,contx=0,x=0;
-	for (i = 0; i < 60; i++) 
+	int i, posy = 0, posx, contx = 0, x = 0,por;
+
+	if (!zombiefont.loadFromFile("fuentes/zombiefont.ttf"))
+	{
+		cout << "No se pudo cargar la fuente zombie" << endl;
+	}
+	else { cout << "Se cargo la fuente zombie" << endl; }
+
+	if (!scaryfont.loadFromFile("fuentes/Scary Halloween Font.ttf"))
+	{
+		cout << "No se pudo cargar la fuente scary" << endl;
+	}
+	else { cout << "Se cargo la fuente scary" << endl; }
+
+	hasMuerto.setFont(zombiefont);
+	hasMuerto.setFillColor(Color::Red);
+	hasMuerto.setString("HAS \n \t MUERTO");
+	hasMuerto.setPosition(Vector2f(350, 250));
+	hasMuerto.setCharacterSize(60);
+	hasMuerto.setOutlineColor(Color::Color(0, 0, 0, 255));
+	hasMuerto.setOutlineThickness(1.5);
+
+	//Textos jugador rankings
+	for (i = 0; i < 60; i++)
 	{
 		if (i % 6 == 0) posy += 40;
 
@@ -325,31 +331,7 @@ void juego::cargar_fuentes_ranking()
 
 		x++;
 	}
-	
-}
 
-void juego::cargar_fuentes() 
-{
-	int i = 0;
-	if (!zombiefont.loadFromFile("fuentes/zombiefont.ttf"))
-	{
-		cout << "No se pudo cargar la fuente zombie" << endl;
-	}
-	else { cout << "Se cargo la fuente zombie" << endl; }
-
-	if (!scaryfont.loadFromFile("fuentes/Scary Halloween Font.ttf"))
-	{
-		cout << "No se pudo cargar la fuente scary" << endl;
-	}
-	else { cout << "Se cargo la fuente scary" << endl; }
-
-	hasMuerto.setFont(zombiefont);
-	hasMuerto.setFillColor(Color::Red);
-	hasMuerto.setString("HAS \n \t MUERTO");
-	hasMuerto.setPosition(Vector2f(350, 250));
-	hasMuerto.setCharacterSize(60);
-	hasMuerto.setOutlineColor(Color::Color(0, 0, 0, 255));
-	hasMuerto.setOutlineThickness(1.5);
 
 	//textos menu dificultad
 	text_selecdif.setFont(scaryfont);
@@ -680,10 +662,6 @@ void juego::menu_dibujar_dificultad()
 	ventana1->display();
 }
 
-bool flagsonidoblancojugar = true;
-bool flagsonidoblancoranking = true;
-bool flagsonidoblancosalir = true;
-
 void juego::menu_dibujar_efectoblanco(IntRect botonjugar, IntRect botonranking, IntRect botonsalir)
 {
 
@@ -745,9 +723,6 @@ void juego::menu_dibujar_efectoblanco(IntRect botonjugar, IntRect botonranking, 
 	}
 }
 
-bool flagsonidoblancofacil= true;
-bool flagsonidoblancomedia = true;
-bool flagsonidoblancodificil = true;
 void juego::menu_dibujar_efectoblanco_dificulad(IntRect botonfacil, IntRect botonmedia, IntRect botondificil)
 {
 	if (botonfacil.contains(sf::Mouse::getPosition(*ventana1)))
@@ -811,10 +786,27 @@ void juego::menu_dibujar_ranking(IntRect botonatras)
 	spr_puntero1.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
 	spr_puntero2.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
 
+
 	if (botonatras.contains(sf::Mouse::getPosition(*ventana1)))
+	{
 		text_atras.setFillColor(Color::White);
+		if (flagsonidoblancoatras)
+		{
+			flagsonidoblancoatras = false;
+			sonido_boton_select.play();
+		}
+	}
+		
 	if (!(botonatras.contains(sf::Mouse::getPosition(*ventana1))))
+	{
 		text_atras.setFillColor(Color::Red);
+		if (!flagsonidoblancoatras)
+		{
+			flagsonidoblancoatras = true;
+			sonido_boton_select.stop();
+		}
+	}
+
 	ventana1->draw(txt_rank[0]);
 	ventana1->draw(txt_rank[1]);
 	ventana1->draw(txt_rank[2]);
@@ -1001,11 +993,12 @@ void juego::menu_ranking()
 	while (true)
 	{
 		ventana1->clear();
-		menu_dibujar_ranking(botonatras);
 		for (i = 0; i < 60; i++) 
 		{
 			ventana1->draw(txt_jugadores[i]);
 		}
+		menu_dibujar_ranking(botonatras);
+
 		ventana1->display();
 		
 		if (!Mouse::isButtonPressed(Mouse::Left))

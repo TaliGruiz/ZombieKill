@@ -51,21 +51,20 @@ public:
 	void cargar_sonidos();
 	void procesar_eventos();
 	void cargar_fuentes();
-	void cargar_fuentes_ranking();
 	void cargar_intro();
 	void cargar_menu();
 	Font get_scaryfont() { return scaryfont; }
 	
 	void ordenar_ranking() 
 	{
-		score obj, * vecobj, aux, vecmostrar[5];
+		score obj, * vecobj, aux;
 		int pos = 0, cantreg = 0, i = 0, j, posmin;
 
 		while (obj.leerdedisco(pos++)) 
 		{
 			cantreg++;
 		}
-		
+
 		vecobj = new score[cantreg];
 
 		pos = 0;
@@ -499,12 +498,14 @@ public:
 
 			break;
 		}
-		
+
+	
 		delete vecobj;	
 	}
 	
 	
 private:
+	bullet b1;
 	score ranking;
 	RenderWindow* ventana1;
 	Event clickearMenu;
@@ -575,7 +576,25 @@ private:
 	
 	///Event
 	Event* eventos;
-	
+
+	///flags
+	bool flagsonidoblancojugar = true;
+	bool flagsonidoblancoranking = true;
+	bool flagsonidoblancosalir = true;
+	bool flagsonidoblancofacil = true;
+	bool flagsonidoblancomedia = true;
+	bool flagsonidoblancodificil = true;
+	bool flagsonidoblancoatras = true;
+	bool deletebala = false;
+	bool spr_zombie_flag = false;
+	bool flag = true;
+
+	//contadores
+	int cantz;
+	int contronda = 1;
+	int rank_canttiros, rank_rondas = 1, rank_tirosacertados;
+	float rank_accuracy;
+
 	///game over
 	bool game_over = false;
 	///menu loop

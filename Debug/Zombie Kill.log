@@ -1,409 +1,406 @@
 ﻿  juego.cpp
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.h(61,29): warning C4101:  'vecmostrar': unreferenced local variable
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(54,65): warning C4244:  'argument': conversion from 'T' to 'unsigned int', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(54,65): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(54,65): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(54,65): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(54,65): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(54,51): warning C4244:  'argument': conversion from 'T' to 'unsigned int', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(54,51): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(54,51): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(54,51): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(54,51): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(108,20): warning C4305:  '=': truncation from 'double' to 'float'
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(166,38): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(166,38): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(166,38): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(166,38): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(166,38): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(167,49): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(167,49): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(167,49): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(167,49): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(167,49): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(170,43): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(170,43): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(170,43): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(170,43): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(170,43): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(171,54): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(171,54): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(171,54): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(171,54): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(171,54): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(174,38): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(174,38): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(174,38): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(174,38): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(174,38): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(175,49): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(175,49): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(175,49): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(175,49): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(175,49): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(178,43): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(178,43): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(178,43): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(178,43): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(178,43): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(179,54): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(179,54): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(179,54): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(179,54): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(179,54): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(39,65): warning C4244:  'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(39,65): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(39,65): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(39,65): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(39,65): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(39,51): warning C4244:  'argument': conversion from 'T' to 'unsigned int', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(39,51): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(39,51): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(39,51): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(39,51): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(92,20): warning C4305:  '=': truncation from 'double' to 'float'
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(150,38): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(150,38): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(150,38): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(150,38): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(150,38): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(151,49): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(151,49): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(151,49): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(151,49): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(151,49): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(154,43): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(154,43): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(154,43): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(154,43): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(154,43): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(155,54): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(155,54): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(155,54): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(155,54): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(155,54): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(158,38): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(158,38): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(158,38): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(158,38): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(158,38): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(159,49): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(159,49): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(159,49): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(159,49): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(159,49): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(162,43): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(162,43): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(162,43): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(162,43): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(162,43): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(163,54): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(163,54): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(163,54): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(163,54): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(163,54): warning C4244:         ]
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,45): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(219,49): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(224,28): warning C4244:  'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(254,38): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(254,38): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(254,38): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(254,38): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(254,38): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(255,49): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(255,49): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(255,49): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(255,49): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(255,49): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(258,43): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(258,43): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(258,43): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(258,43): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(258,43): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(259,54): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(259,54): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(259,54): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(259,54): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(259,54): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(262,38): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(262,38): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(262,38): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(262,38): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(262,38): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(263,49): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(263,49): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(263,49): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(263,49): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(263,49): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(266,43): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(266,43): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(266,43): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(266,43): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(266,43): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(267,54): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(267,54): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(267,54): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(267,54): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(267,54): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(324,47): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(324,47): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(324,47): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(324,47): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(324,47): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(324,41): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(324,41): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(324,41): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(324,41): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(324,41): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(483,42): warning C4305:  'argument': truncation from 'double' to 'float'
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,145): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,145): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,145): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,145): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,145): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,145): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,145): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,145): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,145): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,108): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,108): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,108): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,108): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,108): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,108): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,108): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,108): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,108): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,75): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,75): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,75): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,75): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,75): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,75): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,75): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,75): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,75): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,46): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,46): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,46): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,46): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,46): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,46): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,46): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,46): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(883,46): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,147): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,147): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,147): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,147): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,147): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,147): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,147): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,147): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,147): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,110): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,110): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,110): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,110): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,110): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,110): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,110): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,110): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,110): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,77): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,77): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,77): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,77): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,77): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,77): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,77): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,77): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,77): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,48): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,48): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,48): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,48): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,48): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,48): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,48): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,48): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(884,48): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,145): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,145): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,145): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,145): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,145): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,145): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,145): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,145): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,145): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,108): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,108): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,108): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,108): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,108): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,108): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,108): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,108): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,108): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,75): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,75): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,75): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,75): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,75): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,75): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,75): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,75): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,75): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,46): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,46): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,46): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,46): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,46): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,46): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,46): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,46): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(885,46): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,145): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,145): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,145): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,145): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,145): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,145): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,145): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,145): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,145): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,108): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,108): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,108): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,108): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,108): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,108): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,108): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,108): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,108): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,75): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,75): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,75): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,75): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,75): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,75): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,75): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,75): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,75): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,46): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,46): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,46): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,46): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,46): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,46): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,46): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,46): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(931,46): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,145): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,145): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,145): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,145): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,145): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,145): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,145): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,145): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,145): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,108): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,108): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,108): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,108): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,108): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,108): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,108): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,108): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,108): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,75): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,75): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,75): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,75): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,75): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,75): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,75): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,75): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,75): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,46): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,46): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,46): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,46): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,46): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,46): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,46): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,46): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(932,46): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,147): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,147): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,147): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,147): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,147): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,147): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,147): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,147): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,147): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,110): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,110): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,110): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,110): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,110): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,110): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,110): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,110): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,110): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,77): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,77): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,77): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,77): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,77): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,77): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,77): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,77): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,77): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,48): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,48): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,48): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,48): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,48): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,48): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,48): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,48): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(933,48): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,141): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,141): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,141): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,141): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,141): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,141): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,141): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,141): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,141): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,105): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,105): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,105): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,105): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,105): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,105): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,105): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,105): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,105): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,73): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,73): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,73): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,73): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,73): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,73): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,73): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,73): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,73): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,45): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,45): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,45): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,45): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,45): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,45): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,45): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,45): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(934,45): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,141): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,141): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,141): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,141): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,141): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,141): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,141): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,141): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,141): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,105): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,105): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,105): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,105): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,105): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,105): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,105): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,105): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,105): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,73): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,73): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,73): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,73): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,73): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,73): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,73): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,73): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,73): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(203,49): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(208,28): warning C4244:  'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(238,38): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(238,38): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(238,38): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(238,38): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(238,38): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(239,49): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(239,49): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(239,49): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(239,49): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(239,49): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(242,43): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(242,43): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(242,43): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(242,43): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(242,43): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(243,54): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(243,54): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(243,54): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(243,54): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(243,54): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(246,38): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(246,38): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(246,38): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(246,38): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(246,38): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(247,49): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(247,49): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(247,49): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(247,49): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(247,49): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(250,43): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(250,43): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(250,43): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(250,43): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(250,43): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(251,54): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(251,54): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(251,54): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(251,54): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(251,54): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(330,47): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(330,47): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(330,47): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(330,47): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(330,47): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(330,41): warning C4244:  'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(330,41): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(330,41): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(330,41): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(330,41): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(465,42): warning C4305:  'argument': truncation from 'double' to 'float'
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(287,42): warning C4101:  'por': unreferenced local variable
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,145): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,145): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,145): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,145): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,145): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,145): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,145): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,145): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,145): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,108): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,108): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,108): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,108): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,108): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,108): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,108): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,108): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,108): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,75): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,75): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,75): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,75): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,75): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,75): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,75): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,75): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,75): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,46): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,46): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,46): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,46): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,46): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,46): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,46): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,46): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(878,46): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,147): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,147): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,147): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,147): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,147): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,147): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,147): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,147): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,147): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,110): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,110): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,110): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,110): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,110): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,110): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,110): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,110): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,110): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,77): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,77): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,77): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,77): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,77): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,77): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,77): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,77): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,77): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,48): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,48): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,48): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,48): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,48): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,48): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,48): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,48): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(879,48): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,145): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,145): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,145): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,145): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,145): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,145): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,145): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,145): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,145): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,108): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,108): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,108): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,108): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,108): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,108): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,108): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,108): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,108): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,75): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,75): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,75): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,75): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,75): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,75): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,75): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,75): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,75): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,46): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,46): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,46): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,46): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,46): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,46): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,46): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,46): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(880,46): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,145): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,145): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,145): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,145): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,145): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,145): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,145): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,145): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,145): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,108): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,108): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,108): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,108): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,108): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,108): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,108): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,108): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,108): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,75): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,75): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,75): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,75): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,75): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,75): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,75): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,75): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,75): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,46): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,46): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,46): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,46): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,46): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,46): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,46): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,46): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(926,46): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,145): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,145): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,145): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,145): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,145): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,145): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,145): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,145): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,145): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,108): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,108): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,108): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,108): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,108): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,108): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,108): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,108): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,108): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,75): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,75): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,75): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,75): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,75): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,75): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,75): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,75): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,75): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,46): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,46): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,46): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,46): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,46): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,46): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,46): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,46): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(927,46): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,147): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,147): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,147): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,147): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,147): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,147): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,147): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,147): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,147): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,110): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,110): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,110): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,110): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,110): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,110): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,110): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,110): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,110): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,77): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,77): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,77): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,77): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,77): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,77): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,77): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,77): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,77): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,48): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,48): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,48): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,48): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,48): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,48): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,48): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,48): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(928,48): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,141): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,141): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,141): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,141): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,141): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,141): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,141): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,141): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,141): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,105): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,105): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,105): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,105): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,105): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,105): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,105): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,105): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,105): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,73): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,73): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,73): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,73): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,73): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,73): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,73): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,73): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,73): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,45): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,45): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,45): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,45): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,45): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,45): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,45): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,45): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(929,45): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,141): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,141): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,141): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,141): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,141): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,141): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,141): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,141): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,141): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,105): warning C4244:  'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,105): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,105): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,105): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,105): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,105): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,105): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,105): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,105): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,73): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,73): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,73): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,73): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,73): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,73): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,73): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,73): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,73): warning C4244:         ]
   main.cpp
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,45): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,45): warning C4244:         with
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,45): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,45): warning C4244:             T=float
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,45): warning C4244:         ]
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,45): warning C4244:         and
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,45): warning C4244:         [
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,45): warning C4244:             T=int
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(998,45): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,45): warning C4244:  'argument': conversion from 'const T' to 'T', possible loss of data
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,45): warning C4244:         with
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,45): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,45): warning C4244:             T=float
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,45): warning C4244:         ]
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,45): warning C4244:         and
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,45): warning C4244:         [
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,45): warning C4244:             T=int
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.cpp(993,45): warning C4244:         ]
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.h(61,29): warning C4101:  'vecmostrar': unreferenced local variable
   survivor.cpp
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\main.cpp(9,12): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\kryat\Desktop\proyecto juego\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.h(61,29): warning C4101:  'vecmostrar': unreferenced local variable
   zombie.cpp
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,40): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
   Generating Code...
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.h(61,29): warning C4101:  'vecmostrar': unreferenced local variable
+C:\Users\kryat\Desktop\proyecto juego\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
   Zombie Kill.vcxproj -> C:\Users\kryat\Desktop\proyecto juego\ZombieKill\Debug\Zombie Kill.exe
