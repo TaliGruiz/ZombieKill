@@ -133,7 +133,21 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 					deletebala = false;
 
 				///MOVIMIENTO SURVIVOR CON TECLADO
+			
+				/*if (Joystick::isConnected(0))
+				{
+					cout << "Conectado " << endl;
+					pj.update_joystick();
+				}
+				if (!Joystick::isConnected(0))
+				{
+					
+				}
+				*/
+					
 				pj.movimiento_teclado();
+			
+				//pj.movimiento_teclado(); 
 				///survivor mira direccion al mouse
 				pj.mirarAlMouse(ventana1);
 
@@ -766,6 +780,14 @@ void juego::cargar_sonidos()
 	}
 	Sonido_endRound.setBuffer(BuffendRound);
 	Sonido_endRound.setVolume(50);
+
+	if (!Buffsonido_boton_pass.loadFromFile("sonidos/menu_boton_pass.wav"))
+	{
+		cout << "No se pudo cargar el sonido boton pass." << endl;
+	}
+	sonido_boton_select.setBuffer(Buffsonido_boton_pass);
+
+	
 }
 
 void juego::procesar_eventos()
@@ -786,6 +808,7 @@ void juego::procesar_eventos()
 				case Mouse::Left:
 					pj.color_aprietodisparo();
 					sonidoDisparo.play();
+					
 					
 					if (Mouse::isButtonPressed(Mouse::Left)) {
 						
@@ -885,36 +908,130 @@ void juego::menu_dibujar_dificultad()
 	ventana1->display();
 }
 
+bool flagsonidoblancojugar = true;
+bool flagsonidoblancoranking = true;
+bool flagsonidoblancosalir = true;
+
 void juego::menu_dibujar_efectoblanco(IntRect botonjugar, IntRect botonranking, IntRect botonsalir)
 {
+
 	if (botonjugar.contains(sf::Mouse::getPosition(*ventana1)))
-		menutext[0].setFillColor(Color::White);
+	{
+
+		menutext[0].setFillColor(Color::White);		
+		if (flagsonidoblancojugar)
+		{
+			flagsonidoblancojugar = false;
+			sonido_boton_select.play();
+		}
+	}
 	if (!(botonjugar.contains(sf::Mouse::getPosition(*ventana1))))
+	{
 		menutext[0].setFillColor(Color::Red);
+		if (!flagsonidoblancojugar)
+		{
+			flagsonidoblancojugar = true;
+			sonido_boton_select.stop();
+		}
+	}
 	if (botonranking.contains(sf::Mouse::getPosition(*ventana1)))
+	{
 		menutext[1].setFillColor(Color::White);
+		if (flagsonidoblancoranking)
+		{
+			flagsonidoblancoranking = false;
+			sonido_boton_select.play();
+		}
+	}
 	if (!(botonranking.contains(sf::Mouse::getPosition(*ventana1))))
+	{
 		menutext[1].setFillColor(Color::Red);
+		if (!flagsonidoblancoranking)
+		{
+			flagsonidoblancoranking = true;
+			sonido_boton_select.stop();
+		}
+	}
 	if (botonsalir.contains(sf::Mouse::getPosition(*ventana1)))
+	{
 		menutext[2].setFillColor(Color::White);
+
+		if (flagsonidoblancosalir)
+		{
+			flagsonidoblancosalir = false;
+			sonido_boton_select.play();
+		}
+	}
 	if (!(botonsalir.contains(sf::Mouse::getPosition(*ventana1))))
+	{
 		menutext[2].setFillColor(Color::Red);
+		if (!flagsonidoblancosalir)
+		{
+			flagsonidoblancosalir = true;
+			sonido_boton_select.stop();
+		}
+	}
 }
 
+bool flagsonidoblancofacil= true;
+bool flagsonidoblancomedia = true;
+bool flagsonidoblancodificil = true;
 void juego::menu_dibujar_efectoblanco_dificulad(IntRect botonfacil, IntRect botonmedia, IntRect botondificil)
 {
 	if (botonfacil.contains(sf::Mouse::getPosition(*ventana1)))
+	{
 		text_dif[0].setFillColor(Color::White);
+		if (flagsonidoblancofacil)
+		{
+			flagsonidoblancofacil = false;
+			sonido_boton_select.play();
+		}
+	}
 	if (!(botonfacil.contains(sf::Mouse::getPosition(*ventana1))))
+	{
 		text_dif[0].setFillColor(Color::Red);
+		if (!flagsonidoblancofacil)
+		{
+			flagsonidoblancofacil = true;
+			sonido_boton_select.stop();
+		}
+	}
 	if (botonmedia.contains(sf::Mouse::getPosition(*ventana1)))
+	{
 		text_dif[1].setFillColor(Color::White);
+		if (flagsonidoblancomedia)
+		{
+			flagsonidoblancomedia = false;
+			sonido_boton_select.play();
+		}
+	}
 	if (!(botonmedia.contains(sf::Mouse::getPosition(*ventana1))))
+	{
 		text_dif[1].setFillColor(Color::Red);
+		if (!flagsonidoblancomedia)
+		{
+			flagsonidoblancomedia = true;
+			sonido_boton_select.stop();
+		}
+	}
 	if (botondificil.contains(sf::Mouse::getPosition(*ventana1)))
+	{
 		text_dif[2].setFillColor(Color::White);
+		if (flagsonidoblancodificil)
+		{
+			flagsonidoblancodificil = false;
+			sonido_boton_select.play();
+		}
+	}
 	if (!(botondificil.contains(sf::Mouse::getPosition(*ventana1))))
+	{
 		text_dif[2].setFillColor(Color::Red);
+		if (!flagsonidoblancodificil)
+		{
+			flagsonidoblancodificil = true;
+			sonido_boton_select.stop();
+		}
+	}
 }
 
 void juego::menu_dibujar_ranking(IntRect botonatras)
@@ -999,11 +1116,13 @@ void juego::menu_principal(Vector2f resolucion)
 	{
 		menu_dibujar_principal();
 		menu_dibujar_efectoblanco(botonjugar, botonranking, botonsalir);
+		
 
 		if (!Mouse::isButtonPressed(Mouse::Left)) 
 		{
 			spr_puntero1.setColor(Color(255, 255, 255, 0));
 			spr_puntero2.setColor(Color(255, 255, 255, 255));
+			
 		}
 
 		if (Mouse::isButtonPressed(Mouse::Left))
@@ -1051,17 +1170,22 @@ void juego::menu_dificultad(Vector2f resolucion)
 	{
 		menu_dibujar_dificultad();
 		menu_dibujar_efectoblanco_dificulad(botonfacil, botonmedia, botondificil);
+		
 
 		if (!Mouse::isButtonPressed(Mouse::Left))
 		{
 			spr_puntero1.setColor(Color(255, 255, 255, 0));
 			spr_puntero2.setColor(Color(255, 255, 255, 255));
+
+			
 		}
 
 		if (Mouse::isButtonPressed(Mouse::Left))
 		{
 			spr_puntero1.setColor(Color(255, 255, 255, 255));
 			spr_puntero2.setColor(Color(255, 255, 255, 0));
+			
+			
 
 			if (botonfacil.contains(sf::Mouse::getPosition(*ventana1)))
 			{
@@ -1143,11 +1267,12 @@ void juego::menu_ranking()
 		ventana1->draw(txt_jugadores[29]);
 		*/
 		ventana1->display();
-
+		
 		if (!Mouse::isButtonPressed(Mouse::Left))
 		{
 			spr_puntero1.setColor(Color(255, 255, 255, 0));
 			spr_puntero2.setColor(Color(255, 255, 255, 255));
+		
 		}
 
 		if (Mouse::isButtonPressed(Mouse::Left))

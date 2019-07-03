@@ -41,6 +41,8 @@ public:
 	void colisionVentana(Vector2f);
 	void movimiento_teclado();
 	void mirarAlMouse(Window *);
+	void movimiento_joystick();
+	void update_joystick();
 	//COLOR
 	void color_aprietodisparo() 
 	{

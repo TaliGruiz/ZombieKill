@@ -57,6 +57,15 @@ void survivor::update(bool jugadorUp, bool jugadorDown, bool jugadorRight, bool 
 	posicion.y += velocidad.y;
 }
 
+void survivor::update_joystick() 
+{
+	int speed = 2;
+	float x = sf::Joystick::getAxisPosition(0, sf::Joystick::X);
+	float y = sf::Joystick::getAxisPosition(0, sf::Joystick::Y);
+	x += speed;
+	y += speed;
+	mover(Vector2f(x, y));
+}
 void survivor::mover( Vector2f _mov)
 {
 	spr_survivor.move(Vector2f(_mov));
@@ -115,6 +124,7 @@ void survivor::colisionVentana(Vector2f resolucion) {
 	}
 }
 
+
 void survivor::movimiento_teclado()
 {
 	bool jugadorUp, jugadorDown, jugadorRight, jugadorLeft;
@@ -130,6 +140,25 @@ void survivor::movimiento_teclado()
 	update(jugadorUp, jugadorDown, jugadorRight, jugadorLeft);
 	mover(Vector2f(velocidad.x, velocidad.y));
 }
+
+
+void survivor::movimiento_joystick() {
+
+	
+	/*bool jugadorUp, jugadorDown, jugadorRight, jugadorLeft;
+
+	if(Joystick::isButtonPressed(0,Joystick::Z)) { jugadorUp = true; }
+	if (!Joystick::isButtonPressed(0, Joystick::Z)) { jugadorUp = false; }
+	if (Joystick::isButtonPressed(0, Joystick::X)) { jugadorDown = true; }
+	if (!Joystick::isButtonPressed(0, Joystick::X)) { jugadorDown = false; }
+	if (Joystick::isButtonPressed(0, Joystick::Y)) { jugadorRight = true; }
+	if (!Joystick::isButtonPressed(0, Joystick::Y)) { jugadorRight = false; }
+	if (Joystick::isButtonPressed(0, Joystick::R)) { jugadorLeft = true; }
+	if (!Joystick::isButtonPressed(0, Joystick::R)) { jugadorLeft = false; }
+	mover(Vector2f(velocidad.x, velocidad.y));
+	*/
+}
+
 
 void survivor::mirarAlMouse(Window *ventana1)
 {

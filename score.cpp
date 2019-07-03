@@ -5,9 +5,9 @@ using namespace std;
 bool score::leerdedisco(int pos) 
 {
 	FILE* p;
-	p = fopen("score.txt", "rb");
+	p = fopen("score.dat", "rb");
 	if (p == NULL) {
-		std::cout << "No pudo abrir archivo." << endl;
+		std::cout << "No pudo abrir archivo. 1" << endl;
 		exit(1);
 	}
 	bool leyo = fread(this, sizeof (*this) * pos, 1, p);
@@ -18,9 +18,9 @@ bool score::leerdedisco(int pos)
 bool score::grabarendisco() 
 {
 	FILE* p;
-	p = fopen("score.txt", "ab");
+	p = fopen("score.dat", "ab");
 	if (p == NULL) {
-		std::cout << "No pudo abrir archivo." << endl;
+		std::cout << "No pudo abrir archivo. 2" << endl;
 		exit(1);
 	}
 	bool grabo=fwrite(this, sizeof * this, 1, p);
@@ -31,9 +31,9 @@ bool score::grabarendisco()
 void score::modificarendisco(int pos)
 {
 	FILE* p;
-	p = fopen("score.txt", "rb+");
+	p = fopen("score.dat", "rb+");
 	if (p == NULL) {
-		std::cout << "No pudo abrir archivo." << endl;
+		std::cout << "No pudo abrir archivo. 3" << endl;
 		exit(1);
 	}
 	fseek(p, sizeof * this * pos, 0);

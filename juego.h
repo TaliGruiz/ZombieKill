@@ -58,16 +58,18 @@ public:
 	
 	void ordenar_ranking() 
 	{
-		score obj, *vecobj, aux, vecmostrar[5];
-		int pos = 0, cantreg = 0, i=0, j, posmin;
+		score obj, * vecobj, aux, vecmostrar[5];
+		int pos = 0, cantreg = 0, i = 0, j, posmin;
 
-		while (obj.leerdedisco(pos++))
+		FILE* p;
+
+		while (fread(&obj, sizeof obj, 1, p)) 
 		{
 			cout << "si leyo" << endl;
 			cantreg++;
 		}
 
-		cout << cantreg << endl;
+		cout << cantreg<< endl;
 
 		vecobj = new score[cantreg];
 
@@ -174,6 +176,8 @@ private:
 	Music cancion_juego;
 	SoundBuffer BuffendRound;
 	Sound Sonido_endRound;
+	SoundBuffer Buffsonido_boton_pass;
+	Sound sonido_boton_select;
 	///intro
 	Texture text_intro1;
 	Sprite spr_intro1;

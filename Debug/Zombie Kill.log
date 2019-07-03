@@ -1,6 +1,403 @@
-﻿  survivor.cpp
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.h(61,28): warning C4101:  'vecmostrar': unreferenced local variable
-C:\Users\kryat\Desktop\proyecto juego\ZombieKill\juego.h(137,28): warning C4552:  '+': result of expression not used
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,40): warning C4244:  '=': conversion from 'double' to 'float', possible loss of data
-  Zombie Kill.vcxproj -> C:\Users\kryat\Desktop\proyecto juego\ZombieKill\Debug\Zombie Kill.exe
+﻿  juego.cpp
+C:\Users\gonza\Desktop\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.h(61,29): warning C4101:  'vecmostrar': variable local sin referencia
+C:\Users\gonza\Desktop\ZombieKill\juego.h(139,28): warning C4552:  "+": el resultado de la expresión no se usa
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(54,65): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(54,65): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(54,65): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(54,65): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(54,65): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(54,51): warning C4244:  'argumento': conversión de 'T' a 'unsigned int'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(54,51): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(54,51): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(54,51): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(54,51): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(108,20): warning C4305:  '=': truncamiento de 'double' a 'float'
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(166,38): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(166,38): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(166,38): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(166,38): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(166,38): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(167,49): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(167,49): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(167,49): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(167,49): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(167,49): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(170,43): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(170,43): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(170,43): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(170,43): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(170,43): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(171,54): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(171,54): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(171,54): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(171,54): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(171,54): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(174,38): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(174,38): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(174,38): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(174,38): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(174,38): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(175,49): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(175,49): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(175,49): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(175,49): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(175,49): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(178,43): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(178,43): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(178,43): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(178,43): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(178,43): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(179,54): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(179,54): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(179,54): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(179,54): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(179,54): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,45): warning C4244:  '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(219,49): warning C4244:  '=': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(254,38): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(254,38): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(254,38): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(254,38): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(254,38): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(255,49): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(255,49): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(255,49): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(255,49): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(255,49): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(258,43): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(258,43): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(258,43): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(258,43): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(258,43): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(259,54): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(259,54): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(259,54): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(259,54): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(259,54): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(262,38): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(262,38): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(262,38): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(262,38): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(262,38): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(263,49): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(263,49): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(263,49): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(263,49): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(263,49): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(266,43): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(266,43): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(266,43): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(266,43): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(266,43): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(267,54): warning C4244:  'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(267,54): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(267,54): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(267,54): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(267,54): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(711,42): warning C4305:  'argumento': truncamiento de 'double' a 'float'
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,145): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,145): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,145): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,145): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,145): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,145): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,145): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,145): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,145): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,108): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,108): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,108): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,108): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,108): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,108): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,108): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,108): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,108): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,75): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,75): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,75): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,75): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,75): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,75): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,75): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,75): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,75): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,46): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,46): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,46): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,46): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,46): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,46): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,46): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,46): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1111,46): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,147): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,147): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,147): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,147): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,147): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,147): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,147): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,147): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,147): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,110): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,110): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,110): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,110): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,110): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,110): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,110): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,110): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,110): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,77): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,77): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,77): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,77): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,77): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,77): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,77): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,77): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,77): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,48): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,48): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,48): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,48): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,48): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,48): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,48): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,48): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1112,48): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,145): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,145): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,145): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,145): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,145): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,145): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,145): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,145): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,145): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,108): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,108): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,108): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,108): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,108): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,108): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,108): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,108): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,108): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,75): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,75): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,75): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,75): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,75): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,75): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,75): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,75): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,75): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,46): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,46): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,46): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,46): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,46): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,46): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,46): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,46): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1113,46): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,145): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,145): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,145): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,145): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,145): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,145): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,145): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,145): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,145): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,108): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,108): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,108): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,108): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,108): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,108): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,108): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,108): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,108): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,75): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,75): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,75): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,75): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,75): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,75): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,75): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,75): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,75): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,46): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,46): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,46): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,46): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,46): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,46): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,46): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,46): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1159,46): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,145): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,145): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,145): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,145): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,145): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,145): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,145): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,145): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,145): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,108): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,108): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,108): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,108): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,108): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,108): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,108): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,108): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,108): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,75): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,75): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,75): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,75): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,75): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,75): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,75): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,75): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,75): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,46): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,46): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,46): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,46): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,46): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,46): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,46): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,46): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1160,46): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,147): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,147): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,147): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,147): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,147): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,147): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,147): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,147): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,147): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,110): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,110): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,110): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,110): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,110): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,110): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,110): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,110): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,110): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,77): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,77): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,77): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,77): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,77): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,77): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,77): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,77): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,77): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,48): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,48): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,48): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,48): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,48): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,48): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,48): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,48): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1161,48): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,141): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,141): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,141): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,141): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,141): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,141): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,141): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,141): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,141): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,105): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,105): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,105): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,105): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,105): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,105): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,105): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,105): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,105): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,73): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,73): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,73): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,73): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,73): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,73): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,73): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,73): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,73): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,45): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,45): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,45): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,45): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,45): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,45): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,45): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,45): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1162,45): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,141): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,141): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,141): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,141): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,141): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,141): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,141): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,141): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,141): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,105): warning C4244:  'argumento': conversión de 'T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,105): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,105): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,105): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,105): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,105): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,105): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,105): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,105): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,73): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,73): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,73): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,73): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,73): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,73): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,73): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,73): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,73): warning C4244:         ]
+  main.cpp
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,45): warning C4244:  'argumento': conversión de 'const T' a 'T'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,45): warning C4244:         with
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,45): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,45): warning C4244:             T=float
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,45): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,45): warning C4244:         and
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,45): warning C4244:         [
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,45): warning C4244:             T=int
+C:\Users\gonza\Desktop\ZombieKill\juego.cpp(1226,45): warning C4244:         ]
+C:\Users\gonza\Desktop\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.h(61,29): warning C4101:  'vecmostrar': variable local sin referencia
+C:\Users\gonza\Desktop\ZombieKill\juego.h(139,28): warning C4552:  "+": el resultado de la expresión no se usa
+  survivor.cpp
+C:\Users\gonza\Desktop\ZombieKill\main.cpp(9,12): warning C4244:  'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.h(61,29): warning C4101:  'vecmostrar': variable local sin referencia
+C:\Users\gonza\Desktop\ZombieKill\juego.h(139,28): warning C4552:  "+": el resultado de la expresión no se usa
+  zombie.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.21.27702\include\xtgmath.h(22,40): warning C4244:  '=': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\survivor.h(15,38): warning C4244:  '=': conversión de 'float' a 'int'; posible pérdida de datos
+C:\Users\gonza\Desktop\ZombieKill\juego.h(61,29): warning C4101:  'vecmostrar': variable local sin referencia
+  Generando código...
+C:\Users\gonza\Desktop\ZombieKill\juego.h(139,28): warning C4552:  "+": el resultado de la expresión no se usa
+C:\Users\gonza\Desktop\ZombieKill\juego.h(139,28): warning C4552: C:\Users\gonza\Desktop\ZombieKill\juego.h(66) : error C4700: se utilizó la variable local 'p' sin inicializar
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(429,5): error MSB6006: "CL.exe" salió con el código 2.
