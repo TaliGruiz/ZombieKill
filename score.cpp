@@ -8,7 +8,7 @@ bool score::leerdedisco(int pos)
 	p = fopen("score.dat", "rb");
 	if (p == NULL) {
 		std::cout << "No pudo abrir archivo. 1" << endl;
-		exit(1);
+		return false;
 	}
 	fseek(p, sizeof * this * pos,0);
 	bool leyo = fread(this, sizeof (*this), 1, p);
