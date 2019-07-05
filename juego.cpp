@@ -16,7 +16,7 @@ using namespace std;
 - pantalla completa.
 - menu - opciones(cambiar musica, cambiar teclas).
 - DISTINTOS SPRITES DE ZOMBIES
-- 
+- vector de otros zombies
 - 
 - 
 - Pantalla de game over.
@@ -284,8 +284,10 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 
 void juego::cargar_fuentes() 
 {
+	//variables para cargar.
 	int i, posy = 0, posx, contx = 0, x = 0,por;
 
+	//cargo fuentes.
 	if (!zombiefont.loadFromFile("fuentes/zombiefont.ttf"))
 	{
 		cout << "No se pudo cargar la fuente zombie" << endl;
@@ -297,31 +299,23 @@ void juego::cargar_fuentes()
 		cout << "No se pudo cargar la fuente scary" << endl;
 	}
 	else { cout << "Se cargo la fuente scary" << endl; }
+	/////////////////////////////
 
-	hasMuerto.setFont(zombiefont);
-	hasMuerto.setFillColor(Color::Red);
-	hasMuerto.setString("HAS \n \t MUERTO");
-	hasMuerto.setPosition(Vector2f(350, 250));
-	hasMuerto.setCharacterSize(60);
-	hasMuerto.setOutlineColor(Color::Color(0, 0, 0, 255));
-	hasMuerto.setOutlineThickness(1.5);
-
-	//Textos jugador rankings
+	//Textos jugador rankings.
 	for (i = 0; i < 60; i++)
 	{
 		if (i % 6 == 0) posy += 40;
-
-		if (x == 0) posx = 35;
-		if (x == 1) posx = 100;
-		if (x == 2) posx = 280;
-		if (x == 3) posx = 430;
-		if (x == 4) posx = 590;
-		if (x == 5)
+		
+		switch (x) 
 		{
-			x = -1;
-			posx = 710;
+		case 0: posx = 35; break;
+		case 1: posx = 100; break;
+		case 2: posx = 280; break;
+		case 3: posx = 430; break;
+		case 4: posx = 590; break;
+		case 5: posx = 710; x = -1; break;
 		}
-
+		
 		txt_jugadores[i].setFont(scaryfont);
 		txt_jugadores[i].setFillColor(Color::Red);
 		txt_jugadores[i].setCharacterSize(20);
@@ -332,8 +326,7 @@ void juego::cargar_fuentes()
 		x++;
 	}
 
-
-	//textos menu dificultad
+	//textos menu dificultad.
 	text_selecdif.setFont(scaryfont);
 	text_selecdif.setFillColor(Color::Red);
 	text_selecdif.setString("Seleccionar Dificultad");
@@ -361,7 +354,7 @@ void juego::cargar_fuentes()
 	text_dif[2].setPosition(Vector2f(340, 500));
 
 
-	//textos ranking
+	//textos ranking.
 	for (i = 0; i < CANT_TEXT_RANKING; i++) 
 	{
 		txt_rank[i].setFont(scaryfont);
@@ -389,7 +382,7 @@ void juego::cargar_fuentes()
 	txt_rank[5].setString("ACC");
 	txt_rank[5].setPosition(Vector2f(700, 20));
 
-
+	//texto atras.
 	text_atras.setFont(scaryfont);
 	text_atras.setFillColor(Color::Red);
 	text_atras.setCharacterSize(20);
@@ -399,7 +392,7 @@ void juego::cargar_fuentes()
 	text_atras.setPosition(Vector2f(20, 560));
 
 
-	//Textos menu principal
+	//Textos menu principal.
 
 	for (i = 0; i < CANT_OPCIONES_MENU; i++) 
 	{
@@ -419,7 +412,7 @@ void juego::cargar_fuentes()
 	menutext[2].setString("SALIR");
 	menutext[2].setPosition(Vector2f(350, 450));
 
-	//Texto Rounds
+	//Texto Rounds.
 	text_ronda.setFont(scaryfont);
 	text_ronda.setPosition(Vector2f(650, 10));
 	text_ronda.setFillColor(Color::Color(255, 0, 0, 150));
@@ -427,7 +420,7 @@ void juego::cargar_fuentes()
 	text_ronda.setOutlineColor(Color::Color(0, 0, 0, 255));
 	text_ronda.setOutlineThickness(1.5);
 
-	//zombie killa
+	//texto zombie killa.
 	titulo_intro.setString("ZOMBIE \n \t KILLA");
 	titulo_intro.setFont(zombiefont);
 	titulo_intro.setPosition(Vector2f(269, 97));
@@ -436,17 +429,17 @@ void juego::cargar_fuentes()
 	titulo_intro.setOutlineColor(Color::Color(0, 0, 0, 255));
 	titulo_intro.setOutlineThickness(1.5);
 
-	//ingrese nombre
+	//texto ingrese nombre.
 
 	titulo_ingrese_nombre.setString("INGRESE \n NOMBRE");
-	titulo_ingrese_nombre.setFont(zombiefont);
+	titulo_ingrese_nombre.setFont(scaryfont);
 	titulo_ingrese_nombre.setPosition(Vector2f(269, 97));
 	titulo_ingrese_nombre.setFillColor(Color::Color(255, 0, 0, 170));
 	titulo_ingrese_nombre.setCharacterSize(100);
 	titulo_ingrese_nombre.setOutlineColor(Color::Color(0, 0, 0, 255));
 	titulo_ingrese_nombre.setOutlineThickness(1.5);
 
-	//press enter
+	//press enter.
 	titulo_enter.setString("Press \n Enter");
 	titulo_enter.setFont(zombiefont);
 	titulo_enter.setPosition(Vector2f(350, 450));
@@ -455,7 +448,7 @@ void juego::cargar_fuentes()
 	titulo_enter.setOutlineColor(Color::Color(0, 0, 0, 255));
 	titulo_enter.setOutlineThickness(1.5);
 
-	//game over
+	//game over.
 	titulo_game_over.setString("GAME OVER");
 	titulo_game_over.setPosition(Vector2f(269, 40));
 	titulo_game_over.setFillColor(Color::Color(255, 0, 0, 170));
@@ -465,9 +458,9 @@ void juego::cargar_fuentes()
 	titulo_game_over.setOutlineThickness(1.8);
 
 
-	//creators
+	//creators.
 	titulo_creators.setString("CREADORES \n\n Lucas Abbiatici \n\n Jorge Bravo \n\n Gonzalo Ruiz");
-	titulo_creators.setFont(zombiefont);
+	titulo_creators.setFont(scaryfont);
 	titulo_creators.setPosition(Vector2f(350, 200));
 	titulo_creators.setFillColor(Color::Color(255, 0, 0, 150));
 	titulo_creators.setCharacterSize(30);
@@ -505,6 +498,15 @@ void juego::cargar_graficos(Vector2f resolucion)
 	text_puntero2.loadFromFile("imagenes/punterozombie2.png");
 	spr_puntero2.setTexture(text_puntero2);
 	spr_puntero2.setColor(Color(255, 255, 255, 255));
+
+	text_simbolo.loadFromFile("imagenes/simbolo.png");
+	spr_simbolo.setTexture(text_simbolo);
+	spr_simbolo.setPosition(720, 520);
+	spr_simbolo.setColor(Color(Color(255, 255, 255, 220)));
+
+	text_instrucciones.loadFromFile("imagenes/instrucciones.png");
+	spr_instrucciones.setTexture(text_instrucciones);
+	spr_instrucciones.setColor(Color(Color(255, 255, 255, 0)));
 
 }
 
@@ -607,6 +609,9 @@ void juego::menu_dibujar_principal()
 	ventana1->draw(menutext[0]);
 	ventana1->draw(menutext[1]);
 	ventana1->draw(menutext[2]);
+	///dibujo simbolo "?"
+	ventana1->draw(spr_simbolo);
+	ventana1->draw(spr_instrucciones);
 	///dibujo el puntero
 	ventana1->draw(spr_puntero1);
 	ventana1->draw(spr_puntero2);
@@ -875,18 +880,24 @@ void juego::menu_principal(Vector2f resolucion)
 	IntRect botonjugar(menutext[0].getPosition().x, menutext[0].getPosition().y, menutext[0].getGlobalBounds().width, menutext[0].getGlobalBounds().height);
 	IntRect botonranking(menutext[1].getPosition().x, menutext[1].getPosition().y, menutext[1].getGlobalBounds().width, menutext[1].getGlobalBounds().height);
 	IntRect botonsalir(menutext[2].getPosition().x, menutext[2].getPosition().y, menutext[2].getGlobalBounds().width, menutext[2].getGlobalBounds().height);
+	IntRect botonsimbolo(spr_simbolo.getPosition().x, spr_simbolo.getPosition().y, spr_simbolo.getGlobalBounds().width, spr_simbolo.getGlobalBounds().height);
 
 	while (true)
 	{
 		menu_dibujar_principal();
 		menu_dibujar_efectoblanco(botonjugar, botonranking, botonsalir);
-		
-
+		if (botonsimbolo.contains(sf::Mouse::getPosition(*ventana1)))
+		{
+			spr_instrucciones.setColor(Color(Color(255, 255, 255, 200)));
+		}
+		if (!(botonsimbolo.contains(sf::Mouse::getPosition(*ventana1))))
+		{
+			spr_instrucciones.setColor(Color(Color(255, 255, 255, 0)));
+		}
 		if (!Mouse::isButtonPressed(Mouse::Left)) 
 		{
 			spr_puntero1.setColor(Color(255, 255, 255, 0));
 			spr_puntero2.setColor(Color(255, 255, 255, 255));
-			
 		}
 
 		if (Mouse::isButtonPressed(Mouse::Left))
@@ -898,14 +909,6 @@ void juego::menu_principal(Vector2f resolucion)
 			{
 				menu_escribirNombre(resolucion);
 				menu_dificultad(resolucion);
-				/*
-				cantz = CANT_ZOMBIES;
-				contronda = 0;
-				cancion_menu.stop();
-				cancion_juego.play();
-				game_over = false;
-				gameloop(resolucion);
-				*/
 			}
 
 			if (botonranking.contains(Mouse::getPosition(*ventana1))) 
@@ -940,8 +943,6 @@ void juego::menu_dificultad(Vector2f resolucion)
 		{
 			spr_puntero1.setColor(Color(255, 255, 255, 0));
 			spr_puntero2.setColor(Color(255, 255, 255, 255));
-
-			
 		}
 
 		if (Mouse::isButtonPressed(Mouse::Left))
@@ -1019,4 +1020,3 @@ void juego::menu_ranking()
 		}
 	}
 }
-

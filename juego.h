@@ -33,7 +33,7 @@ public:
 	void menu_principal(Vector2f);
 	void menu_ranking();
 	void menu_dificultad(Vector2f);
-
+	void menu_instrucciones();
 	//dibujar menu
 	void menu_dibujar_principal();
 	void menu_dibujar_pressenter();
@@ -513,6 +513,7 @@ private:
 	Time* tiempo1;
 	float tiempo2;
 	float fps;
+
 	///rank
 	score rank;
 
@@ -531,6 +532,12 @@ private:
 
 	Texture text_puntero2;
 	Sprite spr_puntero2;
+
+	Texture text_simbolo;
+	Sprite spr_simbolo;
+
+	Texture text_instrucciones;
+	Sprite spr_instrucciones;
 
 	///Sounds
 	SoundBuffer BuffDisparo;
