@@ -42,7 +42,7 @@ public:
 	void menu_dibujar_efectoblanco(IntRect, IntRect, IntRect);
 	void menu_dibujar_efectoblanco_dificulad(IntRect, IntRect, IntRect);
 	void menu_dibujar_dificultad();
-	void menu_dibujar_ranking(IntRect);
+	void menu_dibujar_ranking(IntRect, IntRect);
 	// / / / / / ***** \ \ \ \ \ \ \
 
 	juego(Vector2f resolucion, String titulo);
@@ -90,8 +90,9 @@ public:
 			}
 		}
 		
-		switch (cantreg) 
+		switch (cantreg)
 		{
+		case 0: return; break;
 		case 1:
 
 			txt_jugadores[0].setString(to_string(1));
@@ -559,6 +560,7 @@ private:
 	///fuentes
 	Font zombiefont;
 	Font scaryfont;
+
 	///textos
 	Text titulo_intro;
 	Text titulo_ingrese_nombre;
@@ -576,6 +578,7 @@ private:
 	Text text_atras;
 	Text text_selecdif;
 	Text txt_jugadores[60];
+	Text txt_reiniciarranking;
 
 	string playerInput;
 
@@ -592,6 +595,7 @@ private:
 	bool flagsonidoblancomedia = true;
 	bool flagsonidoblancodificil = true;
 	bool flagsonidoblancoatras = true;
+	bool flagsonidoblancoreiniciar = true;
 	bool deletebala = false;
 	bool spr_zombie_flag = false;
 	bool flag = true;

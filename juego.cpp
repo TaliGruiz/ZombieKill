@@ -301,6 +301,15 @@ void juego::cargar_fuentes()
 	else { cout << "Se cargo la fuente scary" << endl; }
 	/////////////////////////////
 
+	//texto "reiniciar ranking".
+	txt_reiniciarranking.setFont(scaryfont);
+	txt_reiniciarranking.setFillColor(Color::Red);
+	txt_reiniciarranking.setString("Reiniciar \n Ranking");
+	txt_reiniciarranking.setPosition(Vector2f(680, 550));
+	txt_reiniciarranking.setCharacterSize(20);
+	txt_reiniciarranking.setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_reiniciarranking.setOutlineThickness(1.5);
+
 	//Textos jugador rankings.
 	for (i = 0; i < 60; i++)
 	{
@@ -786,7 +795,7 @@ void juego::menu_dibujar_efectoblanco_dificulad(IntRect botonfacil, IntRect boto
 	}
 }
 
-void juego::menu_dibujar_ranking(IntRect botonatras)
+void juego::menu_dibujar_ranking(IntRect botonatras, IntRect botonreiniciar)
 {
 	spr_puntero1.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
 	spr_puntero2.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
@@ -811,6 +820,26 @@ void juego::menu_dibujar_ranking(IntRect botonatras)
 			sonido_boton_select.stop();
 		}
 	}
+	
+	if (botonreiniciar.contains(sf::Mouse::getPosition(*ventana1)))
+	{
+		txt_reiniciarranking.setFillColor(Color::White);
+		if (flagsonidoblancoreiniciar)
+		{
+			flagsonidoblancoreiniciar = false;
+			sonido_boton_select.play();
+		}
+	}
+
+	if (!(botonreiniciar.contains(sf::Mouse::getPosition(*ventana1))))
+	{
+		txt_reiniciarranking.setFillColor(Color::Red);
+		if (!flagsonidoblancoreiniciar)
+		{
+			flagsonidoblancoreiniciar = true;
+			sonido_boton_select.stop();
+		}
+	}
 
 	ventana1->draw(txt_rank[0]);
 	ventana1->draw(txt_rank[1]);
@@ -819,6 +848,7 @@ void juego::menu_dibujar_ranking(IntRect botonatras)
 	ventana1->draw(txt_rank[4]);
 	ventana1->draw(txt_rank[5]);
 	ventana1->draw(text_atras);
+	ventana1->draw(txt_reiniciarranking);
 	ventana1->draw(spr_puntero1);
 	ventana1->draw(spr_puntero2);
 }
@@ -913,7 +943,10 @@ void juego::menu_principal(Vector2f resolucion)
 
 			if (botonranking.contains(Mouse::getPosition(*ventana1))) 
 			{
-				menu_ranking();
+				if (ranking.leerdedisco(0)) 
+				{
+					menu_ranking();
+				}
 			}
 
 			if (botonsalir.contains(Mouse::getPosition(*ventana1))) exit(1);
@@ -989,7 +1022,10 @@ void juego::menu_dificultad(Vector2f resolucion)
 void juego::menu_ranking() 
 {
 	IntRect botonatras(text_atras.getPosition().x, text_atras.getPosition().y, text_atras.getGlobalBounds().width, text_atras.getGlobalBounds().height);
+	IntRect botonreiniciar(txt_reiniciarranking.getPosition().x, txt_reiniciarranking.getPosition().y, txt_reiniciarranking.getGlobalBounds().width, txt_reiniciarranking.getGlobalBounds().height);
+
 	ordenar_ranking();
+
 	int i = 0;
 	while (true)
 	{
@@ -998,7 +1034,8 @@ void juego::menu_ranking()
 		{
 			ventana1->draw(txt_jugadores[i]);
 		}
-		menu_dibujar_ranking(botonatras);
+
+		menu_dibujar_ranking(botonatras, botonreiniciar);
 
 		ventana1->display();
 		
@@ -1006,7 +1043,6 @@ void juego::menu_ranking()
 		{
 			spr_puntero1.setColor(Color(255, 255, 255, 0));
 			spr_puntero2.setColor(Color(255, 255, 255, 255));
-		
 		}
 
 		if (Mouse::isButtonPressed(Mouse::Left))
@@ -1016,6 +1052,10 @@ void juego::menu_ranking()
 			if (botonatras.contains(sf::Mouse::getPosition(*ventana1)))
 			{
 				return;
+			}
+			if (botonreiniciar.contains(sf::Mouse::getPosition(*ventana1)))
+			{
+				remove("score.dat");
 			}
 		}
 	}
