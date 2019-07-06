@@ -38,7 +38,7 @@ public:
 	void menu_dibujar_principal();
 	void menu_dibujar_pressenter();
 	void menu_dibujar_game_over();
-	void menu_dibujar_escribirNombre(IntRect);
+	void menu_dibujar_escribirNombre(IntRect, IntRect);
 	void menu_dibujar_efectoblanco(IntRect, IntRect, IntRect);
 	void menu_dibujar_efectoblanco_dificulad(IntRect, IntRect, IntRect);
 	void menu_dibujar_dificultad();
@@ -581,7 +581,7 @@ private:
 	Text text_selecdif;
 	Text txt_jugadores[60];
 	Text txt_reiniciarranking;
-
+	Text txt_siguiente;
 	string playerInput;
 
 	Text playername;
@@ -598,6 +598,7 @@ private:
 	bool flagsonidoblancodificil = true;
 	bool flagsonidoblancoatras = true;
 	bool flagsonidoblancoreiniciar = true;
+	bool flagsonidoblancosiguiente = true;
 	bool gamepause = false;
 	bool deletebala = false;
 	bool spr_zombie_flag = false;

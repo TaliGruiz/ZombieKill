@@ -307,10 +307,10 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 
 }
 
-void juego::cargar_fuentes() 
+void juego::cargar_fuentes()
 {
 	//variables para cargar.
-	int i, posy = 0, posx, contx = 0, x = 0,por;
+	int i, posy = 0, posx, contx = 0, x = 0, por;
 
 	//cargo fuentes.
 	if (!zombiefont.loadFromFile("fuentes/zombiefont.ttf"))
@@ -325,6 +325,23 @@ void juego::cargar_fuentes()
 	}
 	else { cout << "Se cargo la fuente scary" << endl; }
 	/////////////////////////////
+	//texto siguiente
+	txt_siguiente.setFont(scaryfont);
+	txt_siguiente.setFillColor(Color::Red);
+	txt_siguiente.setCharacterSize(20);
+	txt_siguiente.setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_siguiente.setOutlineThickness(1.5);
+	txt_siguiente.setString("Siguiente");
+	txt_siguiente.setPosition(Vector2f(660, 560));
+	//texto atras.
+	text_atras.setFont(scaryfont);
+	text_atras.setFillColor(Color::Red);
+	text_atras.setCharacterSize(20);
+	text_atras.setOutlineColor(Color::Color(0, 0, 0, 255));
+	text_atras.setOutlineThickness(1.5);
+	text_atras.setString("Atras");
+	text_atras.setPosition(Vector2f(20, 560));
+
 
 	//texto "reiniciar ranking".
 	txt_reiniciarranking.setFont(scaryfont);
@@ -416,16 +433,6 @@ void juego::cargar_fuentes()
 	txt_rank[5].setString("ACC");
 	txt_rank[5].setPosition(Vector2f(700, 20));
 
-	//texto atras.
-	text_atras.setFont(scaryfont);
-	text_atras.setFillColor(Color::Red);
-	text_atras.setCharacterSize(20);
-	text_atras.setOutlineColor(Color::Color(0, 0, 0, 255));
-	text_atras.setOutlineThickness(1.5);
-	text_atras.setString("Atras");
-	text_atras.setPosition(Vector2f(20, 560));
-
-
 	//Textos menu principal.
 
 	for (i = 0; i < CANT_OPCIONES_MENU; i++) 
@@ -467,9 +474,9 @@ void juego::cargar_fuentes()
 
 	titulo_ingrese_nombre.setString("INGRESE \n NOMBRE");
 	titulo_ingrese_nombre.setFont(scaryfont);
-	titulo_ingrese_nombre.setPosition(Vector2f(269, 97));
+	titulo_ingrese_nombre.setPosition(Vector2f(265, 97));
 	titulo_ingrese_nombre.setFillColor(Color::Color(255, 0, 0, 170));
-	titulo_ingrese_nombre.setCharacterSize(100);
+	titulo_ingrese_nombre.setCharacterSize(70);
 	titulo_ingrese_nombre.setOutlineColor(Color::Color(0, 0, 0, 255));
 	titulo_ingrese_nombre.setOutlineThickness(1.5);
 
@@ -667,7 +674,7 @@ void juego::menu_dibujar_pressenter()
 	ventana1->display();
 }
 
-void juego::menu_dibujar_escribirNombre(IntRect botonatras)
+void juego::menu_dibujar_escribirNombre(IntRect botonatras, IntRect botonsiguiente)
 {
 
 	ventana1->clear();
@@ -695,12 +702,31 @@ void juego::menu_dibujar_escribirNombre(IntRect botonatras)
 		}
 	}
 
+	if (botonsiguiente.contains(sf::Mouse::getPosition(*ventana1)))
+	{
+		txt_siguiente.setFillColor(Color::White);
+		if (flagsonidoblancosiguiente)
+		{
+			flagsonidoblancosiguiente = false;
+			sonido_boton_select.play();
+		}
+	}
+
+	if (!(botonsiguiente.contains(sf::Mouse::getPosition(*ventana1))))
+	{
+		txt_siguiente.setFillColor(Color::Red);
+		if (!flagsonidoblancosiguiente)
+		{
+			flagsonidoblancosiguiente = true;
+			sonido_boton_select.stop();
+		}
+	}
 
 	ventana1->draw(spr_intro1);
 	ventana1->draw(titulo_ingrese_nombre);
-	ventana1->draw(titulo_enter);
 	ventana1->draw(playername);	
 	ventana1->draw(text_atras);
+	ventana1->draw(txt_siguiente);
 	ventana1->draw(spr_puntero1);
 	ventana1->draw(spr_puntero2);
 	ventana1->display();
@@ -928,14 +954,14 @@ void juego::menu_pressenter(Vector2f resolucion)
 bool juego::menu_escribirNombre(Vector2f resolucion)
 {
 	IntRect botonatras(text_atras.getPosition().x, text_atras.getPosition().y, text_atras.getGlobalBounds().width, text_atras.getGlobalBounds().height);
+	IntRect botonsiguiente(txt_siguiente.getPosition().x, txt_siguiente.getPosition().y, txt_siguiente.getGlobalBounds().width, txt_siguiente.getGlobalBounds().height);
 
-	while (!Keyboard::isKeyPressed(Keyboard::Enter))
+	while (true)
 	{
-		menu_dibujar_escribirNombre(botonatras);
+		menu_dibujar_escribirNombre(botonatras,botonsiguiente);
 
 		while (ventana1->pollEvent(*eventos))
 		{
-
 			switch (eventos->type)
 			{
 			case Event::TextEntered:
@@ -948,17 +974,7 @@ bool juego::menu_escribirNombre(Vector2f resolucion)
 				playername.setOutlineThickness(1.5);
 				break;
 			}
-		}
-		if (Keyboard::isKeyPressed(Keyboard::Enter)) 
-		{
-			
-			char nombre[30];
-			size_t length = playerInput.copy(nombre, playerInput.size() , 0);
-			nombre[length] = '\0';
-			ranking.set_nombre(nombre);
 
-			playerInput = "";
-			return true;
 		}
 		if (!Mouse::isButtonPressed(Mouse::Left))
 		{
@@ -976,10 +992,21 @@ bool juego::menu_escribirNombre(Vector2f resolucion)
 				return false;
 			}
 
+			if (botonsiguiente.contains(Mouse::getPosition(*ventana1)))
+			{
+				if (playerInput.length() >= 4)
+				{
+					char nombre[30];
+					size_t length = playerInput.copy(nombre, playerInput.size(), 0);
+					nombre[length] = '\0';
+					ranking.set_nombre(nombre);
+					playerInput = "";
+					return true;
+				}
+			}
+		
 		}
-
 	}
-	
 }
 
 void juego::menu_principal(Vector2f resolucion)
@@ -1021,7 +1048,6 @@ void juego::menu_principal(Vector2f resolucion)
 				{
 					menu_dificultad(resolucion);
 				}
-				
 			}
 
 			if (botonranking.contains(Mouse::getPosition(*ventana1))) 
