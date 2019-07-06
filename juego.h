@@ -29,7 +29,7 @@ class juego
 public:
 	//MENU
 	void menu_pressenter(Vector2f);
-	void menu_escribirNombre(Vector2f);
+	bool menu_escribirNombre(Vector2f);
 	void menu_principal(Vector2f);
 	void menu_ranking();
 	void menu_dificultad(Vector2f);
@@ -38,7 +38,7 @@ public:
 	void menu_dibujar_principal();
 	void menu_dibujar_pressenter();
 	void menu_dibujar_game_over();
-	void menu_dibujar_escribirNombre();
+	void menu_dibujar_escribirNombre(IntRect);
 	void menu_dibujar_efectoblanco(IntRect, IntRect, IntRect);
 	void menu_dibujar_efectoblanco_dificulad(IntRect, IntRect, IntRect);
 	void menu_dibujar_dificultad();
@@ -540,6 +540,8 @@ private:
 	Texture text_instrucciones;
 	Sprite spr_instrucciones;
 
+	Texture text_pausa;
+	Sprite spr_pausa;
 	///Sounds
 	SoundBuffer BuffDisparo;
 	Sound sonidoDisparo;
@@ -596,6 +598,7 @@ private:
 	bool flagsonidoblancodificil = true;
 	bool flagsonidoblancoatras = true;
 	bool flagsonidoblancoreiniciar = true;
+	bool gamepause = false;
 	bool deletebala = false;
 	bool spr_zombie_flag = false;
 	bool flag = true;
