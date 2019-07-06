@@ -125,7 +125,8 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 					}
 					if (!Joystick::isConnected(0))
 					{
-
+						cout << "Desconectado" << endl;
+						pj.movimiento_teclado();
 					}
 					*/
 
@@ -148,18 +149,26 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 							case 1:
 								vecz[i].set_posicion(Vector2f(randomx, -80));
 								vecz[i].set_spr_zombie_posicion(Vector2f(randomx, -80));
+								//vecz[i].set_hpbar();
+								//vecz[i].set_hpbarpos(Vector2f(randomx, -80));
 								break;
 							case 2:
 								vecz[i].set_posicion(Vector2f(880, randomy));
 								vecz[i].set_spr_zombie_posicion(Vector2f(880, randomy));
+								//vecz[i].set_hpbar();
+								//vecz[i].set_hpbarpos(Vector2f(880, randomy));
 								break;
 							case 3:
 								vecz[i].set_posicion(Vector2f(randomx, 680));
 								vecz[i].set_spr_zombie_posicion(Vector2f(randomx, 680));
+								//vecz[i].set_hpbar();
+								//vecz[i].set_hpbarpos(Vector2f(randomx, 680));
 								break;
 							case 4:
 								vecz[i].set_posicion(Vector2f(-80, randomy));
 								vecz[i].set_spr_zombie_posicion(Vector2f(-80, randomy));
+								//vecz[i].set_hpbar();
+								//vecz[i].set_hpbarpos(Vector2f(-80, randomy));
 								break;
 							}
 						}
@@ -178,6 +187,7 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 						vecz[contz].update(pj.get_spr_survivor().getPosition(), speedzombie);
 						vecz[contz].mover(Vector2f(vecz[contz].get_velocidad().x, vecz[contz].get_velocidad().y));
 						ventana1->draw(vecz[contz].get_spr_zombie());
+						ventana1->draw(vecz[contz].gethpbar());
 
 						if (Collision::CircleTest(b1.get_spr_bala(), vecz[contz].get_spr_zombie())) {
 							rank_tirosacertados++;
@@ -188,6 +198,9 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 							deletebala = true;
 							vecz[contz].set_currHp(vecz[contz].get_currHp() - b1.get_str());
 						}
+
+
+
 
 						if (vecz[contz].get_currHp() <= 0)
 						{
@@ -236,18 +249,22 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 							case 1:
 								vecz[i].set_posicion(Vector2f(randomx, -80));
 								vecz[i].set_spr_zombie_posicion(Vector2f(randomx, -80));
+								//vecz[i].set_hpbarpos(Vector2f(randomx, -80));
 								break;
 							case 2:
 								vecz[i].set_posicion(Vector2f(880, randomy));
 								vecz[i].set_spr_zombie_posicion(Vector2f(880, randomy));
+								//vecz[i].set_hpbarpos(Vector2f(880,randomy));
 								break;
 							case 3:
 								vecz[i].set_posicion(Vector2f(randomx, 680));
 								vecz[i].set_spr_zombie_posicion(Vector2f(randomx, 680));
+								//vecz[i].set_hpbarpos(Vector2f(randomx, 680));
 								break;
 							case 4:
 								vecz[i].set_posicion(Vector2f(-80, randomy));
 								vecz[i].set_spr_zombie_posicion(Vector2f(-80, randomy));
+								//vecz[i].set_hpbarpos(Vector2f(-80, randomy));
 								break;
 							}
 						}
@@ -272,6 +289,7 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 					ventana1->draw(spr_mira);
 					///dibujo texto ronda
 					ventana1->draw(text_ronda);
+					
 
 					///spr_pausa.setColor(Color(Color(255, 255, 255, 0)));
 				}
@@ -610,7 +628,6 @@ void juego::procesar_eventos()
 				case Mouse::Left:
 					pj.color_aprietodisparo();
 					sonidoDisparo.play();
-					
 					
 					if (Mouse::isButtonPressed(Mouse::Left)) {
 						
@@ -979,7 +996,7 @@ bool juego::menu_escribirNombre(Vector2f resolucion)
 		if (!Mouse::isButtonPressed(Mouse::Left))
 		{
 			spr_puntero1.setColor(Color(255, 255, 255, 0));
-			spr_puntero2.setColor(Color(255, 255, 255, 255));
+			spr_puntero2.setColor(Color(255, 255, 255, 255));	
 		}
 
 		if (Mouse::isButtonPressed(Mouse::Left))
