@@ -104,7 +104,7 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 
 			if (tiempo1->asSeconds() > tiempo2 + fps)
 			{
-				if (!gamepause)
+				if (ventana1->hasFocus() && gamepause==false)
 				{
 					tiempo2 = tiempo1->asSeconds();
 					ventana1->clear();
@@ -131,7 +131,6 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 
 					pj.movimiento_teclado();
 
-					//pj.movimiento_teclado(); 
 					///survivor mira direccion al mouse
 					pj.mirarAlMouse(ventana1);
 
@@ -281,21 +280,22 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 				{
 					if (!gamepause)
 					{
-						///spr_pausa.setColor(Color(Color(255, 255, 255, 255)));
 						gamepause = true;
 						cancion_juego.stop();
 					}
 					else
 					{
-						///spr_pausa.setColor(Color(Color(255, 255, 255, 0)));
 						gamepause = false;
 						cancion_juego.play();
 					}
 				}
 
 				ventana1->draw(spr_pausa);
-				if (gamepause) spr_pausa.setColor(Color(Color(255, 255, 255, 255)));
-				if (!gamepause) spr_pausa.setColor(Color(Color(255, 255, 255, 0)));
+				if (!ventana1->hasFocus())  gamepause = true;
+				if (ventana1->hasFocus())  gamepause = false;
+				if (gamepause)  spr_pausa.setColor(Color(Color(255, 255, 255, 255)));
+				if (!gamepause)  spr_pausa.setColor(Color(Color(255, 255, 255, 0)));
+					
 				///display
 				ventana1->display();
 
