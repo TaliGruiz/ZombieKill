@@ -99,43 +99,31 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 	}
 
 	while (!game_over)
+	{
+		*tiempo1 = reloj1->getElapsedTime();
+
+		if (tiempo1->asSeconds() > tiempo2 + fps)
 		{
-			*tiempo1 = reloj1->getElapsedTime();
-
-			if (tiempo1->asSeconds() > tiempo2 + fps)
+			if (ventana1->hasFocus() && gamepause==false)
 			{
-				if (ventana1->hasFocus() && gamepause==false)
-				{
-					tiempo2 = tiempo1->asSeconds();
-					ventana1->clear();
-					procesar_eventos();
+				tiempo2 = tiempo1->asSeconds();
+				ventana1->clear();
+				procesar_eventos();
 
-					ventana1->draw(spr_fondo);
-					if (!deletebala)
-						ventana1->draw(b1.spr_bala);
-					else
-						deletebala = false;
+				ventana1->draw(spr_fondo);
+				if (!deletebala)
+					ventana1->draw(b1.spr_bala);
+				else
+					deletebala = false;
 
-					///MOVIMIENTO SURVIVOR CON TECLADO
+				///MOVIMIENTO SURVIVOR CON TECLADO
+				pj.movimiento_teclado();
 
-					/*if (Joystick::isConnected(0))
-					{
-						cout << "Conectado " << endl;
-						pj.update_joystick();
-					}
-					if (!Joystick::isConnected(0))
-					{
+				///survivor mira direccion al mouse
+				pj.mirarAlMouse(ventana1);
 
-					}
-					*/
-
-					pj.movimiento_teclado();
-
-					///survivor mira direccion al mouse
-					pj.mirarAlMouse(ventana1);
-
-					//CARGO VECTOR POR PRIMERA VEZ
-					if (contronda == 0)
+				//CARGO VECTOR POR PRIMERA VEZ
+				if (contronda == 0)
 					{
 						for (int i = 0; i < cantz; i++)
 						{
@@ -165,146 +153,138 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 						}
 					}
 
-					//////******//////
-
-					int contz = 0, muertes = 0;
-					for (iter = vecz.begin(); iter != vecz.end(); iter++)
-					{
-						c = vecz[contz].get_posicion().x - pj.get_posicion().x;
-						d = vecz[contz].get_posicion().y - pj.get_posicion().y;
-						angle2 = (-atan2(c, d) * 180.f / 3.14) - 170.f;
-
-						vecz[contz].rotar(angle2);
-						vecz[contz].update(pj.get_spr_survivor().getPosition(), speedzombie);
-						vecz[contz].mover(Vector2f(vecz[contz].get_velocidad().x, vecz[contz].get_velocidad().y));
-						ventana1->draw(vecz[contz].get_spr_zombie());
-
-						if (Collision::CircleTest(b1.get_spr_bala(), vecz[contz].get_spr_zombie())) {
-							rank_tirosacertados++;
-							b1.set_posicion(pj.get_posicion());
-							b1.spr_bala.setPosition(pj.get_posicion());
-							b1.spr_bala.setColor(Color(255, 255, 255, 0));
-							b1.set_velocidad(Vector2f(0, 0));
-							deletebala = true;
-							vecz[contz].set_currHp(vecz[contz].get_currHp() - b1.get_str());
-						}
-
-						if (vecz[contz].get_currHp() <= 0)
-						{
-							vecz[contz].set_posicion(Vector2f(810, 610));
-							vecz[contz].set_spr_zombie_posicion(Vector2f(810, 610));
-							muertes++;
-						}
-
-						if (Collision::PixelPerfectTest(vecz[contz].get_spr_zombie(), pj.get_spr_survivor()))
-						{
-
-							rank_accuracy = rank_tirosacertados * 100 / rank_canttiros;
-
-							ranking.set_rondas(rank_rondas);
-							ranking.set_tiros(rank_canttiros);
-							ranking.set_tirosacertados(rank_tirosacertados);
-							ranking.set_accuracy(rank_accuracy);
-							bool grabo = ranking.grabarendisco();
-							if (!grabo)cout << "no grabo" << endl;
-							if (grabo)cout << "grabo" << endl;
-
-							vecz.clear();
-							game_over = true;
-							cancion_juego.stop();
-							cancion_menu.play();
-							return;
-						}
-
-						contz++;
-
-					}
-					if (muertes == cantz) {
-						rank_rondas++;
-
-						Sonido_endRound.play();
-						contronda++;
-						vecz.clear();
-						cantz += sumarzombies;
-						for (int i = 0; i < cantz; i++)
-						{
-							int random = rand() % 4 + 1;
-							int randomx = rand() % 800;
-							int randomy = rand() % 600;
-							vecz.push_back(zombie2);
-							switch (random) {
-							case 1:
-								vecz[i].set_posicion(Vector2f(randomx, -80));
-								vecz[i].set_spr_zombie_posicion(Vector2f(randomx, -80));
-								break;
-							case 2:
-								vecz[i].set_posicion(Vector2f(880, randomy));
-								vecz[i].set_spr_zombie_posicion(Vector2f(880, randomy));
-								break;
-							case 3:
-								vecz[i].set_posicion(Vector2f(randomx, 680));
-								vecz[i].set_spr_zombie_posicion(Vector2f(randomx, 680));
-								break;
-							case 4:
-								vecz[i].set_posicion(Vector2f(-80, randomy));
-								vecz[i].set_spr_zombie_posicion(Vector2f(-80, randomy));
-								break;
-							}
-						}
-
-					}
-
-					
-					/////////======================////////////////////
-
-					///procesar colision pj - ventana
-					pj.colisionVentana(resolucion);
-					///update bala
-					text_ronda.setString(" RONDA   " + to_string(contronda));
-					///MOVIMIENTO BALA
-					b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
-					///dibujo pj y mira al mouse
-					ventana1->draw(pj.get_spr_survivordisparo());
-					ventana1->draw(pj.get_spr_survivor());
-					///dibujo arbol
-					ventana1->draw(spr_fondoarbol);
-					///dibujo mira
-					ventana1->draw(spr_mira);
-					///dibujo texto ronda
-					ventana1->draw(text_ronda);
-
-					///spr_pausa.setColor(Color(Color(255, 255, 255, 0)));
-				}
-				///pausa
-				if (Keyboard::isKeyPressed(Keyboard::P) && reloj1->getElapsedTime().asSeconds() >= 0.1)
+				//////******//////
+				int contz = 0, muertes = 0;
+				for (iter = vecz.begin(); iter != vecz.end(); iter++)
 				{
-					if (!gamepause)
+					c = vecz[contz].get_posicion().x - pj.get_posicion().x;
+					d = vecz[contz].get_posicion().y - pj.get_posicion().y;
+					angle2 = (-atan2(c, d) * 180.f / 3.14) - 170.f;
+
+					vecz[contz].rotar(angle2);
+					vecz[contz].update(pj.get_spr_survivor().getPosition(), speedzombie);
+					vecz[contz].mover(Vector2f(vecz[contz].get_velocidad().x, vecz[contz].get_velocidad().y));
+					ventana1->draw(vecz[contz].get_spr_zombie());
+
+					if (Collision::CircleTest(b1.get_spr_bala(), vecz[contz].get_spr_zombie())) {
+						rank_tirosacertados++;
+						b1.set_posicion(pj.get_posicion());
+						b1.spr_bala.setPosition(pj.get_posicion());
+						b1.spr_bala.setColor(Color(255, 255, 255, 0));
+						b1.set_velocidad(Vector2f(0, 0));
+						deletebala = true;
+						vecz[contz].set_currHp(vecz[contz].get_currHp() - b1.get_str());
+					}
+
+					if (vecz[contz].get_currHp() <= 0)
 					{
-						gamepause = true;
+						vecz[contz].set_posicion(Vector2f(810, 610));
+						vecz[contz].set_spr_zombie_posicion(Vector2f(810, 610));
+						muertes++;
+					}
+
+					if (Collision::PixelPerfectTest(vecz[contz].get_spr_zombie(), pj.get_spr_survivor()))
+					{
+
+						rank_accuracy = rank_tirosacertados * 100 / rank_canttiros;
+
+						ranking.set_rondas(rank_rondas);
+						ranking.set_tiros(rank_canttiros);
+						ranking.set_tirosacertados(rank_tirosacertados);
+						ranking.set_accuracy(rank_accuracy);
+						bool grabo = ranking.grabarendisco();
+						if (!grabo)cout << "no grabo" << endl;
+						if (grabo)cout << "grabo" << endl;
+
+						vecz.clear();
+						game_over = true;
 						cancion_juego.stop();
+						return;
 					}
-					else
-					{
-						gamepause = false;
-						cancion_juego.play();
-					}
+					contz++;
+
 				}
+				if (muertes == cantz) 
+				{
+					rank_rondas++;
 
-				ventana1->draw(spr_pausa);
-				if (!ventana1->hasFocus())  gamepause = true;
-				if (ventana1->hasFocus())  gamepause = false;
-				if (gamepause)  spr_pausa.setColor(Color(Color(255, 255, 255, 255)));
-				if (!gamepause)  spr_pausa.setColor(Color(Color(255, 255, 255, 0)));
-					
-				///display
-				ventana1->display();
+					Sonido_endRound.play();
+					contronda++;
+					vecz.clear();
+					cantz += sumarzombies;
+					for (int i = 0; i < cantz; i++)
+					{
+						int random = rand() % 4 + 1;
+						int randomx = rand() % 800;
+						int randomy = rand() % 600;
+						vecz.push_back(zombie2);
+						switch (random) {
+						case 1:
+							vecz[i].set_posicion(Vector2f(randomx, -80));
+							vecz[i].set_spr_zombie_posicion(Vector2f(randomx, -80));
+							break;
+						case 2:
+							vecz[i].set_posicion(Vector2f(880, randomy));
+							vecz[i].set_spr_zombie_posicion(Vector2f(880, randomy));
+							break;
+						case 3:
+							vecz[i].set_posicion(Vector2f(randomx, 680));
+							vecz[i].set_spr_zombie_posicion(Vector2f(randomx, 680));
+							break;
+						case 4:
+							vecz[i].set_posicion(Vector2f(-80, randomy));
+							vecz[i].set_spr_zombie_posicion(Vector2f(-80, randomy));
+							break;
+						}
+					}
 
+				}
 				
+				///procesar colision pj - ventana
+				pj.colisionVentana(resolucion);
+				///update bala
+				text_ronda.setString(" RONDA   " + to_string(contronda));
+				///MOVIMIENTO BALA
+				b1.mover(Vector2f(b1.get_velocidad().x, b1.get_velocidad().y));
+				///dibujo pj y mira al mouse
+				ventana1->draw(pj.get_spr_survivordisparo());
+				ventana1->draw(pj.get_spr_survivor());
+				///dibujo arbol
+				ventana1->draw(spr_fondoarbol);
+				///dibujo mira
+				ventana1->draw(spr_mira);
+				///dibujo texto ronda
+				ventana1->draw(text_ronda);
 
-				//////////////////////////////////////////////////////////////
 			}
-		}
 
+			///pausa
+			/*if (Keyboard::isKeyPressed(Keyboard::P) && reloj1->getElapsedTime().asSeconds() >= 0.1)
+			{
+				if (!gamepause)
+				{
+					gamepause = true;
+					cancion_juego.stop();
+				}
+				else
+				{
+					gamepause = false;
+					cancion_juego.play();
+				}
+			}
+			*/
+			ventana1->draw(spr_pausa);
+			if (!ventana1->hasFocus())  gamepause = true;
+			if (ventana1->hasFocus())  gamepause = false;
+			if (gamepause)  spr_pausa.setColor(Color(Color(255, 255, 255, 255)));
+			if (!gamepause)  spr_pausa.setColor(Color(Color(255, 255, 255, 0)));
+				
+			///display
+			ventana1->display();
+
+			//////////////////////////////////////////////////////////////
+		}
+	}
 }
 
 void juego::cargar_fuentes()
@@ -325,6 +305,14 @@ void juego::cargar_fuentes()
 	}
 	else { cout << "Se cargo la fuente scary" << endl; }
 	/////////////////////////////
+	//texto Menu
+	txt_menu.setFont(scaryfont);
+	txt_menu.setFillColor(Color::Red);
+	txt_menu.setCharacterSize(20);
+	txt_menu.setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_menu.setOutlineThickness(1.5);
+	txt_menu.setString("MENU");
+	txt_menu.setPosition(Vector2f(20, 560));
 	//texto siguiente
 	txt_siguiente.setFont(scaryfont);
 	txt_siguiente.setFillColor(Color::Red);
@@ -490,23 +478,23 @@ void juego::cargar_fuentes()
 	titulo_enter.setOutlineThickness(1.5);
 
 	//game over.
-	titulo_game_over.setString("GAME OVER");
-	titulo_game_over.setPosition(Vector2f(269, 40));
-	titulo_game_over.setFillColor(Color::Color(255, 0, 0, 170));
-	titulo_game_over.setFont(zombiefont);
-	titulo_game_over.setCharacterSize(80);
-	titulo_game_over.setOutlineColor(Color::Color(0, 0, 0, 255));
-	titulo_game_over.setOutlineThickness(1.8);
+	txt_gameover.setString("GAME OVER");
+	txt_gameover.setPosition(Vector2f(269, 40));
+	txt_gameover.setFillColor(Color::Color(255, 0, 0, 170));
+	txt_gameover.setFont(zombiefont);
+	txt_gameover.setCharacterSize(80);
+	txt_gameover.setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_gameover.setOutlineThickness(1.8);
 
 
 	//creators.
-	titulo_creators.setString("CREADORES \n\n Lucas Abbiatici \n\n Jorge Bravo \n\n Gonzalo Ruiz");
-	titulo_creators.setFont(scaryfont);
-	titulo_creators.setPosition(Vector2f(350, 200));
-	titulo_creators.setFillColor(Color::Color(255, 0, 0, 150));
-	titulo_creators.setCharacterSize(30);
-	titulo_creators.setOutlineColor(Color::Color(0, 0, 0, 255));
-	titulo_creators.setOutlineThickness(1.5);
+	txt_developers.setString("DEVELOPERS \n\n Abbiatici Lucas \n\n Bravo Jorge \n\n Ruiz Gonzalo");
+	txt_developers.setFont(scaryfont);
+	txt_developers.setPosition(Vector2f(300, 200));
+	txt_developers.setFillColor(Color::Color(255, 0, 0, 150));
+	txt_developers.setCharacterSize(30);
+	txt_developers.setOutlineColor(Color::Color(0, 0, 0, 255));
+	txt_developers.setOutlineThickness(1.5);
 }
 
 void juego::cargar_graficos(Vector2f resolucion)
@@ -564,6 +552,12 @@ void juego::cargar_sonidos()
 	}
 	sonidoDisparo.setBuffer(BuffDisparo);
 	
+	if (!cancion_gameover.openFromFile("sonidos/gameover theme 3.ogg"))
+	{
+		cout << "No se pudo cargar el efecto cancion gameover." << endl;
+	}
+	cancion_gameover.setVolume(50);
+
 	if (!cancion_menu.openFromFile("sonidos/twdtheme.ogg"))
 	{
 		cout << "No se pudo cargar el efecto cancion menu." << endl;
@@ -732,15 +726,6 @@ void juego::menu_dibujar_escribirNombre(IntRect botonatras, IntRect botonsiguien
 	ventana1->display();
 
 	
-}
-
-void juego::menu_dibujar_game_over()
-{
-	ventana1->clear();
-	ventana1->draw(spr_intro1);
-	ventana1->draw(titulo_game_over);
-	ventana1->draw(titulo_creators);
-	ventana1->display();
 }
 
 void juego::menu_dibujar_dificultad()
@@ -937,7 +922,39 @@ void juego::menu_dibujar_ranking(IntRect botonatras, IntRect botonreiniciar)
 	ventana1->draw(spr_puntero2);
 }
 
+void juego::menu_dibujar_gameover(IntRect botonmenu)
+{
+	ventana1->clear();
 
+	spr_puntero1.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+	spr_puntero2.setPosition((Vector2f)(Mouse::getPosition(*ventana1)));
+
+	if (botonmenu.contains(sf::Mouse::getPosition(*ventana1)))
+	{
+		txt_menu.setFillColor(Color::White);
+		if (flagsonidoblancosiguiente)
+		{
+			flagsonidoblancosiguiente = false;
+			sonido_boton_select.play();
+		}
+	}
+
+	if (!(botonmenu.contains(sf::Mouse::getPosition(*ventana1))))
+	{
+		txt_menu.setFillColor(Color::Red);
+		if (!flagsonidoblancosiguiente)
+		{
+			flagsonidoblancosiguiente = true;
+			sonido_boton_select.stop();
+		}
+	}
+	ventana1->draw(txt_gameover);
+	ventana1->draw(txt_developers);
+	ventana1->draw(txt_menu);
+	ventana1->draw(spr_puntero1);
+	ventana1->draw(spr_puntero2);
+	ventana1->display();
+}
 ///MENU - MENU
 void juego::menu_pressenter(Vector2f resolucion)
 {
@@ -1102,6 +1119,7 @@ void juego::menu_dificultad(Vector2f resolucion)
 				cancion_juego.play();
 				game_over = false;
 				gameloop(resolucion, 1);
+				menu_gameover();
 				return;
 			}
 			if (botonmedia.contains(sf::Mouse::getPosition(*ventana1)))
@@ -1112,6 +1130,7 @@ void juego::menu_dificultad(Vector2f resolucion)
 				cancion_juego.play();
 				game_over = false;
 				gameloop(resolucion, 2);
+				menu_gameover();
 				return;
 			}
 			if (botondificil.contains(sf::Mouse::getPosition(*ventana1)))
@@ -1122,6 +1141,7 @@ void juego::menu_dificultad(Vector2f resolucion)
 				cancion_juego.play();
 				game_over = false;
 				gameloop(resolucion, 3);
+				menu_gameover();
 				return;
 			}
 		}
@@ -1165,6 +1185,35 @@ void juego::menu_ranking()
 			if (botonreiniciar.contains(sf::Mouse::getPosition(*ventana1)))
 			{
 				remove("score.dat");
+			}
+		}
+	}
+}
+
+void juego::menu_gameover()
+{
+	IntRect botonmenu(txt_menu.getPosition().x, txt_menu.getPosition().y, txt_menu.getGlobalBounds().width, txt_menu.getGlobalBounds().height);
+	ventana1->setMouseCursorVisible(false);
+	cancion_gameover.play();
+	while (true)
+	{
+		menu_dibujar_gameover(botonmenu);
+		if (!Mouse::isButtonPressed(Mouse::Left))
+		{
+			spr_puntero1.setColor(Color(255, 255, 255, 0));
+			spr_puntero2.setColor(Color(255, 255, 255, 255));
+		}
+
+		if (Mouse::isButtonPressed(Mouse::Left))
+		{
+			spr_puntero1.setColor(Color(255, 255, 255, 255));
+			spr_puntero2.setColor(Color(255, 255, 255, 0));
+
+			if (botonmenu.contains(sf::Mouse::getPosition(*ventana1)))
+			{
+				cancion_gameover.stop();
+				cancion_menu.play();
+				return;
 			}
 		}
 	}

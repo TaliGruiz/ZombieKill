@@ -34,10 +34,11 @@ public:
 	void menu_ranking();
 	void menu_dificultad(Vector2f);
 	void menu_instrucciones();
+	void menu_gameover();
 	//dibujar menu
 	void menu_dibujar_principal();
 	void menu_dibujar_pressenter();
-	void menu_dibujar_game_over();
+	void menu_dibujar_gameover(IntRect);
 	void menu_dibujar_escribirNombre(IntRect, IntRect);
 	void menu_dibujar_efectoblanco(IntRect, IntRect, IntRect);
 	void menu_dibujar_efectoblanco_dificulad(IntRect, IntRect, IntRect);
@@ -542,15 +543,18 @@ private:
 
 	Texture text_pausa;
 	Sprite spr_pausa;
+
 	///Sounds
-	SoundBuffer BuffDisparo;
-	Sound sonidoDisparo;
 	Music cancion_menu;
 	Music cancion_juego;
+	Music cancion_gameover;
 	SoundBuffer BuffendRound;
-	Sound Sonido_endRound;
+	SoundBuffer BuffDisparo;
 	SoundBuffer Buffsonido_boton_pass;
+	Sound Sonido_endRound;
+	Sound sonidoDisparo;
 	Sound sonido_boton_select;
+	
 	///intro
 	Texture text_intro1;
 	Sprite spr_intro1;
@@ -566,8 +570,8 @@ private:
 	///textos
 	Text titulo_intro;
 	Text titulo_ingrese_nombre;
-	Text titulo_game_over;
-	Text titulo_creators;
+	Text txt_gameover;
+	Text txt_developers;
 	Text titulo_enter;
 	Text text_ronda;
 	Text text_jugar;
@@ -582,6 +586,7 @@ private:
 	Text txt_jugadores[60];
 	Text txt_reiniciarranking;
 	Text txt_siguiente;
+	Text txt_menu;
 	string playerInput;
 
 	Text playername;
