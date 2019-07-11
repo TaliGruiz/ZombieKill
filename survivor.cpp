@@ -19,14 +19,13 @@ void survivor::set_spr_survivordisparo()
 	spr_survivordisparo.setColor(Color(255, 255, 255, 0));
 }
 
-survivor::survivor(Vector2f _pos, float _mulvel, float _life)
+survivor::survivor(Vector2f _pos, float _life)
 {
 	set_spr_survivor();
 	set_spr_survivordisparo();
-	posicion.x = _pos.x;
-	posicion.y = _pos.y;
-	velocidad.x = 1 * _mulvel;
-	velocidad.y = 1 * _mulvel;
+	spr_survivor.setPosition(_pos);
+	spr_survivordisparo.setPosition(_pos);
+	posicion = _pos;
 	set_life(_life);
 	currHp = life;
 }

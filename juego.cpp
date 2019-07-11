@@ -7,6 +7,7 @@
 #include "Collision.h"
 using namespace std;
 
+#define ZOMBIE_MEJORADO 1
 /*
 //////////////////////////////////////////////////
 - Barras de vida. 
@@ -23,13 +24,16 @@ using namespace std;
 /////////////////////////////////////////////////
 */
 
-float angle2, c, d;
+float angle2, c, d, a, b, angle3;
 Time delay = seconds(3);
-survivor pj({ 400,300 }, 1, 1), & ref = pj;
-zombie zombie2({ 200, 300 }, 1, 100);
+survivor pj({ 400, 300 }, 1), & ref = pj;
+zombie zombie2({ 200, 300 }, 2, 200);
+zombie zombie1({ 200, 300 }, 1, 100);
 Vector2f pjCenter, mousePosWindow, aimDir, aimDirNorm;
 vector<zombie>::const_iterator iter;
+vector<zombie>::const_iterator iter2;
 vector<zombie> vecz;
+vector<zombie> vecz2;
 
 
 juego::juego(Vector2f resolucion, String titulo)
@@ -44,11 +48,6 @@ juego::juego(Vector2f resolucion, String titulo)
 		ventana1->setMouseCursorVisible(false);
 		
 		fps = 1 / 60.f;
-
-		///Respawn survivor
-		pj.set_posicion(Vector2f(400, 300));
-		pj.set_spr_survivor_posicion(Vector2f(400, 300));
-		pj.set_spr_survivordisparo_posicion(Vector2f(400, 300));
 
 		eventos = new Event;
 		reloj1 = new Clock();
@@ -73,28 +72,44 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 
 	int sumarzombies;
 	float speedzombie;
+	float speedzombie2;
 
 	switch (dificultad)
 	{
 	case 1:
-		zombie2.set_hp(60);
-		zombie2.set_currHp(60);
+		///NORMAL
+		zombie1.set_hp(60);
+		zombie1.set_currHp(60);
 		sumarzombies = 2;
 		speedzombie = 0.5;
+		///MEJORADO
+		zombie2.set_hp(80);
+		zombie2.set_currHp(80);
+		speedzombie2 = 0.7;
 		break;
 	
 	case 2:
-		zombie2.set_hp(100);
-		zombie2.set_currHp(100);
+		///NORMAL
+		zombie1.set_hp(100);
+		zombie1.set_currHp(100);
 		sumarzombies = 3;
 		speedzombie = 0.7;
+		///MEJORADO
+		zombie2.set_hp(120);
+		zombie2.set_currHp(120);
+		speedzombie2 = 1.0;
 		break;
 	
 	case 3: 
-		zombie2.set_hp(140);
-		zombie2.set_currHp(140);
+		///NORMAL
+		zombie1.set_hp(140);
+		zombie1.set_currHp(140);
 		sumarzombies = 4;
 		speedzombie = 1.0;
+		///MEJORADO
+		zombie2.set_hp(160);
+		zombie2.set_currHp(160);
+		speedzombie2 = 1.2;
 		break;
 	}
 
@@ -122,16 +137,20 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 				///survivor mira direccion al mouse
 				pj.mirarAlMouse(ventana1);
 
-				//CARGO VECTOR POR PRIMERA VEZ
+				//CREACION VECTOR Y RESPAWNS ZOMBIE NORMAL
 				if (contronda == 0)
 					{
+						pj.set_posicion(Vector2f(400, 300));
+						pj.set_spr_survivor_posicion(Vector2f(400, 300));
+						pj.set_spr_survivordisparo_posicion(Vector2f(400, 300));
+
 						for (int i = 0; i < cantz; i++)
 						{
 							contronda = 1;
 							int random = rand() % 4 + 1;
 							int randomx = rand() % 800;
 							int randomy = rand() % 600;
-							vecz.push_back(zombie2);
+							vecz.push_back(zombie1);
 							switch (random) {
 							case 1:
 								vecz[i].set_posicion(Vector2f(randomx, -80));
@@ -151,9 +170,35 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 								break;
 							}
 						}
-					}
+						//CREACION VECTOR Y RESPAWNS ZOMBIE MEJORADO
+						for (int i = 0; i < cantz2; i++)
+						{
+							int random2 = rand() % 4 + 1;
+							int randomx2 = rand() % 800;
+							int randomy2 = rand() % 600;
+							vecz2.push_back(zombie2);
+							switch (random2) {
+							case 1:
+								vecz2[i].set_posicion(Vector2f(randomx2, -80));
+								vecz2[i].set_spr_zombie_posicion(Vector2f(randomx2, -80));
+								break;
+							case 2:
+								vecz2[i].set_posicion(Vector2f(880, randomy2));
+								vecz2[i].set_spr_zombie_posicion(Vector2f(880, randomy2));
+								break;
+							case 3:
+								vecz2[i].set_posicion(Vector2f(randomx2, 680));
+								vecz2[i].set_spr_zombie_posicion(Vector2f(randomx2, 680));
+								break;
+							case 4:
+								vecz2[i].set_posicion(Vector2f(-80, randomy2));
+								vecz2[i].set_spr_zombie_posicion(Vector2f(-80, randomy2));
+								break;
+							}
+						}
+				}
 
-				//////******//////
+				//ACCIONES ZOMBIE NORMAL
 				int contz = 0, muertes = 0;
 				for (iter = vecz.begin(); iter != vecz.end(); iter++)
 				{
@@ -204,20 +249,76 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 					contz++;
 
 				}
-				if (muertes == cantz) 
+
+				//ACCIONES ZOMBIE MEJORADO
+				int contz2 = 0, muertes2 = 0;
+				for (iter2 = vecz2.begin(); iter2 != vecz2.end(); iter2++)
+				{
+					a = vecz2[contz2].get_posicion().x - pj.get_posicion().x;
+					b = vecz2[contz2].get_posicion().y - pj.get_posicion().y;
+					angle3 = (-atan2(a, b) * 180.f / 3.14) - 170.f;
+
+					vecz2[contz2].rotar(angle3);
+					vecz2[contz2].update(pj.get_spr_survivor().getPosition(), speedzombie2);
+					vecz2[contz2].mover(Vector2f(vecz2[contz2].get_velocidad().x, vecz2[contz2].get_velocidad().y));
+					ventana1->draw(vecz2[contz2].get_spr_zombie());
+
+					if (Collision::CircleTest(b1.get_spr_bala(), vecz2[contz2].get_spr_zombie())) {
+						rank_tirosacertados++;
+						b1.set_posicion(pj.get_posicion());
+						b1.spr_bala.setPosition(pj.get_posicion());
+						b1.spr_bala.setColor(Color(255, 255, 255, 0));
+						b1.set_velocidad(Vector2f(0, 0));
+						deletebala = true;
+						vecz2[contz2].set_currHp(vecz2[contz2].get_currHp() - b1.get_str());
+					}
+
+					if (vecz2[contz2].get_currHp() <= 0)
+					{
+						vecz2[contz2].set_posicion(Vector2f(810, 610));
+						vecz2[contz2].set_spr_zombie_posicion(Vector2f(810, 610));
+						muertes2++;
+					}
+
+					if (Collision::PixelPerfectTest(vecz2[contz2].get_spr_zombie(), pj.get_spr_survivor()))
+					{
+
+						rank_accuracy = rank_tirosacertados * 100 / rank_canttiros;
+
+						ranking.set_rondas(rank_rondas);
+						ranking.set_tiros(rank_canttiros);
+						ranking.set_tirosacertados(rank_tirosacertados);
+						ranking.set_accuracy(rank_accuracy);
+						bool grabo = ranking.grabarendisco();
+						if (!grabo)cout << "no grabo" << endl;
+						if (grabo)cout << "grabo" << endl;
+
+						vecz2.clear();
+						game_over = true;
+						cancion_juego.stop();
+						return;
+					}
+					contz2++;
+
+				}
+
+				if (muertes == cantz && muertes2 == cantz2) 
 				{
 					rank_rondas++;
 
 					Sonido_endRound.play();
 					contronda++;
 					vecz.clear();
+					vecz2.clear();
 					cantz += sumarzombies;
+					cantz2 += ZOMBIE_MEJORADO;
+					//RELLENO EL VECTOR Y NUEVOS RESPAWNS ZOMBIE NORMAL
 					for (int i = 0; i < cantz; i++)
 					{
 						int random = rand() % 4 + 1;
 						int randomx = rand() % 800;
 						int randomy = rand() % 600;
-						vecz.push_back(zombie2);
+						vecz.push_back(zombie1);
 						switch (random) {
 						case 1:
 							vecz[i].set_posicion(Vector2f(randomx, -80));
@@ -234,6 +335,33 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 						case 4:
 							vecz[i].set_posicion(Vector2f(-80, randomy));
 							vecz[i].set_spr_zombie_posicion(Vector2f(-80, randomy));
+							break;
+						}
+					}
+
+					//RELLENO EL VECTOR Y NUEVOS RESPAWNS ZOMBIE MEJORADO
+					for (int i = 0; i < cantz2; i++)
+					{
+						int random2 = rand() % 4 + 1;
+						int randomx2 = rand() % 800;
+						int randomy2 = rand() % 600;
+						vecz2.push_back(zombie2);
+						switch (random2) {
+						case 1:
+							vecz2[i].set_posicion(Vector2f(randomx2, -80));
+							vecz2[i].set_spr_zombie_posicion(Vector2f(randomx2, -80));
+							break;
+						case 2:
+							vecz2[i].set_posicion(Vector2f(880, randomy2));
+							vecz2[i].set_spr_zombie_posicion(Vector2f(880, randomy2));
+							break;
+						case 3:
+							vecz2[i].set_posicion(Vector2f(randomx2, 680));
+							vecz2[i].set_spr_zombie_posicion(Vector2f(randomx2, 680));
+							break;
+						case 4:
+							vecz2[i].set_posicion(Vector2f(-80, randomy2));
+							vecz2[i].set_spr_zombie_posicion(Vector2f(-80, randomy2));
 							break;
 						}
 					}
@@ -258,21 +386,6 @@ void juego::gameloop(Vector2f resolucion,int dificultad)
 
 			}
 
-			///pausa
-			/*if (Keyboard::isKeyPressed(Keyboard::P) && reloj1->getElapsedTime().asSeconds() >= 0.1)
-			{
-				if (!gamepause)
-				{
-					gamepause = true;
-					cancion_juego.stop();
-				}
-				else
-				{
-					gamepause = false;
-					cancion_juego.play();
-				}
-			}
-			*/
 			ventana1->draw(spr_pausa);
 			if (!ventana1->hasFocus())  gamepause = true;
 			if (ventana1->hasFocus())  gamepause = false;
@@ -1115,9 +1228,12 @@ void juego::menu_dificultad(Vector2f resolucion)
 			{
 				contronda = 0;
 				cantz = CANT_ZOMBIES;
+				cantz2 = ZOMBIE_MEJORADO;
 				cancion_menu.stop();
 				cancion_juego.play();
 				game_over = false;
+				vecz.clear();
+				vecz2.clear();
 				gameloop(resolucion, 1);
 				menu_gameover();
 				return;
@@ -1126,9 +1242,12 @@ void juego::menu_dificultad(Vector2f resolucion)
 			{
 				contronda = 0;
 				cantz = CANT_ZOMBIES + 2;
+				cantz2 = ZOMBIE_MEJORADO;
 				cancion_menu.stop();
 				cancion_juego.play();
 				game_over = false;
+				vecz.clear();
+				vecz2.clear();
 				gameloop(resolucion, 2);
 				menu_gameover();
 				return;
@@ -1137,9 +1256,12 @@ void juego::menu_dificultad(Vector2f resolucion)
 			{
 				contronda = 0;
 				cantz = CANT_ZOMBIES + 4;
+				cantz2 = ZOMBIE_MEJORADO;
 				cancion_menu.stop();
 				cancion_juego.play();
 				game_over = false;
+				vecz.clear();
+				vecz2.clear();
 				gameloop(resolucion, 3);
 				menu_gameover();
 				return;

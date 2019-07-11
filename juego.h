@@ -15,7 +15,7 @@
 #include <string>
 
 #define CANT_OPCIONES_MENU 3
-#define CANT_ZOMBIES 3
+#define CANT_ZOMBIES 2
 #define CANT_DIFICULTAD 3
 #define CANT_TEXT_RANKING 6
 
@@ -611,6 +611,7 @@ private:
 
 	//contadores
 	int cantz;
+	int cantz2;
 	int contronda = 1;
 	int rank_canttiros, rank_rondas = 1, rank_tirosacertados;
 	float rank_accuracy;

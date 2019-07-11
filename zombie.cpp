@@ -5,20 +5,19 @@ using namespace sf;
 
 //////////// ****** sets ****** ////////////
 
-void zombie::set_spr_zombie()
+void zombie::set_spr_zombie2()
 {
-	int randomimg = rand() % 3;
-	if(randomimg==0)
-	text_zombie.loadFromFile("imagenes/zombie1.png"); 
-	if (randomimg == 1)
 	text_zombie.loadFromFile("imagenes/zombie2.png"); 
-	if (randomimg == 2)
-	text_zombie.loadFromFile("imagenes/zombie3.png"); 
-
-	//text_zombie.loadFromFile("imagenes/zombie1.png");
 	spr_zombie.setTexture(text_zombie);
 	spr_zombie.setOrigin(22.5, 20);
 }
+void zombie::set_spr_zombie1()
+{
+	text_zombie.loadFromFile("imagenes/zombie3.png");
+	spr_zombie.setTexture(text_zombie);
+	spr_zombie.setOrigin(22.5, 20);
+}
+
 void zombie::set_str(int _str) { str = _str; }
 void zombie::set_hp(int _hp) { hp = _hp; }
 void zombie::set_velocidad(Vector2f _velocidad) { velocidad = _velocidad; }
@@ -28,16 +27,14 @@ void zombie::set_spr_zombie_posicion(Vector2f _pos) { spr_zombie.setPosition(_po
 
 //////////// ****** constructores ****** ////////////
 
-zombie::zombie(Vector2f _pos, float MulVel, int _hp)
+zombie::zombie(Vector2f _pos, int sprtype, int _hp)
 {
-	set_spr_zombie();
+	if (sprtype == 1) set_spr_zombie1();
+	if (sprtype == 2) set_spr_zombie2();
 	str = 1;
 	hp = _hp;
-	
 	currHp = hp;
 	posicion = _pos;
-	velocidad.x = 1 * MulVel;
-	velocidad.y = 1 * MulVel;
 	spr_zombie.setPosition(posicion);
 	
 }

@@ -13,7 +13,8 @@ public:
 	void set_velocidad(Vector2f);
 	void set_posicion(Vector2f);
 	void set_spr_zombie_rotation(float);
-	void set_spr_zombie();
+	void set_spr_zombie1();
+	void set_spr_zombie2();
 	void set_currHp(int _currHp) { currHp = _currHp; }
 
 	//get
@@ -25,7 +26,7 @@ public:
 	Vector2f get_posicion() { return spr_zombie.getPosition(); }
 
 	//constructores
-	zombie(Vector2f, float, int);
+	zombie(Vector2f, int, int);
 	void eliminar() { delete this; }
 
 	//movimientos

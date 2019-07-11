@@ -31,7 +31,7 @@ public:
 
 
 	//constructor
-	survivor(Vector2f, float, float);
+	survivor(Vector2f, float);
 
 	//MOVIMIENTOS
 	
