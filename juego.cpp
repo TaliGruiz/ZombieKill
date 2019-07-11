@@ -671,7 +671,7 @@ void juego::cargar_sonidos()
 	}
 	cancion_gameover.setVolume(50);
 
-	if (!cancion_menu.openFromFile("sonidos/twdtheme.ogg"))
+	if (!cancion_menu.openFromFile("sonidos/main theme.ogg"))
 	{
 		cout << "No se pudo cargar el efecto cancion menu." << endl;
 	}
